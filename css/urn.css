@@ -46,7 +46,6 @@ a.btn-outline-primary.disabled {
     border-color: var(--link-color) !important;
 }
 main {
-    margin-top: 3em;
     overflow-x: auto;
     overflow-y: hidden;
     text-align: justify;
