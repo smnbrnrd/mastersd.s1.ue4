@@ -20,6 +20,15 @@ p, code, pre, table, th, td {
 .center {
     text-align: center;
 }
+.small {
+    font-size: 0.8em !important;
+}
+.verysmall {
+    font-size: 0.6em !important;
+}
+.tiny {
+    font-size: 0.5em !important;
+}
 pre code {
     font-family: "Roboto Mono", monospace;
     font-size: 0.7em;
@@ -53,7 +62,7 @@ img.framed {
 ul { 
     list-style-type: none; 
     text-align: left;
-    padding-left: 1em;
+    padding-left: 1.5em;
     margin-bottom: 0.8em;
 }
 ul > li { margin: 0.3em 0; }
@@ -62,7 +71,7 @@ ul > li:before {
     font-size: 0.8em;
     content: "\f138";
     color: var(--primary-color);
-    margin-right: 0.9em;
+    margin-right: 1em;
 }
 ul > li.circle:before { content: "\f111"; }
 ul > li.square:before { content: "\f0c8"; }
@@ -183,11 +192,46 @@ div.boxcontent ul {
 }
 .reveal .slides section.title-slide .subtitle {
     color: var(--secondary-color);
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-bottom: 5rem;
 }
 .reveal .slides section.title-slide .logo img {
     height: 4rem;
     margin: auto;
     margin-top: 1rem;
+}
+.reveal .slides section.title-slide .link {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    position: absolute;
+    bottom: 1rem;
+    align-content: center;
+    width: 100%;
+}
+
+/*************************************************
+ * Styles for section slides
+ ************************************************/
+.reveal .slides section.section-slide {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    padding-top: 0;
+}
+.reveal .slides section.section-slide .title {
+    width: 100%;
+    color: var(--secondary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+.reveal .slides section.section-slide .title:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin-top: 10px;
 }

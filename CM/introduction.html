@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/plugin/highlight/zenburn.css" />
     <link rel="stylesheet" href="../css/cm.css">
 </head>
 <body>
@@ -22,13 +23,14 @@
                 <div class="author">Simon BERNARD</div>
                 <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
                 <div class="logo"><img src="../img/logo_urn_color.png"></div>
+                <div class="link"><a href="https://smnbrnrd.github.io/mastersd.s1.ue4" target="_blank">https://smnbrnrd.github.io/mastersd.s1.ue4</a></div>
             </section>
 
             <!--------------------------------------------->
             <section>
                 <h1>Objectif du cours</h1>
-                <h2>Concevoir des interfaces (pages) web</h2>
-                <ol>
+                <p><strong>Concevoir des interfaces (pages) web <span class="alert">réactives</span></strong></p>
+                <ol class="mt-3">
                     <li>Structuration/organisation du contenu (texte, images, vidéos) (HTML)</li>
                     <li>Présentation (visuelle) du contenu (CSS)</li>
                     <li>Rendre ce contenu interactif (JavaScript)</li>
@@ -39,7 +41,7 @@
             <!--------------------------------------------->
             <section>
                 <h1>Objectif du cours</h1>
-                <h2>Concevoir des interfaces (pages) web <span class="alert">réactives</span></h2>
+                <p><strong>Concevoir des interfaces (pages) web <span class="alert">réactives</span></strong></p>
                 <div class="row mt-5 mb-4">
                     <div class="col-8">
                         <img src="figures/chap1/site_univ_pc.png" class="m-auto" style="height:17rem; width: auto;">
@@ -48,10 +50,10 @@
                         <img src="figures/chap1/site_univ_smartphone.png" class="m-auto" style="height:17rem; width: auto;">
                     </div>
                 </div>
-                <a href="https://www.univ-rouen.fr" target="_blank">https://www.univ-rouen.fr/</a>
+                <a href="https://www.univ-rouen.fr" target="_blank" class="small">https://www.univ-rouen.fr/</a>
             </section>
 
-            <!--------------------------------------------->
+            <!---------------------------------------------
             <section>
                 <h1>Objectif du cours</h1>
                 <h2>Organisation</h2>
@@ -73,14 +75,380 @@
                     <li>Un examen écrit (QCM)</li>
                     <li>Note de TP basé sur des rendus de TP</li>
                 </ul>
+            </section> -->
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Qu'est-ce que le Web ?</div>
             </section>
 
             <!--------------------------------------------->
             <section>
-                <h1></h1>
-
+                <h1>Internet et Web</h1>
+                <img src="figures/chap1/web_internet.png" class="w-70 m-auto mt-4 mb-5">
+                <p class="center">Internet est un réseau de réseaux. Le Web est une partie de l’information circulant sur Internet.</p>
             </section>
 
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web : Environnement client-serveur</h1>
+                <ul class="mb-5">
+                    <li><span class="alert">Client</span> : ordinateur/logiciel qui demande une ressource. Le plus souvent, un navigateur web qui demande une ressource web ou qui sollicite un service web.</li>
+                    <li><span class="alert">Serveur</span> : ordinateur/logiciel qui répond à cette demande et qui fournit la ressource ou le service.</li>
+                </ul>
+                <img src="figures/chap1/client_serveur.png" class="w-70 m-auto">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web : Uniform Resource Locator (URL)</h1>
+                <ul>
+                    <li>Pour demander une ressource à un serveur, le client doit pouvoir l'identifier</li>
+                    <li>Il utilise pour cela une URL de la forme :</li>
+                    <pre class="mb-1"><code class="language-text" data-trim>
+protocole://adresse/chemin/ressource
+                    </code></pre>
+                    où
+                    <ul>
+                        <li><code>protocole</code> est un protocole de communication entre deux ordinateurs</li>
+                        <li><code>adresse</code> est l'adresse réseau du serveur (adresse IP ou nom de domaine)</li>
+                        <li><code>chemin</code> est le nom de l'application et/ou le chemin où trouver la ressource sur le serveur</li>
+                        <li><code>ressource</code> est le nom de la ressource demandée</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web : Uniform Resource Locator (URL)</h1>
+                <ul>
+                    <li>Pour demander une ressource à un serveur, le client doit pouvoir l'identifier</li>
+                    <li>Il utilise pour cela une URL de la forme :</li>
+                    <pre class="mb-4"><code class="language-text" data-trim>
+protocole://adresse/chemin/ressource
+                    </code></pre>
+                    Exemples :
+                    <ul>
+                        <li><code>http://www.univ-rouen.fr/</code></li>
+                        <li><code>http://192.168.0.3/index.html</code></li>
+                        <li><code>http://mastersd.univ-rouen.fr/sime.php</code></li>
+                        <li><code>https://universitice.univ-rouen.fr/course/view.php?id=23754</code></li>
+                        <li><code>http://localhost:8080/MonServiceWeb/meteo</code></li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web : Hypertext Transfer Protocol (HTTP)</h1>
+                <ul>
+                    <li>Pour communiquer, le client et le serveur s'échangent des messages</li>
+                    <li>Ces messages respectent une syntaxe prédéfinie</li>
+                    <li>Pour le Web, cette syntaxe est définie par le <span class="alert">protocole HTTP (ou HTTPS en version chiffrée)</span></li>
+                </ul>
+                <p class="mt-5">Exemple de requête <code>HTTP</code> envoyé par le client vers le serveur :</p>
+                <pre><code class="language-text" data-trim>
+GET /sime.html HTTP/1.1
+Host: mastersd.univ-rouen.fr
+...
+User-Agent: Mozilla/5.0 (X11; Linux x86_64)
+Accept: text/html,application/xhtml+xml,...
+Referer: http://mastersd.univ-rouen.fr
+...
+                </code></pre>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web : Hypertext Transfer Protocol (HTTP)</h1>
+                <ul>
+                    <li>Pour communiquer, le client et le serveur s'échangent des messages</li>
+                    <li>Ces messages respectent une syntaxe prédéfinie</li>
+                    <li>Pour le Web, cette syntaxe est définie par le <span class="alert">protocole HTTP (ou HTTPS en version chiffrée)</span></li>
+                </ul>
+                <p class="mt-5">Exemple de réponse <code>HTTP</code> envoyé par le serveur vers le client :</p>
+                <pre><code class="language-text" data-trim>
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Content-Type: text/html; charset=UTF-8
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+...
+                </code></pre>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Exemple: le client est un navigateur web et la ressource est une page web</h1>
+                <ol>
+                    <li>Quand on saisie une URL dans la barre d'adresse, le navigateur envoie une requête HTTP au serveur</li>
+                    <li>Le serveur <span class="alert">réceptionne la requête, la décode, la traite et envoie la réponse</span>, le plus souvent sous la forme d'une page web (HTML/CSS/JS)</li>
+                    <li><span class="alert">Le navigateur interprète et affiche</span> le contenu de la page</li>
+                </ol>
+                <img src="figures/chap1/client_serveur_http.png" class="w-75 m-auto mt-5">
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Les ressources web</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Ressources web</h1>
+                <ul>
+                    <li>Une ressource web est la ressource cible d’une requête d’un client vers un serveur</li>
+                    <li>Au sens stricte, il s’agit de tout ce qui peut être identifié sur le Web (nommé et adressé)</li>
+                    <li>Par exemple :</li>
+                    <ul>
+                        <li>une page web (HTML/CSS/JS)</li>
+                        <li>une image ou une vidéo</li>
+                        <li>un service (par exemple ”la météo du jour à Rouen”)</li>
+                        <li>des données (XML, JSON)</li>
+                        <li>un fichier à télécharger</li>
+                        <li>etc.</li>
+                    </ul>
+                    <li>Dans le cadre de ce cours, les ressources web seront principalement des pages web</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Page web = document hypertexte</h1>
+                <div class="boxtitle">Hypertexte</div>
+                <div class="boxcontent mb-4">
+                    <p>Un hypertexte est un document ou un ensemble de documents informatiques qui permet de passer d’une information à l’autre grâce à un système de renvois appelés hyperliens, ou liens hypertextes.</p>
+                    <p class="small" style="text-align: right;">(source: wikipedia)</p>
+                </div>
+                <ul>
+                    <li><span class="alert">Web = hypertexte + internet</span></li>
+                    <li>Plus simplement, une page HTML contenant des hyperliens</li>
+                    <li>Un hyperlien déclenche l'envoi automatique d'une nouvelle requête HTTP vers le serveur</li>
+                    <li>Un ensemble de pages web regroupées dans une même application est appelé site web</li>
+                    <li>Toutes les pages d'un site sont connectées, directement ou indirectement, à toutes les autres pages d'un site</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Site web statique</h1>
+                <ul>
+                    <li>Dans sa forme la plus basique, un site web est dit statique</li>
+                    <li>Constitué de pages web statiques, dont le contenu ne change pas en fonction des requêtes</li>
+                    <li>Chaque page est un fichier HTML, stocké sur le serveur et associé à une URL qui lui est propre</li>
+                    <li>Une requête vers une URL renvoie invariablement le même fichier, avec le même contenu</li>
+                    <li>Pour changer le contenu d’une page, il faut mettre à jour le fichier sur le serveur</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Site web dynamique</h1>
+                <ul>
+                    <li>Aujourd'hui, la plupart des sites web sont dynamiques</li>
+                    <li>Le contenu des pages change en fonction de la requête du client</li>
+                    <li>Dépend des caractéristiques de la requête : terminal, date et heure, formulaire rempli par l’utilisateur, etc.</li>
+                    <li>Ces pages web sont générées à la volée coté serveur et/ou exécutées coté client</li>
+                </ul>
+                <img src="figures/chap1/client_serveur_wds.png" class="w-80 m-auto mt-5">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Site web dynamique</h1>
+                <p>Plusieurs façons de générer des pages web dynamiques:</p>
+                <ol class="mt-4">
+                    <li class="mb-3"><span class="alert">Programme serveur</span> : programme externe dans un langage dédié (Jakarta EE, .NET) qui génère des pages HTML, les transmet au serveur web qui les envoie ensuite au client</li>
+                    <li class="mb-3"><span class="alert">Server-side scripting</span> : pages HTML incorporant du code dans un langage de script serveur (ASP, PHP, JSP, etc.), interprétées par le serveur avant d’être transmises au client</li>
+                    <li class="mb-3"><span class="alert">Client-side scripting</span> : pages HTML incorporant du code dans un langage de script client (JavaScript), directement transmises au client et interprétées par le navigateur web</li>
+                    <li class="mb-3"><span class="alert">Applications Internet Riches</span> : programme dans un langage générique (web ou non), qui s'exécute côté client et pouvant envoyer des requêtes web (JS+AJAX, JavaFX, Android, etc.)</li>
+                </ol>
+                <p class="mt-5">Parcours SIME: nous approfondirons le point 3 au second semestre et les points 1 et 2 en M2</p>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Responsive Web Design (RWD)</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web sur PC, mobiles et tablettes</h1>
+                <img src="figures/chap1/Statcounter_desktop_mobile_table.png" class="w-100 m-auto">
+                <p class="small center">Source: <a href="https://gs.statcounter.com/platform-market-share/desktop-mobile-tablet/worldwide/#monthly-200901-202505" target="_blank">StatCounter</a></p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Le Web sur PC, mobiles et tablettes</h1>
+                <ul>
+                    <li>Smartphone vs ordinateur + différences importantes entre terminaux mobiles</li>
+                    <ul>
+                        <li>Orientation, taille et résolution des écrans</li>
+                        <li>Écran tactile vs clavier/souris</li>
+                        <li>Capacités de traitement et de stockage</li>
+                        <li>Utilisation en déplacement vs sédentaire</li>
+                    </ul>
+                    <li>Un site web sera consulté sur PC et sur terminaux mobiles</li>
+                    <li>On ne connaît pas les caractéristiques de l'appareil du client</li>
+                    <li>Il faut donc concevoir des interfaces adaptatives</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Deux façons de penser le <em>Responsive Web Design</em></h1>
+                <ol>
+                    <li><em>Desktop first (Graceful degradation)</em></li>
+                </ol>
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <img src="figures/chap1/desktomob.png" class="w-90 m-auto">
+                    </div>
+                    <div class="col-6">
+                        <ol>
+                            <li><span class="alert">Application complète</span> pour les plateformes les plus pointues (ordinateurs de bureaux)</li>
+                            <li><span class="alert">Adapter (détériorer) a posteriori</span> pour les plateformes plus limitées (retirer du contenu, simplifier le design, etc.)</li>
+                        </ol>
+                    </div>
+                </div>
+                <p class="mt-5">Souvent compliqué car une fois l’application complète conçue, difficile de retirer les parties superflues ou de simplifier les contenus</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Deux façons de penser le <em>Responsive Web Design</em></h1>
+                <ol start="2">
+                    <li><em>Mobile first (Progressive enhancement)</em></li>
+                </ol>
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <img src="figures/chap1/mobtodesk.png" class="w-90 m-auto">
+                    </div>
+                    <div class="col-6">
+                        <ol>
+                            <li><span class="alert">Application web mobile</span> adaptée aux terminaux les plus limités (ou presque)</li>
+                            <li><span class="alert">Améliorer/compléter</span> la conception progressivement pour les plateformes plus pointues</li>
+                        </ol>
+                    </div>
+                </div>
+                <p class="mt-5">L’ idée que le design pour mobile est le plus ergonomiquement simple et doit être conçu en premier.</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'approche recommandée est <em>Mobile first</em></h1>
+                <ul>
+                    <li>Concevoir une application épurée qui se concentre sur l’essentielle : le contenu (<em>Mobile-first is content-first</em>)</li>
+                    <li><span class="alert"></span>Oblige à sélectionner/prioriser</span> le contenu et les fonctionnalités</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-4">
+                        <img src="figures/chap1/lemondemob.png" class="w-90 m-auto">
+                    </div>
+                    <div class="col-8">
+                        <img src="figures/chap1/lemondedesk.png" class="w-100 m-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'approche recommandée est <em>Mobile first</em></h1>
+                <p>Il faut prioriser le contenu en 2 ou 3 niveaux d'importances :</p>
+                <ol class="mt-3">
+                    <li><span class="alert">Petits écrans</span> (smartphone) : contenus prioritaires et fonctionnalités essentielles</li>
+                    <li><span class="alert">Écrans moyens</span> (tablettes) : contenus prioritaires et secondaires avec une mise en page adaptée</li>
+                    <li><span class="alert">Grands écrans</span> (ordinateurs de bureau) : tous les contenus, avec un design repensé</li>
+                </ol>
+                <p class="mt-3">Note : développer 2 versions, site ”desktop” et site ”mobile”, empêche la conception graduelle de l’ interface (pas du responsive web design)</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'approche recommandée est <em>Mobile first</em></h1>
+                <p>Il faut également penser l’ergonomie intelligemment :</p>
+                <img src="figures/chap1/thumbzone.png" class="w-70 m-auto mt-3">
+                <p class="center mt-4">Sur un smartphone, prendre en compte la zone de confort du pouce pour faciliter la navigation</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'approche recommandée est <em>Mobile first</em></h1>
+                <p>Il faut également penser l’ergonomie intelligemment :</p>
+                <div class="row mt-4">
+                    <div class="col-3"><img src="figures/chap1/spotify3.png" class="w-80 m-auto"></div>
+                    <div class="col-3"><img src="figures/chap1/spotify1.png" class="w-80 m-auto"></div>
+                    <div class="col-3"><img src="figures/chap1/spotify2.png" class="w-80 m-auto"></div>
+                    <div class="col-3"><img src="figures/chap1/spotify4.png" class="w-80 m-auto"></div>
+                </div>
+                <p class="center mt-4">Prévoir des actionneurs suffisamment gros et espacés adaptés aux doigts</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'approche recommandée est <em>Mobile first</em></h1>
+                <p>Il faut également penser l’ergonomie intelligemment :</p>
+                <ul class="mt-4">
+                    <li>Utiliser les actionneurs et les capteurs mobiles :</li>
+                    <ul>
+                        <li>biométrie (e.g. authentification)</li>
+                        <li>géolocalisation (e.g. pour adapter la langue)</li>
+                        <li>micro (e.g. pour faciliter la saisie)</li>
+                        <li>choix du clavier (e.g. pour la saisie de nombre)</li>
+                        <li>utiliser des gestes tactiles (swipe, pinch, etc.)</li>
+                    </ul>
+                    <li>Interfaces plus intuitives car moins d’aides visuelles (retour d'interactions, menu contextuel, etc.)</li>
+                    <li>Liens vers les applications mobiles populaires (téléphone, réseaux sociaux, navigation, etc.)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Performances des terminaux très hétérogènes</h1>
+                <div class="boxtitle"></div>
+                <div class="boxcontent mb-4">
+                    <p><em>The average time it takes to fully load a mobile landing page is 22 seconds, according to a new analysis. Yet 53% of mobile site visitors leave a page that takes longer than three seconds to load.</em></p>
+                    <p class="small" style="text-align: right;">
+                    <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/">(source: Daniel An, Google, 2017)</a></p>
+                </div>
+                <ul>
+                    <li>Optimiser pour des performances limitées dés le début de la conception</li>
+                    <li>Optimiser les images : adapter la taille, le format et le nombre en fonction de l'écran</li>
+                    <li>Réduire le code source au maximum (e.g. en retirant les effets CSS inutiles)</li>
+                    <li>Optimiser les traitements serveur (caching, accès BDD limités, communications asynchrones)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Quelques liens pour aller plus loin...</h1>
+                <ul>
+                    <li><a href="https://youtube.com/playlist?list=PLzdnOPI1iJNfMRZm5DDxco3UdsFegvuB7" target="_blank">How the internet works</a>: La playlist ”How the internet works” sur la chaîne Youtube du site code.org</li>
+                    <li><a href="https://developers.google.com/search/docs?hl=fr" target="_blank">Documentation Google</a>: Documentation Google sur les bonnes pratiques pour le référencement</li>
+                    <li><a href="https://developers.google.com/search/docs/crawling-indexing/mobile/mobile-sites-mobile-first-indexing?hl=fr" target="_blank">Mobile first indexing</a>: Bonnes pratiques pour l'indexation de sites mobiles et l'indexation orientée mobile</li>
+                    <li><a href="https://developer.chrome.com/docs/lighthouse/overview?hl=fr" target="_blank">Lighthouse</a>: test d’optimisation pour mobile</li>
+                    <li><a href="https://alistapart.com/article/responsive-web-design/" target="_blank">Responsive Web Design</a>: article fondateur sur la conception responsive (2010)</li>
+                    <li><a href="https://internetingishard.netlify.app/" target="_blank">Internet is Hard</a>: tutoriaux en anglais très accessibles</li>
+                    <li><a href="https://web.dev/learn/design" target="_blank">Web.dev</a>: Séries d'articles pour approfondir la conception responsive</li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+Accept: text/html,application/xhtml+xml,...
+Referer: http://mastersd.univ-rouen.fr
+...
+                </code></pre>
+            </section>
         </div>
     </div>
 
