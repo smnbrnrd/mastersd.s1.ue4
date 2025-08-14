@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Master SD - Conception d'Interface Web</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="../css/cm.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!--------------------------------------------->
+            <!-- Cover slide -->
+            <section class="title-slide">
+                <div class="title">Conception d'Interface Web</div>
+                <div class="subtitle">HTML5</div>
+                <div class="author">Simon BERNARD</div>
+                <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
+                <div class="logo"><img src="../img/logo_urn_color.png"></div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de HTML</h1>
+                <ol class="mt-3">
+                    <li><span class="alert">Structuration/organisation du contenu (texte, images, vidéos) : HTML</span></li>
+                    <li>Présentation (visuelle) du contenu : CSS</li>
+                    <li>Rendre ce contenu interactif : JavaScript</li>
+                </ol>
+                <img src="figures/chap1/html_css_js.png" class="w-65 m-auto mt-5">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de HTML</h1>
+                <ul>
+                    <li><strong>H</strong>yper<strong>T</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage</li>
+                    <li>Ce n’est pas un langage de programmation</li>
+                    <li>Il sert à structurer un contenu web</li>
+                    <li>Le contenu structuré en HTML est visualisé avec un navigateur web (la plupart du temps)</li>
+                </ul>
+                <img src="figures/chap2/html2browser.png" class="w-65 m-auto mt-5">
+                <p class="caption">(source: <a href="https://internetingishard.netlify.app/" target="_blank">https://internetingishard.netlify.app/</a>, comme plusieurs autres dans la suite de ce support)</p>
+            </section>
+
+            <!---------------------------------------------
+            <section>
+                <h1>Cas d'usage : saisie d'une URL dans un navigateur</h1>
+                <ol>
+                    <li>une requête est envoyée par le navigateur vers le serveur identifié par l’URL</li>
+                    <li>le serveur traite la requête et envoie une page HTML en réponse</li>
+                    <li>le navigateur receptionne la page, la décode et l’affiche</li>
+                </ol>
+                <img src="figures/chap1/client_serveur_http.png" class="w-75 m-auto mt-5">
+            </section>
+
+            <!---------------------------------------------
+            <section>
+                <h1>Cas d'usage : création et visualisation d'une page HTML avec le navigateur</h1>
+                <ol>
+                    <li>Avec un éditeur de texte (ou un IDE), on édite et enregistre le fichier HTML sur son disque</li>
+                    <li>On ouvre le fichier résultant avec le navigateur pour visualiser le résultat</li>
+                </ol>
+                <div class="row">
+                    <div class="col-6">
+                        <pre class="mt-5"><code class="language-html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Ma première page HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- ici contenu de la page --&gt;
+        &lt;h1&gt;Ma première page HTML5&lt;/h1&gt;
+        &lt;p&gt;Une page Web HTML5 très simple &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-6">
+                        <img src="figures/chap2/firstpage-screen.png" class="w-90 m-auto mt-5">
+                    </div>
+                </div>
+            </section>
+        -->
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les navigateurs intègrent des outils de développement</h1>
+                <a href="../Demos/firstpage.html" target="_blank"><img src="figures/chap2/firefox-dev.png" class="w-80 m-auto"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Code source HTML</h1>
+                <p class="mb-4">Le code source HTML comprend :</p>
+                <ol>
+                    <li>du contenu textuel (sans mise en forme)</li>
+                    <li>des balises de structuration : <span class="alert">balises par paires</span></li>
+                    <pre class="mb-2"><code class="language-html" data-trim>
+&lt;title&gt;Ceci est un titre&lt;/title&gt;
+                    </code></pre>
+                    <li>des balises pour insérer un contenu (ici une image) : <span class="alert">balises auto-fermantes</span></li>
+                    <pre class="mb-2"><code class="language-html" data-trim>
+&lt;img src=&quot;logo-urn.png&quot;&gt;
+                    </code></pre>
+                    <li>des options de balises : <span class="alert">attributs de balises</span></li>
+                    <pre class="mb-2"><code class="language-html" data-trim>
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;a href=&quot;http://www.univ-rouen.fr&quot;&gt;Lien&lt;/a&gt;
+                    </code></pre>
+                </ol>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Anatomie d'une page HTML</h1>
+                <pre class="mb-4"><code class="language-html" data-trim data-line-numbers="1">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Ma première page HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Contenu de la page --&gt;
+        &lt;h1&gt;Ma premiere page HTML5&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt; Un premier paragraphe &lt;/h2&gt;
+            Une page web HTML5 tres simple
+        &lt;/section&gt;
+        &lt;img src=&quot;../img/logo_mastersd.png&quot;&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <ul>
+                    <li>Doctype : indique le type de balisage, i.e. la syntaxe et la version utilisée (simplifié depuis la version 5)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Anatomie d'une page HTML</h1>
+                <pre class="mb-4"><code class="language-html" data-trim data-line-numbers="2,17">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Ma première page HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Contenu de la page --&gt;
+        &lt;h1&gt;Ma premiere page HTML5&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt; Un premier paragraphe &lt;/h2&gt;
+            Une page web HTML5 tres simple
+        &lt;/section&gt;
+        &lt;img src=&quot;../img/logo_mastersd.png&quot;&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <ul>
+                    <li><code>&lt;html&gt;&lt;/html&gt;</code> : élément racine, avec quelques attributs utiles, e.g. <code>lang</code> qui spécifie la langue par défaut (utile pour le navigateur mais facultatif)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Anatomie d'une page HTML</h1>
+                <pre class="mb-4"><code class="language-html" data-trim data-line-numbers="3-7">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Ma première page HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Contenu de la page --&gt;
+        &lt;h1&gt;Ma premiere page HTML5&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt; Un premier paragraphe &lt;/h2&gt;
+            Une page web HTML5 tres simple
+        &lt;/section&gt;
+        &lt;img src=&quot;../img/logo_mastersd.png&quot;&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <ul>
+                    <li><code>&lt;head&gt;&lt;/head&gt;</code> : entête de page contenant les méta-données de la page, par exemple :</li>
+                    <ul>
+                        <li><code>&lt;title&gt;&lt;/title&gt;</code>: définit un titre de page</li>
+                        <li><code>&lt;meta charset=&quot;utf-8&quot;&gt;</code>: définit l'encodage des caractères</li>
+                    </ul>
+                    Le contenu de cette balise n’apparaît pas dans la page affichée par le navigateur
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Anatomie d'une page HTML</h1>
+                <pre class="mb-4"><code class="language-html" data-trim data-line-numbers="8-16">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Ma première page HTML&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- Contenu de la page --&gt;
+        &lt;h1&gt;Ma premiere page HTML5&lt;/h1&gt;
+        &lt;section&gt;
+            &lt;h2&gt; Un premier paragraphe &lt;/h2&gt;
+            Une page web HTML5 tres simple
+        &lt;/section&gt;
+        &lt;img src=&quot;../img/logo_mastersd.png&quot;&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <ul>
+                    <li><code>&lt;body&gt;&lt;/body&gt;</code> : corps de la page. Ce qui est inclut dans cette balise est ce qui se sera affiché dans le navigateur. Par exemple ici :</li>
+                    <ul>
+                        <li><code>&lt;hX&gt;&lt;/hX&gt;</code>: définit un titre, avec $X \in \{1,2,\dots,6\}$</li>
+                        <li><code>&lt;section&gt;&lt;/section&gt;</code>: définit une section de contenu</li>
+                    </ul>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Éléments HTML</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments HTML</h1>
+                <div class="boxtitle">Élément HTML</div>
+                <div class="boxcontent mb-4">
+                    <p>Un élément HTML est l'entité du document comportant soit une paire de balises et son contenu, soit une balise auto-fermante</p>
+                </div>
+                <img src="figures/chap2/element-html.png" class="w-80 m-auto mt-5">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Arbre des éléments HTML</h1>
+                <ul>
+                    <li>Les éléments HTML peuvent être imbriqués les uns dans les autres</li>
+                    <pre class="mb-4"><code class="language-html" data-trim data-line-numbers="7-10">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+    &lt;head&gt;
+        ...
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;section&gt;
+            &lt;h3&gt; Un premier paragraphe &lt;/h3&gt;
+            Une page web HTML5 tres simple
+        &lt;/section&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                    <li>ici, le contenu de l’élément <code>section</code> comprend un élément <code>h3</code></li>
+                    <li>la balise fermante de <code>h3</code> doit apparaître avant la balise fermante de <code>section</code></li>
+                    <li>certaines imbrications ne sont pas autorisées selon la nature des éléments concernés</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Arbre des éléments HTML</h1>
+                <img src="figures/chap2/structure-arbre.png" class="w-90 m-auto mb-4">
+                <p>Dans cet exemple :</p>
+                <ul>
+                    <li><code>div</code> est le parent de <code>p</code></li>
+                    <li><code>p</code> est parent de <code>em</code> et <code>img</code></li>
+                    <li><code>em</code> et <code>img</code> sont les enfants de <code>p</code></li>
+                    <li><code>em</code> est frère de <code>img</code></li>
+                    <li><code>div</code> est un ancêtre de <code>em</code></li>
+                    <li><code>em</code> est un descendant de <code>div</code></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Arbre des éléments HTML</h1>
+                <p>Les outils de développement des navigateurs permettent de visualiser cet arbre</p>
+                <img src="figures/chap2/structure-dev.png" class="w-80 m-auto mt-3">
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Notion de flux normal</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Flux normal</h1>
+                <ul>
+                    <li>Chaque élément a un rendu visuel par défaut, défini par le navigateur mais respectant des conventions</li>
+                    <li>Dans la page, il prend la forme d'une boîte :</li>
+                    <img src="figures/chap2/box-model.png" class="w-60 m-auto mt-2 mb-4">
+                    <li>Cette boite s’insère dans un flux d’affichage vertical dit ”normal”, avant, après ou à l’intérieur des boites des autres éléments</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Flux normal</h1>
+                <ul>
+                    <li>Le flux normal est naturellement <span class="alert">adaptatif, ordonné et avec des superpositions</span></li>
+                    <li>Adaptatif car la position et le rendu du contenu s’adapte à la largeur de la fenêtre</li>
+                    <li>Ordonnée car l’ordre d’affichage est fonction de l’ordre d’apparition dans le code HTML</li>
+                    <li>Avec des superpositions car des éléments imbriqués peuvent se superposer</li>
+                </ul>
+                <a href="../Demos/normalflow.html" target="_blank"><img src="figures/chap2/normal-flow.png" class="w-60 m-auto mt-2"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments blocs et en ligne</h1>
+                <ol>
+                    <li>Élément bloc (block)</li>
+                    <ul>
+                        <li>occupe toute la largeur de l’écran (ou de son conteneur)</li>
+                        <li>retours à la ligne avant et après</li>
+                        <li>peut contenir des éléments bloc ou en ligne</li>
+                    </ul>
+                    <li>Élément en ligne (inline)</li>
+                    <ul>
+                        <li>occupe uniquement la largeur nécessaire pour le contenu</li>
+                        <li>pas de retours à la ligne, ni avant ni après</li>
+                        <li>ne peut contenir que des éléments en ligne</li>
+                    </ul>
+                </ol>
+                <img src="figures/chap2/block-inline.png" class="w-45 m-auto mt-4">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments blocs et en ligne</h1>
+                <h2>Exemple d'éléments blocs</h2>
+                <ul>
+                    <li>Titres</li>
+                    <pre><code class="language-html" data-trim>
+&lt;h1&gt; Titre de niveau 1 &lt;/h1&gt;
+&lt;h2&gt; Titre de niveau 2 &lt;/h2&gt;
+...
+&lt;h6&gt; Jusqu&#39;à 6 niveaux &lt;/h6&gt;
+                    </code></pre>
+                    <li>Paragraphes</li>
+                    <pre><code class="language-html" data-trim>
+&lt;p&gt;
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+&lt;/p&gt;
+                    </code></pre>
+                    <li>Listes</li>
+                    <pre><code class="language-html" data-trim>
+&lt;ul&gt;
+    &lt;li&gt; Item 1 &lt;/li&gt;
+    &lt;li&gt; Item 2 &lt;/li&gt;
+&lt;/ul&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments blocs et en ligne</h1>
+                <h2>Exemple d'éléments en ligne</h2>
+                <ul>
+                    <li>Texte mis en emphase, important ou marqué</li>
+                    <pre><code class="language-html" data-trim>
+&lt;em&gt;Texte en emphase&lt;/em&gt;
+&lt;strong&gt;Texte important&lt;/strong&gt;
+&lt;mark&gt;Texte marqué&lt;/mark&gt;
+                    </code></pre>
+                    <li>Images</li>
+                    <pre><code class="language-html" data-trim>
+&lt;img src="image.jpg" alt="Description de l'image"&gt;
+                    </code></pre>
+                    <li>Hyperliens</li>
+                    <pre><code class="language-html" data-trim>
+&lt;a href="https://www.example.com"&gt;Texte du lien&lt;/a&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments blocs et en ligne</h1>
+                <p>Il existe deux balises neutres :</p>
+                <ul>
+                    <li><code>&lt;div&gt;</code> : élément bloc générique</li>
+                    <li><code>&lt;span&gt;</code> : élément en ligne générique</li>
+                    <li>Ces deux balises, n’ont pas d’aspect spécifique</li>
+                    <li>Elles servent à modifier le flux normal d’une page et/ou appliquer des styles CSS particuliers.</li>
+                    <li>Par exemple, les <code>&lt;div&gt;</code> ont beaucoup été utilisées pour agencer les pages </li>
+                    <pre><code class="language-html" data-trim>
+&lt;body&gt;
+    &lt;div id=&quot;conteneur&quot;&gt;
+        &lt;div id=&quot;entete&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;menu&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;page&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;colonne&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;pied&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Éléments blocs et en ligne</h1>
+                <pre><code class="language-html compact" data-trim>
+&lt;body&gt;
+    &lt;div id=&quot;conteneur&quot;&gt;
+        &lt;div id=&quot;entete&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;menu&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;page&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;colonne&quot;&gt;...&lt;/div&gt;
+        &lt;div id=&quot;pied&quot;&gt;...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+                </code></pre>
+                <img src="figures/chap2/struct-div.png"  class="w-60 m-auto mt-2">
+            </section>
+
+            
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Balises sémantiques</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <div class="boxtitle">Balise sémantique</div>
+                <div class="boxcontent mb-4">
+                    <p>Les balises sémantiques sont des éléments HTML qui ont une signification spécifique et qui décrivent le contenu qu'ils contiennent</p>
+                </div>
+                <p>Exemple: pour le plan d'une page:</p>
+                <ul>
+                    <li>Une page HTML a un plan, déterminé en grande partie par les <code>&lt;h1&gt;...&lt;h6&gt;</code></li>
+                    <li>Ces titres donnent un sens au contenu via cette hiérarchie en parties/sous-parties</li>
+                    <li>Les moteurs de recherche (entre autres) se basent sur ce plan pour déterminer les contenus importants</li>
+                </ul>
+                <p>(cf. site <a href="https://gsnedders.html5.org/outliner/" target="_blank">HTML5 Outliner</a>)</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <p>HTML5 introduit de balises sémantiques qui permettent de mieux structurer le contenu d'une page web</p>
+                <div class="row mt-5">
+                    <div class="col-5"><img src="figures/chap2/semantic-div.png" class="w-90 m-auto"></div>
+                    <div class="col-7">
+                        <ul>
+                            <li>Décomposition de la page en plusieurs parties indépendantes</li>
+                            <li>Remplacent (partiellement) l’usage généralisé des <code>&lt;div&gt;</code></li>
+                            <li>Ces balises sont très importantes pour le référencement : permettent aux moteurs de recherche, lecteurs d’écran, frameworks, d’identifier les différentes parties d’une page et de les manipuler indépendamment du reste</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <h2>Exemples</h2>
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <ul>
+                            <li><code>&lt;header&gt;</code> : définit l'en-tête de page ou section</li>
+                            <li><code>&lt;nav&gt;</code> : définit une section de navigation</li>
+                            <li><code>&lt;main&gt;</code> : définit le contenu principal d'une page</li>
+                            <li><code>&lt;article&gt;</code> : définit un article indépendant</li>
+                            <li><code>&lt;section&gt;</code> : définit une section thématique</li>
+                            <li><code>&lt;footer&gt;</code> : définit le pied de page</li>
+                            <li><code>&lt;aside&gt;</code> : définit une section latérale</li>
+                            <li><code>&lt;figure&gt;</code> : définit une figure</li>
+                        </ul>
+                    </div>
+                    <div class="col-6"><img src="figures/chap2/semantic-tag.png" class="w-100 m-auto"></div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <h2>Balise <code>&lt;article&gt;</code></h2>
+                <p>L'élément <code>&lt;article&gt;</code> définit un contenu indépendant du reste du document, destinée à être distribué ou réutilisé de manière indépendamment</p>
+                <div class="row mt-5">
+                    <div class="col-5"><img src="figures/chap2/article.png" class="w-90 m-auto"></div>
+                    <div class="col-7">
+                        <pre><code class="language-html" data-trim>
+&lt;article&gt;
+    &lt;h1&gt;Article Interessant&lt;/h1&gt;
+    &lt;h6&gt;Par John Smith, le 37-15-2247&lt;/h6&gt;
+    &lt;p&gt;
+        Cet article est vraiment tres
+        interessant et il peut etre
+        facilement référencé.
+        Il peut également être extrait du site 
+        et existé indépendamment du reste du contenu
+    &lt;/p&gt;
+&lt;/article&gt;
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <h2>Balise <code>&lt;section&gt;</code></h2>
+                <p>L'élément <code>&lt;section&gt;</code> définit une section thématique dans un document. Il peut contenir des titres, des paragraphes et d'autres éléments, et est souvent utilisé pour regrouper des contenus connexes.</p>
+                <div class="row mt-5">
+                    <div class="col-5"><img src="figures/chap2/section.png" class="w-90 m-auto"></div>
+                    <div class="col-7">
+                        <pre><code class="language-html" data-trim>
+&lt;section&gt;
+  &lt;h2&gt;Première section&lt;/h2&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+...
+&lt;/section&gt;
+&lt;section&gt;
+  &lt;h2&gt;Deuxième section&lt;/h2&gt;
+  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&lt;/section&gt;
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <h2>Balise <code>&lt;aside&gt;</code></h2>
+                <p>L'élément <code>&lt;aside&gt;</code> représente une partie d'un document dont le contenu n'est qu'indirectement lié au contenu principal du document. Il est souvent présenté sous forme de barre latérale ou d'encadré.</p>
+                <div class="row mt-5">
+                    <div class="col-5"><img src="figures/chap2/aside.png" class="w-70 m-auto"></div>
+                    <div class="col-7">
+                        <pre><code class="language-html" data-trim>
+&lt;article&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Article Interessant&lt;/h1&gt;
+        &lt;h6&gt;Par John Smith, le 37-15-2247&lt;/h6&gt;
+    &lt;/header&gt;
+    &lt;aside&gt;
+        &lt;img src=&quot;illu.png&quot;/&gt;
+    &lt;/aside&gt;
+...
+                        </code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise sémantique</h1>
+                <h2>Balises <code>&lt;time&gt;</code> et <code>&lt;address&gt;</code></h2>
+                <ul>
+                    <li><code>&lt;time&gt;</code> : pour indiquer les dates, heures, etc. Permet de faciliter le parsing car ce sont en général des éléments difficiles à identifier dans un contenu</li>
+                    <img src="figures/chap2/time.png" class="w-60 m-auto mb-3">
+                    <li><code>&lt;address&gt;</code> : pas nécessairement adresse postale, mais plutôt des informations de contact en fin d’article ou de page, sur un auteur ou une organisation.</li>
+                </ul>
+            </section>
+
+            
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Liens et images</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Liens et images</h1>
+                <p>Les liens et les images sont des éléments particuliers car ils concernent des ressources externes à la page HTML</p>
+                <ul class="mt-4">
+                    <li>Un lien (ou hyperlien) renvoie l’utilisateur vers une page différente</li>
+                    <li>Les images sont des ressources externes, inclues dans la page au moment de la visualisation dans un navigateur</li>
+                </ul>
+                <img src="figures/chap2/link-image.png" class="w-60 m-auto mt-3">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise <code>&lt;a&gt;</code></h1>
+                <ul>
+                    <li>Le texte contenu dans l’élément <code>&lt;a&gt;</code> devient automatiquement ”cliquable” (pris en charge par le navigateur)</li>
+                    <li><code>href</code> doit se voir affecter l’URL de la page vers laquelle le lien renvoie</li>
+                    <li>Il existe 4 sortes d'URL:</li>
+                    <ol>
+                        <li><code>#</code> qui rend le lien actif mais inopérant</li>
+                        <li>les liens relatifs à la page dans laquelle est inclue l’élément <code>a</code></li>
+                        <li>les liens relatifs à la racine du site</li>
+                        <li>les liens absolus (une URL complète comme vu au chapitre précédent)</li>
+                    </ol>
+                </ul>
+                <img src="figures/chap2/link-types.png" class="w-65 m-auto mt-4">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Exemples</h1>
+                <pre><code class="language-html" data-trim>
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Master Science et Ingénierie des Données&lt;/h1&gt;
+        &lt;h2&gt;Conception d&#39;Interfaces Web&lt;/h2&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href=&quot;first_page.html&quot;&gt;Première page&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;second_page.html&quot;&gt;Deuxème page&lt;/a&gt;&lt;/li&gt;
+                ...
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;hr&gt;
+    &lt;a href=&quot;http://www.univ-rouen.fr&quot;&gt;L&#39;Universite de Rouen Normandie&lt;/a&gt;
+    &lt;a href=&quot;../index.html&quot;&gt;Page d&#39;accueil&lt;/a&gt;
+    &lt;a href=&quot;/HTMLPages/first_page.html&quot;&gt;Première page&lt;/a&gt;
+&lt;/body&gt;
+                </code></pre>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise <code>&lt;img&gt;</code></h1>
+                <ul>
+                    <li>Comme avec les liens, la balise seule ne suffit pas, il faut définir l'attribut <code>src</code></li>
+                    <li>L’attribut <code>src</code> pointe vers l’emplacement de l’image sur le serveur</li>
+                    <li>Là aussi, le chemin peut être absolu, relatif à la page ou relatif à la racine du site</li>
+                    <li>4 format d'images principaux:</li>
+                    <ul>
+                        <li><code>JPEG</code> : format d'image compressé, large palette de couleur, idéal pour les photographies</li>
+                        <li><code>GIF</code> : autorise les animations, limité à 256 couleurs</li>
+                        <li><code>PNG</code> : format sans perte, supporte la transparence, pour tout ce qui n’est ni une animation, ni une photo</li>
+                        <li><code>SVG</code> : format vectoriel, idéal pour les logos et les illustrations (de préférence sans texte)</li>
+                    </ul>
+                    <li>Par défaut, l'image est inclue avec ses dimensions originales. Il est possible de redimensionner avec les attributs <code>width</code> et <code>height</code> (pixels), mais nous verrons une méthode CSS plus adaptée plus tard</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Formulaire</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Formulaire</h1>
+                <ul>
+                    <li>Élément qui rassemblent des contrôles intéractifs (<em>inputs</em>)</li>
+                    <li>ces <em>inputs</em> permettent à l’utilisateur de saisir des informations</li>
+                    <li>Ces informations sont envoyées au serveur web quand l’utilisateur valide sa saisie</li>
+                </ul>
+                <img src="figures/chap2/form-server.png" class="w-65 m-auto mt-4">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Balise <code>&lt;form&gt;</code></h1>
+                <ul>
+                    <li>Elle sert de conteneur aux <em>inputs</em></li>
+                    <li>Elle propose beaucoup d’attributs, les plus importants sont <code>action</code> et <code>method</code></li>
+                    <ul>
+                        <li><code>action</code> définit une URL vers laquelle les informations sont envoyées</li>
+                        <li><code>method</code> définit la méthode HTTP pour l’envoie de la requête</li>
+                    </ul>
+                    <pre class="mt-4 mb-4"><code class="language-html" data-trim>
+&lt;form action=&quot;/MyApp/form/&quot; method=&quot;POST&quot;&gt;
+...
+&lt;/form&gt;
+                    </code></pre>
+                    Ici, on suppose que l’URL <code>/MyApp/form/</code> désigne un programme sur le serveur capable de réceptionner les informations (nous verrons comment en M2)
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Exemple (<a href="https://internetingishard.netlify.app/html-and-css/forms/" target="_blank">source</a>)</h1>
+                <a href="../Demos/form-full.html" target="_blank"><img src="figures/chap2/form-sample.png" class="w-35 m-auto mt-4"></a>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">HTML5</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Histoire du HTML</h1>
+                <ul>
+                    <li><span class="alert">Avant HTML5</span> : standardisé par le W3C, consortium international à but non lucratif chargé de promouvoir les technologies du Web</li>
+                    <li><span class="alert">2003-2019</span> : 15 ans de peripéties autour de la version 5. <em>Long story short :</em></li>
+                    <ul>
+                        <li>W3C voulait abandonner HTML au profit de XHTML (HTML avec une syntaxe XML)</li>
+                        <li>Opposition des principaux distributeurs de navigateurs web (sauf Microsoft) qui ont constitué leur propre groupe de travail WHATWG
+                        </li>
+                        <li>A partir de 2012 : 2 specifications divergentes de HTML5</li>
+                        <li>2019 : W3C céde finalement la charge de la spécification HTML5 à WHATWG (rejoint par Google et Microsoft entre temps)</li>
+                        <li>HTML5 devient HTML Living Standard, une spécification évoluant au fil de l’eau</li>
+                    </ul>
+                    <li><span class="alert">Aujourd’hui</span> : Le standard HTML5 introduit régulièrement des nouveautés</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Liens utiles pour approfondir</h1>
+                <ul>
+                    <li><a href="https://html.spec.whatwg.org/multipage/" target="_blank">Spécification de HTML living standard</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements" target="_blank">Documentation MDN sur les éléments HTML</a></li>
+                    <li><a href="http://html.spec.whatwg.org" target="_blank">Spécifications du langage HTML</a></li>
+                    <li><a href="http://validator.w3.org" target="_blank">Validateur officiel du W3C</a></li>
+                    <li><a href="http://caniuse.com" target="_blank">Support des navigateurs pour HTML5</a></li>
+                    <li><a href="http://html5test.com" target="_blank">Tests de compatibilité HTML5</a></li>
+                    <li><a href="http://gsnedders.html5.org/outliner" target="_blank">HTML5 Outliner - Plan d’une page HTML</a></li>
+                    <li><a href="http://alsacreations.com" target="_blank">AlsaCréations - Tutoriaux et guidelines en français</a></li>
+                    <li><a href="https://internetingishard.netlify.app" target="_blank">InternetingIsHard - Tutoriaux complets et accessibles aux débutants</a></li>
+                    <li><a href="http://www.w3schools.com" target="_blank">W3Schools - Catalogues techniques avec live tests</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+	<script src="reveal/plugin/math/math.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/reveald3.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            margin: 0.05,
+            center: false,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            mouseWheel: true,
+            transition: 'none', // Transition style : none/fade/slide/convex/concave/zoom
+            progress: true,
+            autoPlayMedia: true,
+            plugins: [ RevealNotes, RevealHighlight, Reveald3, RevealZoom, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>

@@ -39,6 +39,11 @@ pre code.compact {
 img {
     display: block;
 }
+img + .caption {
+    font-size: 0.6em;
+    text-align: center;
+    margin-top: 0.5em;
+}
 img.framed {
     border: solid 1px var(--tertiary-color);
 }
@@ -82,7 +87,7 @@ ol {
     margin-bottom: 0.8em;
 }
 ol > li {
-    margin: 0.3em 0 0.3em 1.2em;
+    margin: 0.3em 0 0.3em 1.5em;
 }
 ol > li::marker {
     font-weight: bold;
@@ -165,13 +170,11 @@ div.boxcontent ul {
     font-size: 1.5em;
     position: absolute;
     top: 0.5rem;
-    /*left: 0.8rem;*/
 }
 .reveal .slides section h2 {
     color: var(--secondary-color);
     position: absolute;
     top: 3rem;
-    /*left: 0.8rem;*/
 }
 
 /*************************************************
