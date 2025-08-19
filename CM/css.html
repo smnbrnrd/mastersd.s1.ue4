@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Master SD - Conception d'Interface Web</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="../css/cm.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!--------------------------------------------->
+            <!-- Cover slide -->
+            <section class="title-slide">
+                <div class="title">Conception d'Interface Web</div>
+                <div class="subtitle">CSS</div>
+                <div class="author">Simon BERNARD</div>
+                <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
+                <div class="logo"><img src="../img/logo_urn_color.png"></div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de CSS</h1>
+                <ol class="mt-3">
+                    <li>Structuration/organisation du contenu (texte, images, vidéos) : HTML</li>
+                    <li><span class="alert">Présentation (visuelle) du contenu : CSS</span></li>
+                    <li>Rendre ce contenu interactif : JavaScript</li>
+                </ol>
+                <img src="figures/chap1/html_css_js.png" class="w-65 m-auto mt-5">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de CSS</h1>
+                <ul>
+                    <li><strong>C</strong>ascading <strong>S</strong>tyle<strong>S</strong>heets</li>
+                    <li>Ce n’est pas un langage de programmation</li>
+                    <li>Il sert à décrire la présentation d'un document HTML</li>
+                    <li>L’intérêt principal est la ré-utilisabilité, i.e. pouvoir appliquer un même style à plusieurs pages HTML</li>
+                </ul>
+                <img src="figures/chap3/css-vs-html.png" class="w-60 m-auto mt-4">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Démonstrations</h1>
+                <a href="https://www.csszengarden.com/" target="_blank">
+                    <img src="figures/chap3/csszengarden.png" class="w-90 m-auto">
+                </a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Principe</h1>
+                <ul>
+                    <li>Définir des règles de style qui s'appliquent aux éléments HTML</li>
+                    <li>Ces règles de style sont définies sous la forme:</li>
+                    <pre><code class="language-css" data-trim>
+selecteur {
+    propriété: valeur;
+}
+                    </code></pre>
+                    où
+                    <ul>
+                        <li><code>selecteur</code> est une expression qui permet de désigner un ou plusieurs éléments HTML sur lesquels va s’appliquer la règle de style</li>
+                        <li><code>propriété</code> est l'attribut CSS que l'on souhaite modifier (ex: <code>color</code>, <code>font-size</code>, etc.)</li>
+                        <li><code>valeur</code> est la valeur que l'on souhaite donner à la propriété (ex: <code>red</code>, <code>16px</code>, etc.)</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Principe</h1>
+                <h2>Exemple</h2>
+                <pre><code class="language-css" data-trim>
+html, body {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: white;
+    font-family: Verdana, sans-serif;
+    font-size: 100%;
+}
+h1 {
+    font-size: 200%;
+    color: navy;
+    text-align: center;
+}
+h2 {
+    font-size: 150%;
+    color: red;
+    padding-left: 15px;
+}
+                </code></pre>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>3 façons de définir des règles CSS</h1>
+                <ol>
+                    <li>dans les balises du fichier source HTML, via un attribut style</li>
+                    <pre><code class="language-html" data-trim>
+&lt;span style=&quot;color:red&quot;&gt; texte en rouge &lt;/span&gt;
+&lt;p style=&quot;color:blue;margin-left:30px;&quot;&gt; paragraphe en bleu, avec une marge gauche &lt;/p&gt;
+                    </code></pre>
+                </ol>
+                <ul>
+                    <li>Ne s'applique qu'à un seul élément HTML</li>
+                    <li>On ne donne que les pairs <code>propriété:valeur</code> (pas besoin de sélecteur)</li>
+                    <li>mélange structuration (HTML) et présentation (CSS)</li>
+                    <li>Non recommandé (voire à proscrire !)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>3 façons de définir des règles CSS</h1>
+                <ol start="2">
+                    <li>dans l’entête du fichier HTML, avec les balises <code>&lt;style&gt; &lt;/style&gt;</code></li>
+                    <pre><code class="language-html" data-trim>
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Exemple&lt;/title&gt;
+    &lt;style&gt;
+        p {
+            color: blue;
+            margin-left: 30px;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+                    </code></pre>
+                </ol>
+                <ul>
+                    <li>Meilleure séparation structuration / présentation</li>
+                    <li>Un style pour un ou plusieurs éléments HTML</li>
+                    <li>Utilisable pour un seul document HTML</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>3 façons de définir des règles CSS</h1>
+                <ol start="3">
+                    <li>dans un fichier séparé, d’extension <code>.css</code>, rattaché à la page HTML</li>
+                    <pre><code class="language-html" data-trim>
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;title&gt;Exemple&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;exemple.css&quot; type=&quot;text/css&quot;&gt;
+&lt;/head&gt;
+                    </code></pre>
+                </ol>
+                <ul>
+                    <li>Parfaite séparation structuration / présentation</li>
+                    <li>Un style pour un ou plusieurs éléments HTML</li>
+                    <li>Possibilité de réutiliser le style pour plusieurs pages HTML</li>
+                    <li>Possibilité d’ajouter plusieurs feuilles de styles à une même page (les styles s’ajoutent)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>5 types de CSS s'appliquent à une page (par ordre de priorité)</h1>
+                <ol>
+                    <li class="mb-2">styles définis par l’utilisateur : certains navigateurs permettent à l’utilisateur de définir des feuilles de styles CSS à appliquer à toutes les pages visitées.</li>
+                    <li class="mb-2">styles définis via les attributs <code>style</code> dans les balises</li>
+                    <li class="mb-2">styles définis dans l’entête du fichier HTML, avec les balises <code>&lt;style&gt; &lt;/style&gt;</code></li>
+                    <li class="mb-2">styles définis dans un fichier séparé, d’extension <code>.css</code>, rattaché à la page HTML</li>
+                    <li class="mb-2">styles définis par défaut par le navigateur : chaque navigateur applique des styles CSS par défaut (généralement simples)</li>
+                </ol>
+                <p>Note: l'ordre de priorité est important, car il détermine quel style sera appliqué en cas de conflit. les styles 3. et 4. ont la même priorité et s'appliquent dans l'ordre de leur apparition dans le document HTML.</p>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Les sélecteurs de base</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ol>
+                    <li>Le sélecteur universel : sélectionne tous les éléments HTML sans distinction</li>
+                </ol>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html compact" data-trim>
+...
+    &lt;style&gt;
+        * {
+            color: green;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Master SD @ Université de Rouen Normandie&lt;/h1&gt;
+    &lt;h2&gt;Dummy HTML page for demoing CSS selectors&lt;/h2&gt;
+    &lt;article lang=&quot;fr&quot;&gt;
+        &lt;h3&gt;Article 1&lt;/h3&gt;
+        &lt;p id=&quot;first&quot;&gt;
+            &lt;span class=&quot;info&quot;&gt;Lorem ipsum dolor sit amet&lt;/span&gt;, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Augue ut lectus arcu bibendum at varius vel.
+            Nisl vel pretium lectus quam id leo in vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        &lt;/p&gt;
+    ...
+&lt;/body&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap3/selecteur-screen1.png" class="w-95 m-auto framed">
+                    </div>
+                </div>
+            </section>
+            
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ol start="2">
+                    <li>Les sélecteurs de balises : toutes les balises d’un même type dans le document HTML</li>
+                </ol>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html compact" data-trim>
+...
+    &lt;style&gt;
+        p {
+            color: blue;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Master SD @ Université de Rouen Normandie&lt;/h1&gt;
+    &lt;h2&gt;Dummy HTML page for demoing CSS selectors&lt;/h2&gt;
+    &lt;article lang=&quot;fr&quot;&gt;
+        &lt;h3&gt;Article 1&lt;/h3&gt;
+        &lt;p id=&quot;first&quot;&gt;
+            &lt;span class=&quot;info&quot;&gt;Lorem ipsum dolor sit amet&lt;/span&gt;, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Augue ut lectus arcu bibendum at varius vel.
+            Nisl vel pretium lectus quam id leo in vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        &lt;/p&gt;
+    ...
+&lt;/body&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap3/selecteur-screen2.png" class="w-95 m-auto framed">
+                    </div>
+                </div>
+            </section>
+            
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ol start="3">
+                    <li>Les sélecteurs de classe : balises identifiées à l’aide de l’attribut <code>class</code></li>
+                </ol>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html compact" data-trim>
+...
+    &lt;style&gt;
+        .info {
+            color: blue;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Master SD @ Université de Rouen Normandie&lt;/h1&gt;
+    &lt;h2&gt;Dummy HTML page for demoing CSS selectors&lt;/h2&gt;
+    &lt;article lang=&quot;fr&quot;&gt;
+        &lt;h3&gt;Article 1&lt;/h3&gt;
+        &lt;p id=&quot;first&quot;&gt;
+            &lt;span class=&quot;info&quot;&gt;Lorem ipsum dolor sit amet&lt;/span&gt;, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Augue ut lectus arcu bibendum at varius vel.
+            Nisl vel pretium lectus quam id leo in vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        &lt;/p&gt;
+    ...
+&lt;/body&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap3/selecteur-screen3.png" class="w-95 m-auto framed">
+                    </div>
+                </div>
+            </section>
+            
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ol start="4">
+                    <li>Les sélecteurs d’identificateur : balise unique identifiée par l’attribut <code>id</code></li>
+                </ol>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html compact" data-trim>
+...
+    &lt;style&gt;
+        #first {
+            color: red;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Master SD @ Université de Rouen Normandie&lt;/h1&gt;
+    &lt;h2&gt;Dummy HTML page for demoing CSS selectors&lt;/h2&gt;
+    &lt;article lang=&quot;fr&quot;&gt;
+        &lt;h3&gt;Article 1&lt;/h3&gt;
+        &lt;p id=&quot;first&quot;&gt;
+            &lt;span class=&quot;info&quot;&gt;Lorem ipsum dolor sit amet&lt;/span&gt;, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Augue ut lectus arcu bibendum at varius vel.
+            Nisl vel pretium lectus quam id leo in vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        &lt;/p&gt;
+    ...
+&lt;/body&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap3/selecteur-screen4.png" class="w-95 m-auto framed">
+                    </div>
+                </div>
+            </section>
+            
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ol start="5">
+                    <li>Les sélecteurs d’attributs : toutes les balises qui définissent un attribut donné</li>
+                </ol>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html compact" data-trim>
+...
+    &lt;style&gt;
+        [lang] {
+            color: purple;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Master SD @ Université de Rouen Normandie&lt;/h1&gt;
+    &lt;h2&gt;Dummy HTML page for demoing CSS selectors&lt;/h2&gt;
+    &lt;article lang=&quot;fr&quot;&gt;
+        &lt;h3&gt;Article 1&lt;/h3&gt;
+        &lt;p id=&quot;first&quot;&gt;
+            &lt;span class=&quot;info&quot;&gt;Lorem ipsum dolor sit amet&lt;/span&gt;, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Id eu nisl nunc mi ipsum faucibus vitae aliquet nec. Augue ut lectus arcu bibendum at varius vel.
+            Nisl vel pretium lectus quam id leo in vitae. At ultrices mi tempus imperdiet nulla malesuada pellentesque elit eget.
+        &lt;/p&gt;
+    ...
+&lt;/body&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap3/selecteur-screen5.png" class="w-95 m-auto framed">
+                    </div>
+                </div>
+            </section>
+            
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs de base</h1>
+                <ul>
+                    <li>Appliquer un style à plusieurs éléments</li>
+                    <pre><code class="language-css" data-trim>
+h1, h2 {
+    font-size: 150%;
+    color: blue;
+    padding-left: 15px;
+}
+                    </code></pre>
+                    <li>Utiliser plusieurs classes pour une balise ou restreindre une classe à un type de balise</li>
+                    <pre><code class="language-css mb-1" data-trim>
+p.awesome { color: blue }
+.super { color: darkblue }
+.cool { font-style: italic }
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;p class=&quot;awesome&quot;&gt; paragraphe en bleu &lt;/p&gt;
+&lt;p class=&quot;super cool&quot;&gt; paragraphe en bleu foncé et en italique &lt;/p&gt;
+                    </code></pre>
+                    <li>Restreindre un attribut à un type de balise et/ou tester sa valeur</li>
+                    <pre><code class="language-css mb-1" data-trim>
+a[target] {...}
+a[href="https://example.org"] {...}
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;a href=&quot;#anchor&quot; target=&quot;_blank&quot;&gt;...&lt;/a&gt;
+&lt;a href=&quot;http://example.org&quot;&gt;...&lt;/a&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Les sélecteurs avancés</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Sélecteurs avancés</h1>
+                <ul>
+                    <li>Sélecteurs qui s'appuient sur la structure du document</li>
+                    <img src="figures/chap3/structure-arbre2.png" class="w-40 m-auto mt-3 mb-4">
+                    <li>CSS fournit des opérateurs pour sélectionner des éléments de cette structure</li>
+                    <li>Syntaxe</li>
+                    <pre><code class="language-css" data-trim>
+selecteur1 operateur selecteur2 {
+    ...
+}
+                    </code></pre>
+                    où <code>operateur</code> est <code>(space)</code>, <code>&gt;</code>, <code>+</code> ou <code>~</code>.
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Descendant selectors</em></h1>
+                <ul>
+                    <li><code>(space)</code> : balises inclues dans d’autres balises</li>
+                    <pre><code class="language-css mb-1" data-trim>
+article h2 {...}
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;h2&gt; Ce titre ne sera pas selectionne &lt;/h2&gt;
+&lt;article&gt;
+    &lt;h2&gt; Ce titre sera selectionne &lt;/h2&gt;
+    &lt;div&gt;
+        &lt;h2&gt; Ce titre sera selectionne &lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+                    </code></pre>
+                    Peu importe le degré de descendance, toutes les balises <code>h2</code> inclues dans une balise article sont concernées
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Direct child</em></h1>
+                <ul>
+                    <li><code>&gt;</code> : descendance directe</li>
+                    <pre><code class="language-css mb-1" data-trim>
+article &gt; h2 {...}
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;h2&gt; Ce titre ne sera pas selectionne &lt;/h2&gt;
+&lt;article&gt;
+    &lt;h2&gt; Ce titre sera selectionne &lt;/h2&gt;
+    &lt;div&gt;
+        &lt;h2&gt; Ce titre sera selectionne &lt;/h2&gt;
+    &lt;/div&gt;
+&lt;/article&gt;
+                    </code></pre>
+                    Cette fois, le dernier <code>h2</code> n’est plus sélectionné (pas fils, mais petit-fils de <code>article</code>)
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Sibling</em></h1>
+                <ul>
+                    <li><code>~</code> : tous les éléments frères qui suivent</li>
+                    <pre><code class="language-css mb-1" data-trim>
+h2 ~ p {...}
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;p&gt; Ce paragraphe n&#39;est pas selectionne &lt;/p&gt;
+&lt;section&gt;
+    &lt;h2&gt; Ce titre n&#39;est pas selectionne &lt;/h2&gt;
+    &lt;p&gt; Ce paragraphe est selectionne &lt;/p&gt;
+    &lt;div&gt;
+        &lt;p&gt; Ce paragraphe n&#39;est pas selectionne &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt; Ce paragraphe est selectionne &lt;/p&gt;
+&lt;/section&gt;
+                    </code></pre>
+                    Le style porte sur le deuxième opérande (ici <code>p</code>)
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Adjacent Sibling selectors</em></h1>
+                <ul>
+                    <li><code>+</code> : le premier élément frère adjacent</li>
+                    <pre><code class="language-css mb-1" data-trim>
+h2 + p {...}
+                    </code></pre>
+                    <pre><code class="language-html" data-trim>
+&lt;p&gt; Ce paragraphe n&#39;est pas selectionne &lt;/p&gt;
+&lt;section&gt;
+    &lt;h2&gt; Ce titre n&#39;est pas selectionne &lt;/h2&gt;
+    &lt;p&gt; Ce paragraphe est selectionne &lt;/p&gt;
+    &lt;div&gt;
+        &lt;p&gt; Ce paragraphe n&#39;est pas selectionne &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;p&gt; Ce paragraphe est selectionne &lt;/p&gt;
+&lt;/section&gt;
+                    </code></pre>
+                    Même principe, mais cette fois les balises doivent ”être collées” l’une à l’autre (et dans l’ordre)
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Pseudo-classes et pseudo-éléments</h1>
+                <ul>
+                    <li><em>Link Pseudo-class</em> : liens visités ou non</li>
+                    <pre><code class="language-css mb-1" data-trim>
+a:link {...}
+a:visited {...}
+                    </code></pre>
+                    <li><em>User Action Pseudo-class</em> : action utilisateur (pas que pour les liens)</li>
+                    <pre><code class="language-css mb-1" data-trim>
+a:hover {...}
+button:focus {...}
+                    </code></pre>
+                    <li><em>Structural & Position Pseudo-class</em> : position dans la structure/hiérarchie HTML</li>
+                    <pre><code class="language-css mb-1" data-trim>
+li:first-child {...}
+div:only-child {...}
+                    </code></pre>
+                    <li><em>Pseudo-element</em> : première lettre/ligne, sélection, ou insérer un contenu avant/après un élément</li>
+                    <pre><code class="language-css mb-1" data-trim>
+p::first-letter {...}
+p::first-line {...}
+p::selection {...}
+                    </code></pre>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Cascade, spécificité et héritage</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Cascade</h1>
+                <ul>
+                    <li>Les règles de style sont définies les unes en dessous des autres</li>
+                    <li>Elles sont interprétées (appliquées) dans l'ordre où elles apparaissent</li>
+                    <li>Permet d’ajouter des styles qui se complètent ou se remplacent les uns les autres</li>
+                    <li>Exemple:</li>
+                    <pre><code class="language-css mb-1" data-trim>
+.surround { /* ajoute une bordure a un block */
+    border: 1px solid gray;
+    border-radius: 25px;
+    margin: 10px 40px;
+    padding: 10px;
+}
+.info { /* couleur de fond pour les messages d'informations */
+    background-color: #DDEEFF;
+}
+                    </code></pre>
+                    <pre><code class="language-html mb-1" data-trim>
+&lt;p class=&quot;surround info&quot;&gt;Voici un message d&#39;information.&lt;/p&gt;
+                    </code></pre>
+                    <li><span class="alert">Si conflits entre deux règles, la dernière est celle qui prévaut</span></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Spécificités</h1>
+                <ul>
+                    <li><span class="alert">Cette règle s’applique uniquement si le conflit ne peut pas se régler avec les spécificités</span></li>
+                    <li>Les sélecteurs ne sont pas tous d'égale importance et certains sont prioritaires sur d’autres</li>
+                    <li><span class="alert">Une spécificité est calculée pour déterminer l'importance d'un sélecteur</span></li>
+                    <li>Elle est composée de 3 nombres :</li>
+                    <ul>
+                        <li><code>a</code>, le nombre d’identifiants présents dans le sélecteur</li>
+                        <li><code>b</code>, le nombre de classes, d’attributs ou de pseudo-classes</li>
+                        <li><code>c</code>, le nombre d’éléments ou de pseudo-éléments</li>
+                    </ul>
+                    <li>On note la spécificité d'un sélecteur sous la forme <code>a-b-c</code></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Spécificités</h1>
+                <h2>Exemples (dans l'ordre inverse des priorités)</h2>
+                <table class="table mt-4">
+                    <thead>
+                        <tr>
+                            <th>Sélecteur</th>
+                            <th>Spécificité</th>
+                            <th>Explications</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td><code>div</code></td>
+                            <td><code>0-0-1</code></td>
+                            <td>Un élément</td>
+                        </tr>
+                        <tr>
+                            <td><code>div span</code></td>
+                            <td><code>0-0-2</code></td>
+                            <td>Deux élément</td>
+                        </tr>
+                        <tr>
+                            <td><code>div &gt; ul::before</code></td>
+                            <td><code>0-0-3</code></td>
+                            <td>Deux éléments et un pseudo-élément</td>
+                        </tr>
+                        <tr>
+                            <td><code>.info</code></td>
+                            <td><code>0-1-0</code></td>
+                            <td>Une classe</td>
+                        </tr>
+                        <tr>
+                            <td><code>a[target=_blank]</code></td>
+                            <td><code>0-1-1</code></td>
+                            <td>Un élément et un attribut</td>
+                        </tr>
+                        <tr>
+                            <td><code>div .champ[disabled]</code></td>
+                            <td><code>0-1-2</code></td>
+                            <td>Un élément, une classe et un attribut</td>
+                        </tr>
+                        <tr>
+                            <td><code>.c1.c2.c3....c10</code></td>
+                            <td><code>0-10-0</code></td>
+                            <td>10 classes</td>
+                        </tr>
+                        <tr>
+                            <td><code>#intro</code></td>
+                            <td><code>1-0-0</code></td>
+                            <td>Un identifiant</td>
+                        </tr>
+                        <tr>
+                            <td><code>#main .inner:empty</code></td>
+                            <td><code>1-2-0</code></td>
+                            <td>Un identifiant, une classe et une pseudo-classe</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Spécificités</h1>
+                <ul>
+                    <li><span class="alert">Les spécificités priment sur la cascade</span></li>
+                    <li>Pour cette raison, il est préférable de privilégier les spécificités les plus basses</li>
+                    <li>Par exemple, en privilégiant les classes plutôt que les identifiants:</li>
+                    <pre><code class="language-css mb-1" data-trim>
+.btn {
+    border: 1px solid black;
+}
+.btn-danger {
+    background: red;
+}
+.btn-success {
+    background: green;
+}
+                    </code></pre>
+                    <pre><code class="language-html mb-1" data-trim>
+&lt;a class=&quot;btn btn-danger&quot;&gt; ... &lt;/a&gt;
+&lt;a class=&quot;btn btn-success&quot;&gt; ... &lt;/a&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Héritage</h1>
+                <ul>
+                    <li>À ces deux principes, s'ajoute l'héritage des styles</li>
+                    <li>La structure d'un document HTML, implique que des éléments ont</li>
+                    <ol>
+                        <li>des ancêtres</li>
+                        <li>un parent</li>
+                        <li>des frères</li>
+                        <li>des enfants</li>
+                        <li>des descendants.</li>
+                    </ol>
+                    <li>Un style appliqué à un élément est appliqué à ses descendants, sauf si une autre règle annule cet héritage</li>
+                    <li>Toutes les propriétés ne sont pas concernées</li>
+                    <li>Pour vérifier, si une propriété est héritée par défaut :<a href="https://www.w3.org/TR/CSS/#properties" target="_blank">https://www.w3.org/TR/CSS/#properties</a></li>
+                </ul>
+                <p class="mt-4">Note: Le sélecteur universel <code>*</code> empêche l’héritage car il définit des propriétés pour tous les éléments HTML. Donc à utiliser avec prudence/parcimonie</p>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Mise en page CSS</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Modèle en boîte</h1>
+                <p>Pour CSS, tous les éléments d'une page HTML sont des boîtes rectangulaires définies par :</p>
+                <ol>
+                    <li>une largeur et une hauteur : <code>width</code> et <code>height</code></li>
+                    <li>des espacements intérieurs : <code>padding</code></li>
+                    <li>des espacements extérieurs : <code>margin</code></li>
+                    <li>une bordure : <code>border</code></li>
+                </ol>
+                <img src="figures/chap3/box-model.png" class="w-50 m-auto mt-4 framed">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Modèle en boîte</h1>
+                <div class="row">
+                    <div class="col-4">
+                        <pre><code class="language-css" data-trim>
+div {
+    border: 6px solid #949599;
+    width: 400px;
+    height: 100px;
+    margin: 20px;
+    padding: 20px;
+}
+                        </code></pre>
+                    </div>
+                    <div class="col-8">
+                        <ul>
+                            <li>Largeur : 492px = 20px + 6px + 20px + 400px + 20px + 6px + 20px</li>
+                            <li>Hauteur : 192px = 20px + 6px + 20px + 100px + 20px + 6px + 20px</li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="figures/chap2/box-model.png" class="w-60 m-auto mt-4 framed">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Display</em></h1>
+                <ul>
+                    <li>Les éléments HTML est par défaut de type "bloc" ou "en ligne" (<em>block</em> ou <em>inline</em>)</li>
+                    <li>CSS permet de modifier ce type à l’aide de la propriété <code>display</code></li>
+                    <pre><code class="language-css" data-trim>
+span {
+    display: inline;
+}
+                    </code></pre>
+                    <li>Rappel:</li>
+                    <ul>
+                        <li><code>block</code> : occupe toute la largeur + retours à la ligne avant/après</li>
+                        <li><code>inline</code> : ne prend que la place nécessaire + pas de retours à la ligne</li>
+                    </ul>
+                    <li>Autres valeurs possible:</li>
+                    <ul>
+                        <li><code>none</code> : l’élément n’est pas affiché (mais existe toujours dans l'arbre)</li>
+                        <li><code>inline-block</code> : idem que <code>block</code> mais sans retours à la ligne</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1><em>Display</em></h1>
+                <h2>Exemple</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <pre><code class="language-css compact" data-trim>
+span.a {
+    display: inline;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: yellow;
+}
+span.b {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: yellow;
+}
+span.c {
+    display: block;
+    width: 100px;
+    height: 100px;
+    padding: 5px;
+    border: 1px solid blue;
+    background-color: yellow;
+}
+                        </code></pre>
+                    </div>
+                    <div class="col-6">
+                        <img src="figures/chap3/display.png" class="w-75 m-auto">
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Positionnement</h1>
+                <ul>
+                    <li>Positionnement des éléments avec la propriété <code>position</code></li>
+                    <li>Valeurs possibles :</li>
+                    <ul>
+                        <li><code>static</code> : valeur par défaut, positionnement normal</li>
+                        <li><code>relative</code> : positionnement relatif à sa position d'origine</li>
+                        <li><code>absolute</code> : positionnement par rapport à son ancêtre le plus proche ayant une position autre que <code>static</code></li>
+                        <li><code>fixed</code> : positionnement par rapport à la fenêtre du navigateur</li>
+                        <li><code>sticky</code> : positionnement hybride, reste fixe après avoir atteint un certain défilement</li>
+                    </ul>
+                    <li>Autre positionement: flottant à droite ou à gauche dans son conteneur</li>
+                    <div class="row">
+                        <div class="col-6">
+                            <pre><code class="language-css" data-trim>
+.float {
+    float: left; /* ou right */
+    width: 100px;
+    margin: 10px;
+}
+                            </code></pre>
+                        </div>
+                        <div class="col-6">
+                            <img src="figures/chap3/flottant.png" class="w-75 m-auto">
+                        </div>
+                    </div>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Positionnement</h1>
+                <h2>Exemple</h2>
+                <a href="../Demos/positionnement.html" target="_blank"><img src="figures/chap3/positionnement.png" class="w-75 m-auto"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Remarque sur le positionnement flottant</h1>
+                <ul>
+                    <li>Les positionnements flottants sont (étaient?) très utilisés les mises en page en colonnes</li>
+                    <li>Mais posent plusieurs difficultés:</li>
+                    <ul>
+                        <li>Les éléments flottants peuvent provoquer des chevauchements inattendus.</li>
+                        <li>Le conteneur parent peut ne pas s'ajuster à la hauteur des éléments flottants.</li>
+                    </ul>
+                    <li>Anciennes solutions: propriétés <code>clear</code>, <code>overflow</code>, etc. (cf. <a href="https://css-tricks.com/all-about-floats/">cet article</a>)</li>
+                    <li>Nouvelles solutions: <code>flexbox</code>, <code>grid</code> (que nous verrons au prochain chapitre)</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Conseils et bonnes pratiques</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Conseils et bonnes pratiques</h1>
+                <ul>
+                    <li>Proscrire les attributs <code>style</code> dans les balises HTML</li>
+                    <li>Ne pas combiner balises <code>style</code> et fichiers <code>.css</code> car les priorités sont souvent difficiles à anticiper</li>
+                    <li>Définir les styles du plus générique au plus spécifique</li>
+                    <li>Privilégier les <code>class</code> aux <code>id</code> et utiliser ces derniers à la fin</li>
+                    <li>Définir des styles modulaires plutôt que globaux</li>
+                    <li>Utiliser les <em>resets</em> CSS (détails en TP)</li>
+                    <li>Utilise l'<em>inspecter</em> du navigateur le plus possible pour analyser le résultat</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Liens utiles pour approfondir</h1>
+                <ul>
+                    <li><a href="https://jigsaw.w3.org/css-validator/" target="_blank">Validateur CSS</a></li>
+                    <li><a href="https://specificity.keegan.st/" target="_blank">Calculateur de specificités</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">Documentation MDN sur CSS</a></li>
+                    <li><a href="https://internetingishard.netlify.app/html-and-css/hello-css/">Interneting is Hard - Hello CSS</a></li>
+                    <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a></li>
+                    <li><a href="https://www.smashingmagazine.com/category/css" target="_blank">Smashing Magazine - CSS</a></li>
+                    <li><a href="https://css-tricks.com/reboot-resets-reasoning/">CSS-Tricks - Reboot & Resets</a></li>
+                    <li><a href="https://css-tricks.com/all-about-floats/">CSS-Tricks - All About Floats</a></li>
+                </ul>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+	<script src="reveal/plugin/math/math.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/reveald3.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            margin: 0.05,
+            center: false,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            mouseWheel: true,
+            transition: 'none', // Transition style : none/fade/slide/convex/concave/zoom
+            progress: true,
+            autoPlayMedia: true,
+            plugins: [ RevealNotes, RevealHighlight, Reveald3, RevealZoom, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>
