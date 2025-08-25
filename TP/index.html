@@ -23,10 +23,10 @@
             <h2 class ="link-dark text-decoration-none border-bottom p-2 mb-3">Table des matières</h2>
             <ul class="list-unstyled" id="navbarTogglerDemo03">
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#env-collapse" aria-expanded="true">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#html-collapse" aria-expanded="true">
                         HTML
                     </button>
-                    <div class="collapse show" id="env-collapse">
+                    <div class="collapse show" id="html-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#preparation" class="d-inline-flex align-items-center rounded">Préparation</a></li>
                             <li><a href="#validation" class="d-inline-flex align-items-center rounded">Validation</a></li>
@@ -36,10 +36,10 @@
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#premier-collapse" aria-expanded="true">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#css-collapse" aria-expanded="true">
                         CSS
                     </button>
-                    <div class="collapse show" id="premier-collapse">
+                    <div class="collapse show" id="css-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#preliminaire" class="d-inline-flex align-items-center rounded">Exercice préliminaire</a></li>
                             <li><a href="#preparation2" class="d-inline-flex align-items-center rounded">Préparation</a></li>
@@ -48,6 +48,17 @@
                         </ul>
                     </div>
                 </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#rwd-collapse" aria-expanded="true">
+                        Responsive Web Design
+                    </button>
+                    <div class="collapse show" id="rwd-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#rwd-html" class="d-inline-flex align-items-center rounded">HTML</a></li>
+                            <li><a href="#rwd-css" class="d-inline-flex align-items-center rounded">CSS</a></li>
+                            <li><a href="#rwd-miseenpage" class="d-inline-flex align-items-center rounded">Mise en page</a></li>
+                        </ul>
+                    </div>
             </ul>
         </nav>
     </aside>
@@ -86,21 +97,21 @@
 &lt;/html&gt;
                     </code></pre>
                     <li>Ouvrez ce fichier dans un navigateur web.</li>
-                    <li>Examinez cette page avec l’outil <em>inspecter</em> de Firefox, accessible dans les outils pour le développement ou via un ”clic droit” sur la page.</li>
-                    <li>Avec ce même outil, examinez le rendu de cette page en vue adaptative, c’est-à-dire comme si elle était affichée sur un terminal mobile.</li>
+                    <li>Examinez cette page avec l'outil <em>inspecter</em> de Firefox, accessible dans les outils pour le développement ou via un "clic droit" sur la page.</li>
+                    <li>Avec ce même outil, examinez le rendu de cette page en vue adaptative, c'est-à-dire comme si elle était affichée sur un terminal mobile.</li>
                 </ul>
             </section>
 
             <section>
                 <h4 id="validation">Validation</h4>
-                <p>Détecter des erreurs de syntaxe ou de structure dans un fichier HTML est compliqué car il n’y a pas de compilation. À l’interprétation, les navigateurs analysent le langage de façon très permissive et peuvent même parfois apporter des corrections automatiques pour réaliser l’affichage.</p>
+                <p>Détecter des erreurs de syntaxe ou de structure dans un fichier HTML est compliqué car il n'y a pas de compilation. À l'interprétation, les navigateurs analysent le langage de façon très permissive et peuvent même parfois apporter des corrections automatiques pour réaliser l'affichage.</p>
                 <ul>
                     <li>Téléchargez le fichier <code>debug-example.html</code> mis à disposition sur UniversiTICE.</li>
-                    <li>Ouvrez-le dans un navigateur et ouvrez l’outil <em>inspecter</em>.</li>
-                    <li>Le code HTML qui apparaît dans la fenêtre du bas n’est pas exactement identique au code du fichier téléchargé. Le navigateur a opéré à des corrections automatiques : lesquelles ?</li>
+                    <li>Ouvrez-le dans un navigateur et ouvrez l'outil <em>inspecter</em>.</li>
+                    <li>Le code HTML qui apparaît dans la fenêtre du bas n'est pas exactement identique au code du fichier téléchargé. Le navigateur a opéré à des corrections automatiques : lesquelles ?</li>
                     <li>Ouvrez maintenant le validateur du W3C : <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>.</li>
                     <li>Faites le diagnostique du fichier <code>debug-example.html</code>.</li>
-                    <li>En vous aidant du compte-rendu, corrigez toutes les erreurs jusqu’à ce que le validateur n’en détecte plus aucune.</li>
+                    <li>En vous aidant du compte-rendu, corrigez toutes les erreurs jusqu'à ce que le validateur n'en détecte plus aucune.</li>
                 </ul>
             </section>
 
@@ -109,8 +120,8 @@
                 <p>Le but de cet exercice est d'écrire une page HTML reprenant la structure du document <code>tim-berners-lee.pdf</code>, disponible sur UniversiTICE. Le texte "brut" est fourni dans le fichier <code>tim-berners-lee.txt</code>. Pour structurer cette page, vous devez respecter les contraintes suivantes :</p>
                 <ol>
                     <li>Chaque partie de ce texte doit être incluse dans une ou plusieurs balises structurantes HTML5 (e.g. article, section, aside, etc.). Aidez-vous des titres pour structurer de façon pertinente.</li>
-                    <li>Les phrases bleues et soulignées tout en bas de la page sont des liens vers des articles Wikipédia. Ces derniers devront s’ouvrir dans un nouvel onglet. Les liens de la table des matières en revanche, sont des liens internes à la page.</li>
-                    <li>La page doit être datée et ”signée” avec les balises sémantiques prévues à cet effet.</li>
+                    <li>Les phrases bleues et soulignées tout en bas de la page sont des liens vers des articles Wikipédia. Ces derniers devront s'ouvrir dans un nouvel onglet. Les liens de la table des matières en revanche, sont des liens internes à la page.</li>
+                    <li>La page doit être datée et "signée" avec les balises sémantiques prévues à cet effet.</li>
                     <li>La vérification de cette page HTML (<a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>) ne doit retourner aucune erreur ni avertissement.</li>
                 </ol>
             </section>
@@ -123,22 +134,22 @@
                 </figure>
                 <p>Pour parvenir à ce résultat, vous aurez besoin de vous documenter ; par exemple en allant ici : <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms" target="_blank">https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms</a>. Voici quelques informations supplémentaires pour vous guider :</p>
                 <ul>
-                    <li>les éléments de ce formulaire, à l’exception des boutons Valider et Effacer, sont regroupés dans un <code>fieldset</code>.</li>
-                    <li>Les formulaires servent normalement à saisir des informations qui sont ensuite envoyées au serveur. N’ayant pas de serveur à disposition, ni d’application serveur pour traiter ces données, le formulaire simulera l’envoie vers une page fictive. Actionner le bouton Valider fera normalement apparaître une erreur 404.</li>
-                    <li>L’agencement des différents éléments du formulaire est à réaliser avec un ou des tableaux HTML.</li>
+                    <li>les éléments de ce formulaire, à l'exception des boutons Valider et Effacer, sont regroupés dans un <code>fieldset</code>.</li>
+                    <li>Les formulaires servent normalement à saisir des informations qui sont ensuite envoyées au serveur. N'ayant pas de serveur à disposition, ni d'application serveur pour traiter ces données, le formulaire simulera l'envoie vers une page fictive. Actionner le bouton Valider fera normalement apparaître une erreur 404.</li>
+                    <li>L'agencement des différents éléments du formulaire est à réaliser avec un ou des tableaux HTML.</li>
                 </ul>
-                <p>Pour terminer, vous devez vérifier que votre page ne déclenche pas d’erreur ou d’avertissement (<a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>).</p>
+                <p>Pour terminer, vous devez vérifier que votre page ne déclenche pas d'erreur ou d'avertissement (<a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>).</p>
             </section>
 
         </section>
-        
+
 
         <section>
             <h3 id="html">CSS</h3>
 
             <section>
                 <h4 id="preliminaire">Exercice préliminaire</h4>
-                <p>En guise de premier exercice sur les sélecteurs, rendez-vous à l’adresse : <a href="https://flukeout.github.io/" target="_blank">https://flukeout.github.io/</a>. Vous y trouverez un jeu dont le but est de définir le sélecteur adéquat pour sélectionner certains éléments d’un petit extrait de code HTML. Une aide est affichée à la droite de l’écran, mais il peut être utile de consulter la page <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors</a> avant de vous lancer.</p>
+                <p>En guise de premier exercice sur les sélecteurs, rendez-vous à l'adresse : <a href="https://flukeout.github.io/" target="_blank">https://flukeout.github.io/</a>. Vous y trouverez un jeu dont le but est de définir le sélecteur adéquat pour sélectionner certains éléments d'un petit extrait de code HTML. Une aide est affichée à la droite de l'écran, mais il peut être utile de consulter la page <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors</a> avant de vous lancer.</p>
             </section>
 
             <section>
@@ -146,16 +157,16 @@
 
                 <section>
                     <h5>Mise en place</h5>
-                    <p>Vous avez vu en cours qu’il y avait trois façons d’appliquer des styles CSS à une page HTML :</p>
+                    <p>Vous avez vu en cours qu'il y avait trois façons d'appliquer des styles CSS à une page HTML :</p>
                     <ul>
-                        <li>en utilisant l’attribut style dans les balises HTML</li>
-                        <li>en utilisant la balise style dans l’entête du fichier HTML</li>
-                        <li>en définissant les styles dans un fichier d’extension <code>.css</code> et en l’associant à la page HTML</li>
+                        <li>en utilisant l'attribut style dans les balises HTML</li>
+                        <li>en utilisant la balise style dans l'entête du fichier HTML</li>
+                        <li>en définissant les styles dans un fichier d'extension <code>.css</code> et en l'associant à la page HTML</li>
                     </ul>
-                    <p>C’est la troisième méthode que vous devez utiliser dans ce TP :</p>
+                    <p>C'est la troisième méthode que vous devez utiliser dans ce TP :</p>
                     <ol>
                         <li>Dans un nouveau dossier, faites une copie de la page HTML créée à l'exercice 1.3.</li>
-                        <li>Dans le même dossier, créez un nouveau fichier d’extension <code>.css</code>, et définissez-y une première règle de style pour changer la police de caractères à <code>Gill Sans</code> pour toute la page. Si cette police n’est pas prise en charge par le navigateur, il devra utiliser la police générique <code>sans-serif</code>.</li>
+                        <li>Dans le même dossier, créez un nouveau fichier d'extension <code>.css</code>, et définissez-y une première règle de style pour changer la police de caractères à <code>Gill Sans</code> pour toute la page. Si cette police n'est pas prise en charge par le navigateur, il devra utiliser la police générique <code>sans-serif</code>.</li>
                         <li>Appliquez cette feuille de style à la page HTML et visualisez le résultat dans un navigateur.</li>
                         <li>Modifiez la feuille de style pour changer la couleur de fond de la page. Choisissez la couleur de votre choix (<a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">https://www.w3schools.com/colors/colors_names.asp</a>).</li>
                     </ol>
@@ -163,12 +174,12 @@
 
                 <section>
                     <h5>Reset CSS</h5>
-                    <p>Il s’agit maintenant d’appliquer un reset CSS à la page HTML, pour supprimer les styles par défaut des navigateurs:</p>
+                    <p>Il s'agit maintenant d'appliquer un reset CSS à la page HTML, pour supprimer les styles par défaut des navigateurs:</p>
                     <ol>
                         <li>Commencez par lire cet article: <a href="https://css-tricks.com/reboot-resets-reasoning/">https://css-tricks.com/reboot-resets-reasoning/.</a></li>
-                        <li>Pour cet exercice, nous proposons d’utiliser le reset disponible ici: <a href="http://html5doctor.com/html-5-reset-stylesheet/">http://html5doctor.com/html-5-reset-stylesheet/.</a> Appliquez cette feuille à votre page HTML en faisant en sorte qu'elle soit appliquée à la page avant la feuille de style créée précédemment.</li>
-                        <li>Comparez les résultats obtenus sur différents navigateurs, avant et après l’activation du reset CSS.</li>
-                        <li>Dans la feuille de style créée à l’exercice précédent, redéfinissez des styles globaux pour:</li>
+                        <li>Pour cet exercice, nous proposons d'utiliser le reset disponible ici: <a href="http://html5doctor.com/html-5-reset-stylesheet/">http://html5doctor.com/html-5-reset-stylesheet/.</a> Appliquez cette feuille à votre page HTML en faisant en sorte qu'elle soit appliquée à la page avant la feuille de style créée précédemment.</li>
+                        <li>Comparez les résultats obtenus sur différents navigateurs, avant et après l'activation du reset CSS.</li>
+                        <li>Dans la feuille de style créée à l'exercice précédent, redéfinissez des styles globaux pour:</li>
                         <ul>
                             <li>la taille de la police du texte</li>
                             <li>la taille de la police des titres</li>
@@ -185,8 +196,8 @@
 
                 <section>
                     <h5>Variables CSS</h5>
-                    <p>La prochaine étape consiste à établir la charte graphique. La plupart du temps, c’est un professionnel du Web design qui se charge de cette étape car cela demande surtout des compétences de graphiste. Pour ce TP, vous allez vous contenter de définir les polices de caractères et les couleurs de la page.</p>
-                    <p>Pour cela, nous proposons d’utiliser des variables CSS comme montré dans l’exemple suivant :</p>
+                    <p>La prochaine étape consiste à établir la charte graphique. La plupart du temps, c'est un professionnel du Web design qui se charge de cette étape car cela demande surtout des compétences de graphiste. Pour ce TP, vous allez vous contenter de définir les polices de caractères et les couleurs de la page.</p>
+                    <p>Pour cela, nous proposons d'utiliser des variables CSS comme montré dans l'exemple suivant :</p>
                     <pre><code class="language-css">
 :root {
     --background-color: #F5F5F6;
@@ -195,14 +206,14 @@ body {
     background-color: var(--background-color);
 }
                     </code></pre>
-                    <p>Le nom d’une variable CSS doit commencer par <code>--</code>. Elle peut ensuite être réutilisée dans la feuille de style à l’aide de la fonction <code>var()</code>. La portée d’une variable correspond à l’élément HTML désigné par le sélecteur de la règle dans laquelle elle est déclaré. Ici, nous utilisons la pseudo-classe <code>:root</code> qui permet de désigner l’élement racine de la page, afin que la variable soit accessible pour l’ensemble des règles de style qu’elle contient.</p>
+                    <p>Le nom d'une variable CSS doit commencer par <code>--</code>. Elle peut ensuite être réutilisée dans la feuille de style à l'aide de la fonction <code>var()</code>. La portée d'une variable correspond à l'élément HTML désigné par le sélecteur de la règle dans laquelle elle est déclaré. Ici, nous utilisons la pseudo-classe <code>:root</code> qui permet de désigner l'élement racine de la page, afin que la variable soit accessible pour l'ensemble des règles de style qu'elle contient.</p>
                     <p>Vous allez donc définir 5 variables correspondant à 5 couleurs différentes :</p>
                     <ol>
-                        <li>déclarez deux variables pour les couleurs d’arrière-plan, nommées <code>--background-color1</code> et <code>--background-color2</code></li>
-                        <li>déclarez trois variables pour les couleurs d’avant-plan, nommées <code>--foreground-color1</code>, <code>--foreground-color2</code> et <code>--foreground-color3</code></li>
-                        <li>utilisez ces variables pour changer la couleur d’arrière-plan de votre page et la couleur du texte. </li>
+                        <li>déclarez deux variables pour les couleurs d'arrière-plan, nommées <code>--background-color1</code> et <code>--background-color2</code></li>
+                        <li>déclarez trois variables pour les couleurs d'avant-plan, nommées <code>--foreground-color1</code>, <code>--foreground-color2</code> et <code>--foreground-color3</code></li>
+                        <li>utilisez ces variables pour changer la couleur d'arrière-plan de votre page et la couleur du texte. </li>
                     </ol>
-                    <p>N’hésitez pas à chercher sur internet des jeux de couleurs harmonieuses (e.g. avec <a href="https://coolors.co/" target="_blank">https://coolors.co/</a>). Si le sujet du choix judicieux des couleurs vous intéresse, vous pouvez lire cet <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Using_color_wisely" target="_blank">article</a>.</p>
+                    <p>N'hésitez pas à chercher sur internet des jeux de couleurs harmonieuses (e.g. avec <a href="https://coolors.co/" target="_blank">https://coolors.co/</a>). Si le sujet du choix judicieux des couleurs vous intéresse, vous pouvez lire cet <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Using_color_wisely" target="_blank">article</a>.</p>
                 </section>
 
             </section>
@@ -222,12 +233,12 @@ body {
                         <li>Définissez une règle de style pour faire en sorte que seuls les menus principaux soient affichés dans la barre de navigation. Le titre "Tables des matières" et les sous-menus doivent être masqués sans être supprimés de la page HTML.</li>
                         <li>Définissez une règle de style pour :</li>
                         <ul>
-                            <li>définir la couleur de fond de la barre de navigation avec une des trois couleurs d’avant-plan que vous avez définies dans l’exercice précédent.</li>
-                            <li>que cette barre occupe toute la largeur de l’écran.</li>
-                            <li>qu’elle soit "collée" en haut de l’écran</li>
+                            <li>définir la couleur de fond de la barre de navigation avec une des trois couleurs d'avant-plan que vous avez définies dans l'exercice précédent.</li>
+                            <li>que cette barre occupe toute la largeur de l'écran.</li>
+                            <li>qu'elle soit "collée" en haut de l'écran</li>
                         </ul>
-                        <li>Définissez des règles de style pour que les menus s'affichent en ligne, les uns à coté des autres et qu’ils soient 1.2 fois plus grand que le texte de la page.</li>
-                        <li>Ajoutez un logo dans l’élément HTML qui définit le menu de navigation (dans le fichier HTML), puis définissez des règles de style pour que :</li>
+                        <li>Définissez des règles de style pour que les menus s'affichent en ligne, les uns à coté des autres et qu'ils soient 1.2 fois plus grand que le texte de la page.</li>
+                        <li>Ajoutez un logo dans l'élément HTML qui définit le menu de navigation (dans le fichier HTML), puis définissez des règles de style pour que :</li>
                         <ul>
                             <li>sa hauteur soit égale à 2.5 fois la taille de la police de caractères.</li>
                             <li>il soit placé à gauche des menus de navigations.</li>
@@ -241,13 +252,13 @@ body {
                     <h5>Réparer la navigation</h5>
                     <p>En testant votre page sur différents navigateurs, vous devez constater que les liens ne sont pas très pratiques :</p>
                     <ul>
-                        <li>il n’existe pas de moyen de revenir en haut de la page sans avoir à ”scroller” toute la page.</li>
-                        <li>le haut de l’article que chaque lien est sensé afficher est caché par le menu de navigation.</li>
+                        <li>il n'existe pas de moyen de revenir en haut de la page sans avoir à "scroller" toute la page.</li>
+                        <li>le haut de l'article que chaque lien est sensé afficher est caché par le menu de navigation.</li>
                     </ul>
                     <p>Voici des éléments de solutions pour ces deux problèmes :</p>
                     <ul>
-                        <li>Pour le premier problème, une solution courante est d’ajouter un lien sur le logo de la barre de navigation, qui dirige vers le haut de la page.</li>
-                        <li>Pour le deuxième problème, il existe plusieurs solutions documentées sur Internet. L’une d’elles consiste à définir la cible du lien avec une balise <code>div</code> vide, placée juste avant la cible réelle. Ensuite, avec CSS, il faut modifier le positionnement relatif de la cible pour le déplacer vers le haut, à l’aide de la pseudo-classe :target.</li>
+                        <li>Pour le premier problème, une solution courante est d'ajouter un lien sur le logo de la barre de navigation, qui dirige vers le haut de la page.</li>
+                        <li>Pour le deuxième problème, il existe plusieurs solutions documentées sur Internet. L'une d'elles consiste à définir la cible du lien avec une balise <code>div</code> vide, placée juste avant la cible réelle. Ensuite, avec CSS, il faut modifier le positionnement relatif de la cible pour le déplacer vers le haut, à l'aide de la pseudo-classe :target.</li>
                     </ul>
                 </section>
             </section>
@@ -265,10 +276,10 @@ body {
                 <section>
                     <h5>Style global</h5>
                     <ol>
-                        <li>Définissez la largeur du contenu principal de la page à 70% de la largeur de l’écran, et centrez ce contenu dans la fenêtre.</li>
+                        <li>Définissez la largeur du contenu principal de la page à 70% de la largeur de l'écran, et centrez ce contenu dans la fenêtre.</li>
                         <li>Ajoutez un espace suffisamment important en haut de la page pour que la barre de navigation ne masque plus le contenu.</li>
                         <li>Faites en sorte que le texte de la page soit justifié.</li>
-                        <li>Définissez le style des titres principaux de la page selon vos goûts, mais faites en sorte qu’ils soient différents du reste du texte.</li>
+                        <li>Définissez le style des titres principaux de la page selon vos goûts, mais faites en sorte qu'ils soient différents du reste du texte.</li>
                     </ol>
                 </section>
                 <section>
@@ -277,6 +288,71 @@ body {
 
             </section>
         </section>
+
+
+        <section>
+            <h3 id="rwd">Responsive Web Design</h3>
+
+            <p>Dans cette troisième partie, nous proposons de suivre un tutoriel réalisé par <a href=" https://www.traversymedia.com/" target="_blank">Traversy Media</a>, qui consiste à réaliser un site web "<em>responsive</em>" en utilisant HTML5 et CSS. Nous décrivons succinctement ci-dessous le site à réaliser. Vous êtes invité à essayer de réaliser ce site par vous même avant de vous référer à la solution proposée dans la vidéo du tutoriel, accéssible <a href="https://www.youtube.com/watch?v=Wm6CUkswsNw&t=1s" target="_blank">ici</a>.</p>
+
+            <section>
+                <h4 id="rwd-html">Les pages HTML</h4>
+                <p>Le site comprend 3 pages:</p>
+                <ul>
+                    <li><code>index.html</code></li>
+                    <li><code>about.html</code></li>
+                    <li><code>services.html</code></li>
+                </ul>
+                <p>La première page <code>index.html</code> est la page d'accueil du site, montré ci-dessous.</p>
+                <img src="../img/acme1.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <p>Cette page est subdivisée en 5 parties:</p>
+                <ul>
+                    <li>l'entête qui comprend le nom de l'entreprise à gauche et le menu de navigation à droite</li>
+                    <li>un bandeau "vitrine" avec une image de fond, un slogan et un paragraphe court en dessous</li>
+                    <li>une section newsletter avec un titre et un formulaire pour la saisie d'une adresse mail (inactif)</li>
+                    <li>un corps de page avec trois cartes, chacune comprenant une image, un titre et un paragraphe</li>
+                    <li>un pied-de-page avec un <em>copyright</em></li>
+                </ul>
+                <p>Les deux autres pages, montrées ci-dessous, contiennent le même entête, la même section <em>newsletter</em> et le même pied-de-page que la page d'accueil, mais ont un corps de page différent. Les corps de ces pages contiennent une colonne de contenu principal à gauche et une colonne de contenu secondaire à droite.</p>
+                <img src="../img/acme2.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <img src="../img/acme3.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <p>Les images inclues dans ces trois pages sont mis à disposition sur UniversiTICE.</p>
+            </section>
+
+            <section>
+                <h4 id="rwd-css">La feuille de styles CSS</h4>
+                <p>Les trois pages de ce site sont toutes liées à la même feuille de styles CSS. Pour définir cette feuille:</p>
+                <ul>
+                    <li>Vous devez définir les règles de styles les plus génériques en premier, puis aller vers les plus spécifiques ensuite.</li>
+                    <li>Les règles de styles peuvent être définies séparemment pour chaque zone de la page.</li>
+                    <li>Il y a 3 couleurs de fonds pour chaque pages: un gris clair (<code>#f4f4f4</code>), un gris foncé (<code>#35424a</code>) et un orange (<code>#e8491d</code>). Ces trois couleurs sont également réutilisées.à divers endroits (nom de l'entreprise, menus de navigation, boutons, etc.)</li>
+                    <li>Les polices de caractères sont <em>Arial</em> ou <em>Helvetica</em> ou <em>sans-serif</em>. La taille est de 15 pixels avec un interligne de 1.5.</li>
+                    <li>Les dimensions sont à définir en pixels ou en pourcentages. Vous pouvez utiliser l'unité <code>em</code> qui est parfois plus intuitive. Il n'est pas indispensable de respecter les dimensions de l'exemple au pixel près.</li>
+                    <li>Il y a évidemment plusieurs façons de procéder, mais n'hésitez pas à vous référer régulièrement à la vidéo du tutoriel pour avoir des explications.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h4 id="rwd-miseenpage">Mise en page adaptative</h4>
+                <p>La figure ci-dessous montre les trois pages sur un écran de smartphone (428px de large)</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="../img/acme1-mob.png" class="img-fluid framed">
+                        </div>
+                        <div class="col-4">
+                            <img src="../img/acme2-mob.png" class="img-fluid framed">
+                        </div>
+                        <div class="col-4">
+                            <img src="../img/acme3-mob.png" class="img-fluid framed">
+                        </div>
+                        </div>
+                </div>
+                <p>Les éléments sont réagencés dans chacune des zones. Ce comportement est implanté avec CSS, en utilisant quelques unes des techniques de RWD vues en cours.</p>
+                <p>Cependant, ce site web étant très simple, il n'est pas nécessaire de mettre en oeuvre toutes les techniques vues en cours. Par exemple, il n'est pas indispensable ici d'utiliser une grille flexible. En revanche, il faudra définir au moins un point de rupture pour modifier la disposition des éléments quand la largeur de l'écran se réduit.</p>
+            </section>
+
+
 
     </main>
 

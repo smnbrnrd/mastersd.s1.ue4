@@ -1,0 +1,119 @@
+-Tim Berners-Lee
+
+[IMAGE
+	légende : Tim Berners Lee
+	source : fichier joint tim-berners-lee.jpg
+]
+
+Tim Berners-Lee, né le 8 juin 1955 à Londres, est un physicien et informaticien britannique.
+
+Il est le principal inventeur du World Wide Web (WWW, le Web), qu'il conçoit au tournant des années 1990 alors qu'il travaille à l'Organisation européenne pour la recherche nucléaire (CERN).
+
+Le 6 août 1991, il annonce officiellement le projet WWW dans un message posté sur le forum Usenet, en incitant les internautes à utiliser les outils du CERN afin de créer leur propre site web.
+
+En créant le Web, Tim Berners-Lee invente ses trois technologies fondatrices : les adresses Web sous forme d'URL, le protocole de communication HTTP, et le langage informatique HTML.
+
+Il fut aidé à ses débuts par l'ingénieur et informaticien belge Robert Cailliau qui cosigna notamment avec lui, en novembre 1990, un document désormais entré dans l'Histoire et intitulé "WorldWideWeb : Proposition pour un projet hypertexte".
+
+Depuis 1994, il préside le World Wide Web Consortium (W3C), organisme qu'il a fondé.
+
+En juillet 2004, il est fait chevalier par la reine Élisabeth II.
+
+Il est également lauréat du prix Turing 2016.
+
+
+--Table des matières
+
+- Biographie
+- Carrière
+	- L'invention du World Wide Web
+	- Le W3C, la naissance et l'évolution du Web sémantique
+- Quelques titres et récompenses
+- Articles Connexes
+
+
+--Biographie
+
+Tim Berners-Lee a vu le jour le 8 juin 1955 à Londres, en Angleterre. Fils de Conway Berners-Lee et de Mary Lee Woods, il étudie la physique au Queen's College de l'Université d'Oxford de 1973 à 1976, année durant laquelle il obtient une maîtrise en physique. Il profite de ses années à l'Université d'Oxford pour fabriquer son premier ordinateur à partir d'un microprocesseur Motorola 6800 et d'une vieille télévision.
+
+Après l'obtention de sa maîtrise, il travaille pour Plessey Telecommunications Ltd, fabricant d’équipements de télécommunications, puis pour D. G. Nash Ltd, une entreprise spécialisée dans l’impression informatique.
+
+Tim Berners-Lee est père de deux enfants. 
+
+
+--Carrière
+
+
+---L'invention du World Wide Web
+
+[IMAGE
+	légende : L'ordinateur NeXT, utilisé par Tim Berners-Lee pour inventer le World Wide Web.
+	source : fichier joint Tim_Berners-Lee's_computer_at_CERN.jpg
+]
+
+Durant l'année 1980, il travaille pour la première fois au Conseil européen pour la recherche nucléaire (CERN). Il y retourne en 1984. Sur son lieu de travail, il est connecté au réseau interne et à l'ARPANET.
+
+Le 13 mars 1989, sous la forme d'un document intitulé "Information Management: A Proposal" ("Gestion de l'information : Une proposition"), Tim Berners-Lee propose à son supérieur Mike Sendall un projet de gestion des informations générales sur les accélérateurs et les expériences au CERN basé sur un système hypertexte distribué. L'annotation de Sendall, qualifiant le projet de "vague mais prometteur" en est le point de départ car elle autorise Tim Berners-Lee à travailler dans ce domaine.
+
+L'objectif de cette proposition est le partage des documents informatiques, ce que Tim Berners-Lee a l'idée de réaliser en associant le principe de l’hypertexte à l'utilisation d'Internet. En imaginant cela, il ouvre la perspective d'une nouvelle façon de communiquer par des systèmes distribués permettant l'échange instantané d'informations. Il déclarera plus tard à ce sujet : "Je n'ai fait que prendre le principe d’hypertexte et le relier au principe du TCP et du DNS et alors – boum ! – ce fut le World Wide Web !". Cette invention qu'il développe sur un ordinateur NeXT a pour ambition initiale le partage sur un seul réseau de toutes les informations afin de faciliter la communication et les travaux des chercheurs du CERN. Outre les informations, il y a chez Berners-Lee la volonté de connecter chaque membre du laboratoire. Il faut donc comprendre cette évolution plus comme un dispositif de création sociale qu'une avancée purement technique. En effet, le CERN regroupe des scientifiques de nationalités différentes, dont le travail se fait en partie en dehors du laboratoire genevois, c'est-à-dire dans leur pays d'origine.
+
+C'est en mai 1990 qu'il adopte l'expression de World Wide Web pour nommer son projet. Il est rejoint par l'ingénieur belge Robert Cailliau (son premier collaborateur) et par quelques autres membres du CERN. Ensemble, ils améliorent la proposition de départ et la matérialisent. À partir de 1990, ils développent les trois principales technologies du Web : les adresses web (URL), l'Hypertext Transfer Protocol (HTTP) et l'Hypertext Markup Language (HTML). Pour favoriser cette mise en commun généralisée dans un espace créatif, ils développent aussi le premier navigateur web, éditeur Web (dénommé WorldWideWeb et développé sur NeXTSTEP) et serveur HTTP. Au commencement, cela permettait aux physiciens d'avoir des informations sur l'hypertexte, de créer leur page web et de chercher des informations. En 1991, pour la première fois, le système WWW est à la disposition des physiciens par le biais de la bibliothèque de logiciels du CERN. Une utilisation qui s'étend dans un premier temps à une pratique universitaire et scientifique et qui touche ensuite les milieux professionnels alors que le 30 avril 1993, le CERN décide de verser le logiciel web dans le domaine public.
+
+Dans cette entreprise, Tim Berners-Lee s'inscrit dans le principe du "end to end" (en français "l'intelligence est aux extrémités"). Cela signifie qu'un ordinateur quel qu'il soit n'a nullement besoin de modifier la structure de son réseau pour utiliser un nouveau dispositif, mais seulement d'installer des logiciels qui permettent son utilisation. Cette logique encourage le libre usage des nouveaux protocoles par les différents utilisateurs, ce qui en favorise le succès. 
+
+À la fin de l'année 1990, le navigateur conçu par le physicien britannique n'est utilisable que par les utilisateurs d'un ordinateur NeXT aux capacités nettement supérieures à celles des machines courantes de l'époque. La communauté des utilisateurs potentiels était alors trop restreinte pour que la pratique se généralise, ne serait-ce qu'au sein du CERN. 
+
+Au printemps 1991, la diffusion du dispositif progresse grâce au premier système compatible avec tous les ordinateurs par la mise en place d'un outil simplifié en mode ligne universel.
+
+C'est cette version qui est proposée en libre accès sur Internet et qui encourage Tim Berners-Lee, conscient que l'ampleur du travail ne peut pas être assurée uniquement par son équipe, à solliciter une aide extérieure pour un développement plus abouti du système émergent.
+
+En effet, entre la première version qui n'est pas portable sur les ordinateurs courants de l'époque, et la seconde qui est beaucoup plus accessible, mais nettement moins aboutie (aucun élément graphique) et performante, il est nécessaire que d'autres acteurs interviennent pour trouver un équilibre. Ce n'est qu'alors que se mettent en place différentes propositions de navigateurs par le biais du X Window System.
+
+Le 6 août 1991, Tim Berners Lee annonce officiellement dans un message posté sur le forum Usenet la création du projet World Wide Web. Il incite les internautes à l'essayer en indiquant l’adresse permettant de télécharger un navigateur ainsi que l’URL d’un site d’essai[15]. Tout le monde peut ainsi utiliser les outils développés par le CERN, en particulier le langage HTML et le protocole http, pour créer son propre site web.
+
+Une évolution majeure intervient en 1993 avec le développement du navigateur NCSA Mosaic par le National Center for Supercomputing Applications (NCSA). Ce programme propose une interface plus simple et commence à pénétrer le monde scientifique. Ensuite, avec de nouvelles versions sur compatible PC et sur Macintosh, le NCSA permet au Web d'être adopté par un public beaucoup plus large.
+
+En 1994, lors de la première conférence internationale WWW organisée au CERN par Robert Cailliau (le collaborateur principal de Berners-Lee dans le développement du WWW), Tim Berners-Lee est désigné membre du Hall of Fame des fondateurs du World Wide Web.
+
+Cette même année, il quitte le CERN pour rejoindre le Massachusetts Institute of Technology (MIT), où il occupe la chaire Computer Communication Compatibility au Laboratory for Computer Science (LCS). 
+
+
+---Le W3C, la naissance et l'évolution du Web sémantique
+
+[IMAGE
+	légende : Logo du W3C
+	source : fichier joint W3C-logo.svg
+]
+
+C'est dans la dynamique de ses travaux précédents qu'il fonde en 1994 (lors de la conférence internationale du WWW) le World Wide Web Consortium (W3C) au Massachusetts Institute of Technology (MIT). En cohérence avec la vision qu'a Tim Berners-Lee du Web, le W3C a pour vocation de développer un espace de partage pour tous basé sur l'interaction.
+
+Visant une utilisation universelle du Web, le W3C travaille sur des standards et une normalisation globale indépendante des différents outils utilisés par les internautes (ordinateurs, logiciels, etc.). Dans la même perspective de généralisation, ces standards doivent être libres de droit et ouverts à tous. La formule qui généralise l'idée fondatrice est de "mener le Web à optimiser pleinement son potentiel". Vingt ans plus tard, ces objectifs initiaux et cette même vision perdurent au sein du W3C dont Berners-Lee est encore directeur, en 2013, accompagné de Jeffrey Jaffe au poste de chef de la direction. 
+
+La naissance du W3C lors de la première conférence internationale du WWW est concomitante avec une nouvelle idée forte de Tim Berners-Lee: le Web sémantique. Lors de cette conférence, il explique que "le Web a besoin de sémantique" : il cherche à dépasser la logique de l'hypertexte dans la perspective de lier le Web au monde réel par la sémantique. Il pose ainsi les premières bases théoriques du Web sémantique qui se concrétisent quelques années plus tard avec deux brouillons de recommandations à ce sujet en 1997 et 1998. Ils sont issus de groupes de travail de la W3C qui impliquent des contributeurs provenant d'entités diverses (IBM, Nokia, Microsoft, Netscape, Reuters, etc.). En 1998, Tim Berners-Lee met en place ce qu'il appelle le "Semantic Web roadmap" ("feuille de route du Web sémantique") où il élabore les différents objectifs techniques afin de parvenir à la mise en place de ce qu'il considère comme une base de données globale à l'échelle du réseau. Pour cela, il faut créer un lien entre l'usager qui doit se trouver dans un espace de collaboration et de coopération, d'une part, et les machines qui doivent saisir les données, d'autre part. Ces dispositifs techniques (XML, URI, l'ontologie, l'hypertexte, les données, etc.) doivent s'imbriquer afin de permettre au Web sémantique d'exprimer tout son potentiel. Cet agencement est symbolisé par Tim Berners-Lee dans le "layer cake", un schéma qui montre comment toutes ces technologies doivent fonctionner ensemble. 
+
+En 2001, le Web sémantique sort du cadre de la recherche et Berners-Lee, Ora Lassila et Hames Hendler publient un article dans le Scientific American présentant les technologies indispensables à sa mise en place. Ils axent la rédaction sur l'idée de connaissance entre son utilisation et son évolution. Cependant, la vulgarisation est quelque peu balbutiante et le grand public ne saisit pas totalement les enjeux ainsi que la complexité de cette notion. La difficulté relève notamment de la polysémie du mot "sémantique" qui est difficile à saisir. C'est pourquoi Berners-Lee met en place la notion de Linked Data dans une nouvelle note en 2006. Il introduit le concept de la manière suivante : "Le Web sémantique n'est pas seulement l'introduction de données web. Il s'agit plus de faire des liens entre elles afin que les machines et les personnes puissent consulter le Web des données. Avec le Linked Data, il suffit d'avoir quelques données pour en trouver d'autres en rapport avec elles". En ce sens, Tim Berners-Lee reconnait en 2007 dans La Recherche que "le terme sémantique prête un peu à confusion". Il explique ainsi que le terme "Web des données" lui est préférable, car il n'a pas de lien avec le langage et sa construction à la différence de l'idée de sémantique. Le mouvement du Web des données ne cesse de prendre de l'ampleur grâce au développement de technologies liées au Web 2.0 et à la naissance de DBpedia, véritable noyau dur du Linked Data. En 2009, lors d'une conférence TED Tim Berners-Lee lance un appel nommé "Raw Data Now" (Des données brutes maintenant) où il encourage l'ensemble du monde à libérer leurs données afin de les connecter entre elles. Il milite alors pour l'open access et cela concerne les institutions politiques (il interpelle directement Barack Obama), les entreprises, les scientifiques, les universitaires, mais aussi les individus, car "chaque aspect de la vie génère des données".
+
+
+
+--Quelques titres et récompenses
+
+Il a reçu de nombreuses récompenses pour son travail, en voici quelques-unes par ordre chronologique :
+- en 1994, il devient un des six membres du World Wide Web Hall of Fame,
+- en 1995, il  se voit remettre par la Kilby Foundation l'Oscar du "Jeune innovateur de l'année" pour son invention du World Wide Web, 
+- en 1999, le Time Magazine le classe parmi les 100 personnalités les plus importantes du XXe siècle,
+- En 2001, il devient membre de la Royal Society,
+- Le 16 juillet 2004, il est fait chevalier par la reine du Royaume-Uni Élisabeth II lors d'une cérémonie d'investiture à Londres où il reçoit le titre de chevalier commandeur de l'ordre de l'Empire britannique. Ce titre, classé deuxième dans le système honorifique britannique, lui est attribué en reconnaissance de services rendus pour "le développement global d'Internet",
+- le 13 juin 2007, la reine Élisabeth II lui confère l'ordre du Mérite, seconde décoration du royaume britannique et qui n'est conféré qu'à 24 personnes vivantes au total,
+- le 30 mars 2011, il est l'un des trois récipiendaires du prix Mikhail Gorbachev pour "L'Homme qui a changé le Monde" ("The Man who changed the World"),
+- Le 26 mai 2011, il reçoit un doctorat honorifique en sciences de l’Université Harvard,
+- Le 27 juillet 2012, il est honoré à la cérémonie d'ouverture des Jeux olympiques de Londres, concoctée par le réalisateur Danny Boyle, en apparaissant à l'issue d'un tableau mettant en scène 45 ans de culture populaire britannique,
+- Le 4 avril 2017, il reçoit le prix Turing pour avoir inventé le World Wide Web, le premier navigateur web et les protocoles et algorithmes permettant le passage à l'échelle du Web,
+
+
+Article Connexes
+
+- World Wide Web
+- World Wide Web Consortium
+- CERN
+- Hypertext Markup Language
+- Web sémantique
