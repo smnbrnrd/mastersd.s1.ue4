@@ -44,7 +44,7 @@ img + .caption {
     text-align: center;
     margin-top: 0.5em;
 }
-img.framed {
+.framed {
     border: solid 1px var(--tertiary-color);
 }
 .w-100 { width: 100%; }
