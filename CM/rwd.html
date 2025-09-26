@@ -33,14 +33,14 @@
                     <li><span class="alert"><em>Adaptive Design</em></span></li>
                     <ul>
                         <li>Plusieurs versions de la page pour différentes tailles d'écran.</li>
-                        <li>Le système détecte la taille de l'écran et charge la version appropriée (côté serveur le plus souvent).</li>
+                        <li>Le système identifie le type d'écran et charge la version appropriée (côté serveur).</li>
                         <li>Basé sur des points de ruptures qui définissent les différentes versions.</li>
                     </ul>
                     <li><span class="alert"><em>Responsive Design</em></span></li>
                     <ul>
-                        <li>Une seule version de la page qui s'adapte à la taille de l'écran, côté client.</li>
+                        <li>Une seule version de la page qui s'adapte à la taille de l'écran (côté client).</li>
                         <li>Utilise des unités/grilles/médias flexibles.</li>
-                        <li>Basé sur des outils CSS qui appliquent des styles différents selon la taille de l'écran.</li>
+                        <li>Basé sur des outils CSS qui appliquent des styles différents selon l'écran.</li>
                     </ul>
                 </ol>
                 <p class="mt-5">(démonstration: <a href="http://g-mops.net/epica_saitama/epica_layout/index_adaptive.html" target="_blank">http://g-mops.net/epica_saitama/epica_layout/index_adaptive.html</a>)</p>
@@ -51,7 +51,7 @@
                 <h1>Viewport</h1>
                 <div class="boxtitle">Viewport</div>
                 <div class="boxcontent mb-4">
-                    <p>La partie d’une fenêtre dans laquelle est affiché un contenu. Il désigne le plus souvent l’intérieur de la fenêtre d’un navigateur web mais ce peut aussi être un webview (e.g. dans les applications mobiles).</p>
+                    <p>Zone dans laquelle est affiché un contenu. Désigne le plus souvent l’intérieur de la fenêtre d’un navigateur web mais ce peut aussi être un webview (e.g. dans les applications mobiles).</p>
                 </div>
                 <ul>
                     <li>Responsive Web Design = s'adapter automatiquement à la largeur du viewport</li>
@@ -64,8 +64,8 @@
             <section>
                 <h1>Viewport</h1>
                 <ul>
-                    <li>Fondamentalement, HTML s'adapte déjà à la taille du viewport (cf. flux normal)</li>
-                    <li>Souvent insuffisant pour les écrans très larges (mise en page étirée) ou très étroits (contenu écrasé)</li>
+                    <li>HTML s'adapte déjà à la taille du viewport (cf. flux normal)</li>
+                    <li>Souvent insuffisant pour les écrans très larges ou très étroits</li>
                     <li>Exemple: <em>Fluid layout</em> des années 2000</li>
                 </ul>
                 <a href="https://web.archive.org/web/20051004083829/http://en.wikipedia.org/wiki/World_Wide_Web" target="_blank"><img src="figures/chap4/wikipedia_2005.png" class="w-60 m-auto mt-4 framed"></a>
@@ -81,7 +81,7 @@
                     <pre><code class="language-html mb-1" data-trim>
 &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
                     </code></pre>
-                    <li>Définit la largeur du viewport à la largeur de l'appareil (si ce n'est pas fait par défaut)</li>
+                    <li>Définit la largeur du viewport à la largeur de l'appareil</li>
                     <li>Annule le "dé-zoomage"</li>
                     <li class="mt-5 alert">À copier-coller sur toutes vos pages <em>responsive</em></li>
                 </ul>
@@ -92,10 +92,10 @@
             <section>
                 <h1>Responsive Web Design</h1>
                 <ul>
-                    <li>RWD = techniques qui permettent d'adapter automatiquement la mise en page aux dimensions du viewport</li>
-                    <li>Initialement (2010), 3 principes:</li>
+                    <li>RWD = techniques pour adapter automatiquement la mise en page aux dimensions du viewport</li>
+                    <li>Initialement (2010):</li>
                     <ol>
-                        <li><em class="alert">Media Queries</em>: mécanisme pour proposer des styles alternatifs en fonction des caractéristiques viewport</li>
+                        <li><em class="alert">Media Queries</em>: styles alternatifs en fonction des caractéristiques viewport</li>
                         <li><em class="alert">Grilles flexibles</em>: agencement en grille dans laquelle les éléments sont positionnés</li>
                         <li><em class="alert">Images flexibles</em>: dimensions des images qui s'ajustent à l'espace disponible</li>
                     </ol>
