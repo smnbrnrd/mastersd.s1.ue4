@@ -133,7 +133,7 @@ nav, footer {
 
             <!--------------------------------------------->
             <section>
-                <h1>Type de media possibles</h1>
+                <h1>Types de media possibles</h1>
                 <ul>
                     <li><code>screen</code>: pour les écrans</li>
                     <li><code>print</code>: pour l'impression</li>
@@ -177,16 +177,16 @@ nav, footer {
                 <ul>
                     <li><code>min-width</code>, <code>max-width</code>: pour cibler la largeur minimale ou maximale du viewport</li>
                     <pre><code class="language-css mb-2" data-trim>
-@media all and (min-width: 600px) {
+@media screen and (min-width: 600px) {
     /* Styles pour les écrans d'au moins 600px de large */
 }
-@media all and (max-width: 599px) {
+@media screen and (max-width: 599px) {
     /* Styles pour les écrans de moins de 599px de large */
 }
                     </code></pre>
                     <li>Peut aussi s'écrire avec la propriété <code>width</code>:</li>
                     <pre><code class="language-css mb-2" data-trim>
-@media all and (width >= 600px) {
+@media screen and (width >= 600px) {
     /* Styles pour les écrans de 600px de large */
 }
                     </code></pre>
@@ -368,7 +368,7 @@ aside {
             <!--------------------------------------------->
             <section>
                 <h1>Exemple</h1>
-                <p>Pour calculer les dimensions en <code>%</code>: largeur élément &#247; largeur conteneur</p>
+                <p>Pour calculer les dimensions en <code>%</code>: (largeur élément &#247; largeur conteneur) x 100</p>
                 <pre><code class="language-css mt-4" data-trim>
 /* Fluid layout en CSS */
 .container {
@@ -491,7 +491,7 @@ aside {
                 <ul>
                     <li>Introduit en 2017</li>
                     <li>Permettent de créer des mises en page flexibles sans avoir à recourir aux flottants</li>
-                    <li>Deux modules principaux:</li>
+                    <li>Deux modules:</li>
                     <ul>
                         <li><code>Flexbox</code> (Flexible Box Layout): pour agencer des éléments dans une seule dimension (ligne ou colonne)</li>
                         <li><code>Grid</code> (CSS Grid Layout): pour agencer des éléments dans deux dimensions (lignes et colonnes)</li>
@@ -696,6 +696,133 @@ aside {
                 <div class="title">Images flexibles</div>
             </section>
 
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Image flexible</h1>
+                <ul>
+                    <li>Image dont les dimensions s'ajustent en fonction du <em>viewport</em></li>
+                    <li>Par défaut, une image est affichée avec ses dimensions d'origine</li>
+                    <li>Image flexible = CSS pour spécifier les dimensions avec une unité flexible, de préférence pourcentage</li>
+                    <pre><code class="language-css mb-2" data-trim>
+img {
+    width: 100%;      /* toute la largeur de son conteneur */
+    height: auto;     /* hauteur ajustée automatiquement */
+}
+                    </code></pre>
+                    <li>Problème: si l'image est originellement moins large que le conteneur?</li>
+                    <pre><code class="language-css mb-2" data-trim>
+img {
+    max-width: 100%;  /* pas plus large que son conteneur */
+    height: auto;     /* hauteur ajustée automatiquement */
+}
+                    </code></pre>
+                    <li>Si l'image est plus large que le conteneur, elle est redimensionnée</li>
+                    <li>Si l'image est plus petite que le conteneur, elle garde ses dimensions d'origine</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Image flexible</h1>
+                <p>2 types de problèmes persistent:</p>
+                <ol>
+                    <li>Image fortement "dézoomée" sur un écran très étroit</li>
+                    <ul>
+                        <li>Très peu visible si image initialement très large</li>
+                        <li>Bande passante gaspillée</li>
+                    </ul>
+                    <li>Image fortement "zoomée" sur un écran très large</li>
+                    <ul>
+                        <li>Pixelisation si image initialement petite</li>
+                        <li>Image inutilement grande si écran très large</li>
+                    </ul>
+                </ol>
+                <ul class="mt-4">
+                    <li>Les <em>media queries</em> peuvent solutionner une partie de ces problèmes mais pas tous</li>
+                    <li>Les SVG également mais pas adaptés aux images très détaillées (photos)</li>
+                    <li>CSS fournit également quelques outils intéressants mais pas suffisants (e.g. <a href="https://mdn.github.io/learning-area/html/multimedia-and-embedding/responsive-images/not-responsive.html" target="_blank">démonstration MDN</a>)</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Attributs <code>srcset</code> et <code>sizes</code></h1>
+                <ul>
+                    <li>HTML5 fournit des attributs pour l'élément <code>&lt;img&gt;</code> pour adapter l'image à la résolution</li>
+                    <li><code>srcset</code>: liste d'images alternatives avec leurs largeurs (en pixels)</li>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;img 
+    src=&quot;image-800w.jpg&quot; 
+    srcset=&quot;image-400w.jpg 400w, image-600w.jpg 600w, image-800w.jpg 800w&quot; 
+    alt=&quot;Description de l'image&quot;&gt;
+                    </code></pre>
+                    <li>Le navigateur choisit l'image la plus adaptée en fonction de la largeur effective du conteneur</li>
+                    <li>Le descripteur <code>Xw</code> indique la largeur de l'image (et non du <em>viewport</em>)</li>
+                    <li>Si le navigateur ne prend pas en charge <code>srcset</code>, il utilise l'image spécifiée dans l'attribut <code>src</code></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Attributs <code>srcset</code> et <code>sizes</code></h1>
+                <ul>
+                    <li><code>sizes</code>: liste de conditions sur la largeur du conteneur et la largeur d'image dans la page</li>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;img 
+    src=&quot;image-800w.jpg&quot; 
+    srcset=&quot;image-400w.jpg 400w, image-600w.jpg 600w, image-800w.jpg 800w&quot; 
+    sizes=&quot;(max-width: 480px) 100vw, 
+           (max-width: 720px) 600px,
+           800px&quot;
+    alt=&quot;Description de l'image&quot;&gt;
+                    </code></pre>
+                    <li>Largeurs spécifiées avec n'importe quelle unité de mesure CSS, sauf <code>%</code></li>
+                    <li>Le navigateur applique la largeur de la première condition "vraie", la suite est ignorée</li>
+                    <li>La dernière largeur doit être la largeur par défaut</li>
+                </ul>
+                <p class="mt-5">Remarque: c'est normalement CSS qui gère les dimensions mais le chargement des images débute en général avant que les traitements CSS ne soient terminés.</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>L'élément <code>source</code></h1>
+                <ul>
+                    <li>Fonctionne pour tous types de médias: <code>picture</code>, <code>video</code>, <code>audio</code></li>
+                    <li>Utilisation de l'élément <code>&lt;source&gt;</code> pour spécifier des sources alternatives</li>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;picture&gt;
+    &lt;source media=&quot;(max-width: 600px)&quot; srcset=&quot;image-cropped.jpg&quot;&gt;
+    &lt;source media=&quot;(max-width: 1200px)&quot; srcset=&quot;image-full.jpg&quot;&gt;
+    &lt;img src=&quot;image-full.jpg&quot; alt=&quot;Description de l'image&quot;&gt;
+&lt;/picture&gt;
+                    </code></pre>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;video controls&gt;
+    &lt;source src=&quot;foo.webm&quot; type=&quot;video/webm&quot;&gt;
+    &lt;source src=&quot;foo.ogg&quot; type=&quot;video/ogg&quot; /&gt;
+    &lt;source src=&quot;foo.mov&quot; type=&quot;video/quicktime&quot; /&gt;
+    I'm sorry; your browser doesn't support HTML video.
+&lt;/video&gt;
+                    </code></pre>
+                    <li>Le navigateur choisit la source la plus adaptée en fonction des conditions</li>
+                    <li><code>img@srcset</code> et <code>picture</code>+<code>source</code> font la même chose</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section>
+                <h1>En résumé...</h1>
+                <ul>
+                    <li>Responsive Web Design = un design pour tous les écrans</li>
+                    <li>Media queries pour appliquer des styles spécifiques selon les caractéristiques du dispositif</li>
+                    <li>Flexbox et Grid CSS pour des agencements flexibles</li>
+                    <li>Mise en oeuvre dans des grilles flexibles pour la structuration "macro"</li>
+                    <li>De nombreux frameworks CSS le font très bien pour nous, Bootstrap étant le plus répandu</li>
+                    <li>Images, vidéos, audios flexibles pour l'optimisation des performances et de l'expérience utilisateur</li>
+                </ul>
+            </section>
 
 
 
