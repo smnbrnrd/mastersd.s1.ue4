@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Master SD - Conception d'Interface Web</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="../css/cm.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!--------------------------------------------->
+            <!-- Cover slide -->
+            <section class="title-slide">
+                <div class="title">Conception d'Interface Web</div>
+                <div class="subtitle">JavaScript</div>
+                <div class="author">Simon BERNARD</div>
+                <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
+                <div class="logo"><img src="../img/logo_urn_color.png"></div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de JavaScript</h1>
+                <ol class="mt-3">
+                    <li>Structuration/organisation du contenu (texte, images, vidéos) : HTML</li>
+                    <li>Présentation (visuelle) du contenu : CSS</li>
+                    <li><span class="alert">Rendre ce contenu interactif : JavaScript</span></li>
+                </ol>
+                <img src="figures/chap1/html_css_js.png" class="w-65 m-auto mt-5">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Présentation de JavaScript</h1>
+                <ul>
+                    <li>Langage de programmation interprété</li>
+                    <li>S'exécute dans un environnement équipé d'un moteur JavaScript (e.g. navigateur)</li>
+                    <li>Principalement utilisé côté client (mais il existe des environnements côté serveur, comme Node.js)</li>
+                    <li>Le seul langage de programmation activé par défaut dans les navigateurs</li>
+                    <li>Permet de:</li>
+                    <ol>
+                        <li>Manipuler le contenu des pages web programmatiquement</li>
+                        <li>Réagir aux événements utilisateur (clics, saisie de texte, etc.)</li>
+                        <li>Communiquer avec des serveurs distants (AJAX)</li>
+                    </ol>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Bref historique</h1>
+                <ul>
+                    <li><span class="alert">1995</span>: création par Brendan Eich pour Netscape Navigator</li>
+                    <li><span class="alert">1997</span>: standardisation sous le nom ECMAScript (ES)</li>
+                    <li><span class="alert">1999</span>: IE propose son propre langage JScript (début du déclin de JS)</li>
+                    <li><strong><span class="alert">2008</span>: Compilateur JIT (chrome). Les moteurs deviennent beaucoup plus performants</strong></li>
+                    <li><span class="alert">2009</span>: ES5, retour de JS au premier plan</li>
+                    <li><span class="alert">2015</span>: ES6, évolution majeure, ajout de nombreuses fonctionnalités modernes</li>
+                    <li><span class="alert">Depuis 2016</span>: nouvelles versions annuelles (ES7, ES8, ...)</li>
+                </ul>
+                <p class="mt-4">Aujourd'hui (2025), 98,9% des sites web utilisent JavaScript (<a href="https://w3techs.com/technologies/details/cp-javascript/" target="_blank">source</a>)</p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Compilation <em>Just-In-Time</em></h1>
+                <ul>
+                    <li>Initialement, JavaScript est un langage interprété</li>
+                    <li>Mais les moteurs modernes utilisent la compilation <em>Just-In-Time</em> (JIT)</li>
+                    <ol>
+                        <li>Le moteur analyse le code du script</li>
+                        <li>Le compile en code machine natif</li>
+                        <li>Exécute ce code aussi rapidement que possible</li>
+                    </ol>
+                    <li>Permet de nombreuses optimisations à l'exécution</li>
+                    <li>Exemples de moteurs JavaScript:</li>
+                    <ul>
+                        <li>V8 (Chromium et donc Chrome, Edge, Opera, Brave)</li>
+                        <li>SpiderMonkey (Firefox)</li>
+                        <li>JavaScriptCore (Safari)</li>
+                        <li>Chakra (IE et anciennement utilisé par Edge)</li>
+                    </ul>
+                </ul>
+                <p class="mt-4">Plus d'infos: <a href="https://fr.wikipedia.org/wiki/Moteur_JavaScript" target="_blank">https://fr.wikipedia.org/wiki/Moteur_JavaScript</a></p>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctionnement de JavaScript</h1>
+                <ol>
+                    <li>Intégrer du code JS dans une page HTML</li>
+                    <pre><code class="language-html mt-2" data-trim  data-line-numbers="5-9,13-17">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="fr"&gt;
+&lt;head&gt;
+    &lt;title&gt;Exemple JavaScript&lt;/title&gt;
+    &lt;script&gt;
+        function direBonjour() {
+            alert("Bonjour, monde !");
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Bonjour, monde !&lt;/h1&gt;
+    &lt;script&gt;
+        console.log("Bonjour, console !");
+    &lt;/script&gt;
+    &lt;button onclick="direBonjour()"&gt;Cliquez-moi&lt;/button&gt;
+    &lt;script src="mon_script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </ol>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctionnement de JavaScript</h1>
+                <ol start="2">
+                    <li>Chargement et exécution de la page dans un navigateur</li>
+                </ol>
+                <a href="../Demos/js_first.html" target="_blank"><img src="figures/chap5/browser_execution.png" class="w-80 m-auto mt-2"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctionnement de JavaScript</h1>
+                <ol start="3">
+                    <li>Si besoin, déboguer via les outils du navigateur:</li>
+                    <ul>
+                        <li>Console intéractive</li>
+                        <img src="figures/chap5/browser_console.png" class="w-80 m-auto mb-2 framed">
+                        <li>Débogueur</li>
+                        <img src="figures/chap5/browser_debogueur.png" class="w-80 m-auto mb-2 framed">
+                    </ul>
+                </ol>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Intégration de JS dans une page HTML</h1>
+                <ul>
+                    <li>Balise <code>&lt;script&gt;</code> dans le <code>&lt;head&gt;</code> ou le <code>&lt;body&gt;</code></li>
+                    <li>Contient du code JavaScript ou <code>src</code> pour un fichier externe</li>
+                    <li>Exemples:</li>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;script&gt;
+    let nom = prompt("Quel est votre nom ?");
+    let show = confirm("Voulez-vous afficher votre nom ?");
+    if (show) {
+        alert("Bonjour " + nom);
+        document.write("&lt;p&gt;Bonjour " + nom + "&lt;/p&gt;");
+    } else {
+        alert("D'accord, au revoir");
+    }
+    console.log("Le nom saisi est: " + nom);
+&lt;/script&gt; 
+&lt;script src="mon_script.js"&gt;&lt;/script&gt;
+                    </code></pre>
+                    <li class="alert">Les scripts sont chargés et exécutés dans l'ordre d'apparition</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Intégration de JS dans une page HTML</h1>
+                <ul>
+                    <li>HTML autorise aussi les scripts <em>inline</em></li>
+                    <pre><code class="language-html mb-2" data-trim>
+&lt;head&gt;
+    &lt;script&gt;
+        function dialog() {
+            alert(&quot;JavaScript dans une fonction&quot;);
+        }
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;a href=&quot;Javascript:dialog()&quot;&gt;Message d&#39;alerte&lt;/a&gt;
+    &lt;button onclick=&quot;dialog()&quot;&gt;Say hello!&lt;/button&gt;
+&lt;/body&gt;
+                    </code></pre>
+                    <li>Permet de déclencher du JS en réaction à des événements utilisateur</li>
+                    <li>Plusieurs types d'événements possibles (<code>onload</code>, <code>onclick</code>, <code>onchange</code>, etc.)</li>
+                    <li><span class="alert">Non recommandé!</span>. Nous verrons une autre méthode plus propre et maintenable.</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Chargement des scripts</h1>
+                <ul>
+                    <li>Chargement d'une page HTML par le navigateur:</li>
+                    <ol>
+                        <li>Réception et analyse (parsing)</li>
+                        <li>Construction du DOM (Document Object Model)</li>
+                        <li>Construction du CSSOM (CSS Object Model)</li>
+                        <li>Rendu et affichage de la page</li>
+                    </ol>
+                    <li class="mt-3">Étape 2 exécutée au fil de la lecture du document HTML</li>
+                    <li>Si lien vers une ressource externe (CSS, JS, images) la construction du DOM est interrompue</li>
+                    <li class="alert">Le téléchargement, le chargement et l'exécution des scripts JS sont bloquants</li>
+                    <li>Peut considérablement impacter les temps de chargements et l'expérience utilisateur</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Chargement des scripts</h1>
+                <h2>Exemple</h2>
+                <a href="../Demos/js_loading.html" target="_blank"><img src="figures/chap5/js_loading.png" class="w-80 m-auto"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Chargement des scripts</h1>
+                <ul>
+                    <li>Solutions pour éviter le blocage:</li>
+                    <ol>
+                        <li>Placer les <code>&lt;script&gt;</code> en fin de <code>&lt;body&gt;</code></li>
+                        <li>Attribut <code>defer</code>: script chargé en parallèle et exécuté après la construction du DOM</li>
+                        <li>Attribut <code>async</code>: script chargé en parallèle et exécuté dès qu'il est prêt</li>
+                    </ol>
+                    <li>avec <code>defer</code>, l'ordre des scripts est préservé et le contenu s'affiche avant l'exécution des scripts</li>
+                    <li>avec <code>async</code>, l'ordre des scripts n'est pas préservé et les scripts sont exécutés indépendamment du rendu</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Chargement des scripts</h1>
+                <h2>Exemple</h2>
+                <a href="../Demos/js_loading_defer.html" target="_blank"><img src="figures/chap5/js_loading_defer.png" class="w-80 m-auto"></a>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Le langage JavaScript</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Variables</h1>
+                <ul>
+                    <li>JS est faiblement typé: les variables n'ont pas de type fixe</li>
+                    <li>Déclaration</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let nom;
+nom = "John Doe";
+let ville = "Rouen";
+
+const PI = 3.14159;
+PI = 42; // Erreur
+                    </code></pre>
+                    <li>Typage dynamique: le type est déterminé à l'affectation</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let variable = 42;
+variable = "Bonjour";
+variable = true;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Variables</h1>
+                <ul>
+                    <li>Avant 2015:</li>
+                    <pre><code class="language-js mb-2" data-trim>
+var age = 30;
+age = 31;
+                    </code></pre>
+                    <li>Autorise l'utilisation avant la déclaration (<em>hoisting</em>)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+console.log(age); // affiche "undefined" (pas d'erreur)
+var age = 30;
+                    </code></pre>
+                    <li>Autorise l'utilisation en dehors de blocs</li>
+                    <pre><code class="language-js mb-2" data-trim>
+for (var i = 0; i < 11; i++) {
+    var sum = i * 3.14;
+}
+console.log(i); // affiche 11
+console.log(sum); // affiche 31.4
+                    </code></pre>
+                    <li class="alert">Toujours pris en charge mais à éviter!</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Types primitifs</h1>
+                <ul>
+                    <li><code>Boolean</code>: valeurs <code>true</code> ou <code>false</code></li>
+                    <pre><code class="language-js mb-2" data-trim>
+let ok = true;
+let isGreater = (5 > 3); // true
+                    </code></pre>
+                    <li><code>Number</code>: valeurs numériques (entier ou décimaux) compris entre <code>Number.MIN_VALUE</code> et <code>Number.MAX_VALUE</code> + 3 valeurs particulières (<code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code>)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let notANumber = 0 / 0; // NaN
+let inf = 1 / 0; // Infinity
+                    </code></pre>
+                    <li><code>String</code>: chaîne de caractères (délimitées par des guillemets simples, doubles ou backticks)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let nom = "John Doe";
+let message = `Bonjour, ${nom}!`;
+                    </code></pre>
+                    <li><code>Undefined</code>: valeur unique <code>undefined</code>, qui est la valeur par défaut des variables non initialisées</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Objets</h1>
+                <ul>
+                    <li>JS est un langage orienté objet (orienté prototype)</li>
+                    <li>Type <code>Object</code>: collection de paires clé/valeur</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let personne = {
+    nom: "John Doe",
+    age: 30,
+    ville: "Rouen"
+};
+console.log(personne.nom); // "John Doe"
+console.log(personne["age"]); // 30
+
+let empty = {}; // objet vide
+let empty2 = new Object(); // équivalent
+                    </code></pre>
+                    <li>valeur <code>null</code>: absence intentionnelle de valeur</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Objets</h1>
+                <ul>
+                    <li>Les objets sont manipulés par référence (comme en Java)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let a = { x:3.0, y:5.0 };
+let b = { x:2.0, y:0.0 };
+let c = b;
+let d = null;
+                    </code></pre>
+                </ul>
+                <img src="figures/chap5/js_objet.png" class="w-50 m-auto mt-3">
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Objets prédéfinis</h1>
+                <ul>
+                    <li>JS prédéfinit des "sous-types" d'<code>Object</code></li>
+                </ul>
+                <table class="table table-bordered mt-3">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Exemples</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Array</code></td>
+                            <td>Tableau (liste ordonnée d'éléments)</td>
+                            <td><code>[1, 2, 3]</code>, <code>["a", "b", "c"]</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Date</code></td>
+                            <td>Date et heure</td>
+                            <td><code>new Date()</code>, <code>new Date("2023-10-01")</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>RegExp</code></td>
+                            <td>Expressions régulières</td>
+                            <td><code>/abc/</code>, <code>new RegExp("abc")</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Error</code></td>
+                            <td>Objets d'erreur (exceptions)</td>
+                            <td><code>new Error("message d'erreur")</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Math</code></td>
+                            <td>Objets mathématiques (fonctions et constantes)</td>
+                            <td><code>Math.PI</code>, <code>Math.sqrt(4)</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>Function</code></td>
+                            <td>Fonctions</td>
+                            <td><code>function() {}</code>, <code>const f = () => {}</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="mt-4">Liste complète ici: <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects">MDN Web Docs</a></p>
+            </section>
+            <!--------------------------------------------->
+            <section>
+                <h1>Objets prédéfinis</h1>
+                <h2>Tableaux</h2>
+                <ul>
+                    <li>Peut contenir n'importe quels types d'éléments</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let nombres = [1, 2, 3, 4, 5];
+let lettres = ["a", "b", "c"];
+let mixte = [1, "deux", true, {x:3}, [1,2,3]];
+                    </code></pre>
+                    <li>Accès aux éléments par indice (base 0)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+console.log(nombres[0]); // 1
+nombres[1] = 42;
+console.log(nombres.length); // 5
+                    </code></pre>
+                    <li>Nombre d'éléments dynamique</li>
+                    <pre><code class="language-js mb-2" data-trim>
+nombres.push(6); // ajoute 6 à la fin
+nombres.pop(); // enlève le dernier élément
+nombres.shift(); // enlève le premier élément
+nombres.unshift(0); // ajoute 0 au début
+                    </code></pre>
+                    <li>Nombreuses méthodes prédéfinies (voir <a href="https://javascript.info/array-methods" target="_blank">documentation</a>)</li>
+                </ul>
+                
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Opérateurs et instructions de contrôle</h1>
+                <ul>
+                    <li>Les mêmes que C/Java</li>
+                    <ul>
+                        <li>Arithmétiques: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+                        <li>Comparaison: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code></li>
+                        <li>Logiques: <code>&&</code>, <code>||</code>, <code>!</code></li>
+                        <li>Conditionnelle: <code>if</code>, <code>else</code>, <code>switch</code></li>
+                        <li>Boucles: <code>for</code>, <code>while</code>, <code>do...while</code></li>
+                        <li>Opérateur ternaire: <code>condition ? expr1 : expr2</code></li>
+                    </ul>
+                    <li>+ quelques uns spécifiques à JS</li>
+                    <ul>
+                        <li>Exposant: <code>**</code></li>
+                        <li>Comparaison stricte: <code>===</code>, <code>!==</code> (vérifie aussi le type)</li>
+                        <li>Opérateur <em>nullish coalescing</em>: <code>a ?? b</code> (retourne <code>a</code> si non null/undefined, sinon <code>b</code>)</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Conversion implicites</h1>
+                <ul>
+                    <li><code>+</code> devient l'opérateur de concaténation si un des opérandes est un <code>string</code></li>
+                    <pre><code class="language-js mb-2" data-trim>
+let s = "my" + "string"
+console.log(s); // "mystring"
+console.log("1" + 2); // "12"
+console.log(1 + "2"); // "12"
+console.log(2 + 2 + "1"); // "41"
+console.log("50" + null); // "50null"
+                    </code></pre>
+                    <li>les autres opérateurs convertissent les chaînes en nombres</li>
+                    <pre><code class="language-js mb-2" data-trim>
+console.log("2" - 1); // 1
+console.log("2" + 1); // "21"
+                    </code></pre>
+                    <li>D'où le besoin d'un opérateur d'égalité stricte</li>
+                    <pre><code class="language-js mb-2" data-trim>
+console.log(3 == "3"); // true
+console.log(3 === "3"); // false
+                    </code></pre>
+                </ul>
+                <p class="mt-4">Toutes les conversions implicites: <a href="https://www.w3schools.com/js/js_type_conversion.asp" target="_blank">https://www.w3schools.com/js/js_type_conversion.asp</a></p>
+            </section>
+
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Les fonctions en JavaScript</div>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions</h1>
+                <ul>
+                    <li>Déclaration:</li>
+                    <pre><code class="language-js mb-2" data-trim>
+function name(par1[, par2[, ..., parN]]) {
+    /* corps de la fonction */
+    ...
+    [return valeur;]
+}
+                    </code></pre>
+                    <li>Ce qui est entre <code>[ ]</code> est optionnel</li>
+                    <li>Pas de types de retour ni de types de paramètres</li>
+                    <li>Les arguments sont passés par valeur, sauf pour les objets</li>
+                    <li>Si pas de <code>return</code>, la fonction retourne <code>undefined</code></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions</h1>
+                <ul>
+                    <li>Invocation: les arguments sont facultatifs. En cas d'absence, les paramètres sont <code>undefined</code></li>
+                    <pre><code class="language-js mb-2" data-trim>
+function optional(par1, par2) {
+    console.log("par1=" + par1); // affiche la valeur de par1 dans la console
+    console.log("par2=" + par2); // affiche la valeur de par2 dans la console
+}
+optional(); // affichage "par1=undefined" puis "par2=undefined"
+optional("Hello"); // affichage "par1=Hello" puis "par2=undefined"
+                    </code></pre>
+                    <li>Possibilité de spécifier une valeur par défaut</li>
+                    <pre><code class="language-js mb-2" data-trim>
+function withDefault(par1, par2 = 42) {
+    console.log("par1=" + par1);
+    console.log("par2=" + par2);
+}
+withDefault("Hello"); // affichage "par1=Hello" puis "par2=42"
+withDefault("Hello", 7); // affichage "par1=Hello" puis "par2=7"
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions</h1>
+                <ul>
+                    <li>Dans une page HTML, les déclarations doivent précéder leur utilisation</li>
+                    <pre><code class="language-js mb-2" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;fr&quot;&gt;
+&lt;head&gt;
+    ...
+    &lt;script src=&quot;fonction1.js&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;script&gt;
+        console.log(fonction1()); // ok
+        console.log(fonction2()); // erreur
+    &lt;/script&gt;
+    &lt;script src=&quot;fonction2.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions</h1>
+                <ul>
+                    <li>Dans un fichier <code>.js</code>, elles peuvent être déclarées dans n'importe quel ordre</li>
+                    <pre><code class="language-js mb-2" data-trim>
+function cube(x) {
+    return x * square(x);
+}
+function square(x) {
+    return x * x;
+}
+console.log(cube(3)); // 27
+                    </code></pre>
+                    <li>Dû au fait que les déclarations sont traitées au chargement, avant l'exécution.</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions expressions</h1>
+                <ul>
+                    <li>En JS, les fonctions sont des types d'objets</li>
+                    <li>On peut affecter une fonction à une variable</li>
+                    <pre><code class="language-js mb-2" data-trim>
+function sayHello() {
+    console.log( "Hello" );
+}
+// autre syntaxe équivalente:
+let sayHello = function() {
+    console.log( "Hello" );
+};
+sayHello(); // invocation identique pour les deux syntaxes
+                    </code></pre>
+                    <li>La deuxième syntaxe est appelée <em>fonction expression</em></li>
+                    <li>Attention au <code>;</code> à la fin</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonctions expressions</h1>
+                <ul>
+                    <li>On peut affecter une fonction à plusieurs variables (référence)</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let sayHelloAgain = sayHello;
+sayHelloAgain(); // même résultat que sayHello()
+                    </code></pre>
+                    <li>On peut également passer une fonction en argument d'une autre fonction</li>
+                    <pre><code class="language-js" data-trim>
+function callFunction(f) {
+    f();
+}
+callFunction(sayHello); // affiche "Hello"
+                    </code></pre>
+                    ou
+                    <pre><code class="language-js" data-trim>
+callFunction(
+    function() {
+        console.log("Hello from anonymous function");
+    }
+);
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Callback</h1>
+                <ul>
+                    <li>Une fonction passée en argument d'une autre fonction est appelée un <em>callback</em></li>
+                    <pre><code class="language-js" data-trim>
+function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+}
+
+function showOk() {
+    alert( "You agreed." );
+}
+function showCancel() {
+    alert( "You canceled the execution." );
+}
+ask("Do you agree?", showOk, showCancel);
+                    </code></pre>
+                    ou
+                    <pre><code class="language-js" data-trim>
+ask("Do you agree?",
+    function() { alert("You agreed."); },
+    function() { alert("You canceled the execution."); }
+);
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Fonction fléchée</h1>
+                <ul>
+                    <li>Syntaxe plus concise pour les fonctions expressions</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let sum = (a, b) => a + b;
+console.log( sum(1, 2) ); // 3
+                    </code></pre>
+                    <li>Si un seul paramètre, les parenthèses sont optionnelles</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let square = x => x * x;
+console.log( square(3) ); // 9
+                    </code></pre>
+                    <li>Si pas de paramètre, parenthèses obligatoires</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let sayHello = () => console.log("Hello");
+sayHello(); // Hello
+                    </code></pre>
+                    <li>Si plusieurs instructions, utiliser des accolades et le mot-clé <code>return</code> si besoin</li>
+                    <pre><code class="language-js mb-2" data-trim>
+let sumAndLog = (a, b) => {
+    let result = a + b;
+    console.log(result);
+    return result;
+};
+sumAndLog(2, 3); // affiche 5 et retourne 5
+                    </code></pre>
+                </ul>
+            </section>
+
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Les bonnes pratiques</div>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Deux JavaScript: "vieux" vs "moderne"</h1>
+                <ul>
+                    <li>Avant ES5:</li>
+                    <ul>
+                        <li>très permissif et mécanismes exotiques (e.g. <em>hoisting</em>)</li>
+                        <li>prise en charge inégale des navigateurs</li>
+                        <li>code souvent verbeux et difficile à maintenir</li>
+                    </ul>
+                    <li>ES5:</li>
+                    <ul>
+                        <li>évolution majeures de fonctionnalités existantes</li>
+                        <li> mais introduit des problèmes de rétrocompatibilité (<code>mode strict</code>)</li>
+                    </ul>
+                    <li>Depuis ES6 (2015) et versions ultérieures:</li>
+                    <ul>
+                        <li>ajout de nombreuses fonctionnalités (e.g. classes, modules, promesses, async/await, etc.)</li>
+                        <li>amélioration de la lisibilité et de la maintenabilité du code</li>
+                        <li>adoption généralisée mais non prises en charges par les "vieux" navigateurs</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Deux JavaScript: "vieux" vs "moderne"</h1>
+                <ul>
+                    <li>Par défaut, les navigateurs désactivent les fonctionnalités modernes non compatibles avec le "vieux" JS</li>
+                    <li>Pour activer le JS "moderne": directive <code>use strict</code> à inclure au début d'un script</li>
+                    <pre><code class="language-js mb-2" data-trim>
+"use strict";
+
+// code JS ci-dessous peut utiliser les fonctionnalités modernes
+let x = 3.14;
+...
+                    </code></pre>
+                    <li>Plusieurs fonctionnalités modernes activent automatiquement ce mode, e.g. les classes et les modules</li>
+                    <li><code>use strict</code> est souvent <em>omise</em> car implicitement activée par des scripts modernes</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Transpiler et polyfills</h1>
+                <ul>
+                    <li class="alert">Problèmes de retrocompatibilité prépondérants en JS</li>
+                    <li>Solutions:</li>
+                    <ol>
+                        <li>Transpiler: outil qui convertit du code JS moderne en code compatible avec les anciens navigateurs (e.g. Babel)</li>
+                        <pre><code class="language-js mb-2" data-trim>
+// avant d'exécuter le transpileur:
+height = height ?? 100; // opérateur introduit en 2020
+// après avoir exécuté le transpileur:
+height = (height !== undefined && height !== null) ? height : 100;
+                        </code></pre>
+                        <li>Polyfills: bibliothèques qui ajoutent des fonctionnalités modernes aux anciens navigateurs</li>
+                        <pre><code class="language-js mb-2" data-trim>
+if (!Math.trunc) { // si une telle fonction n'existe pas
+    Math.trunc = function(number) {
+        return number < 0 ? Math.ceil(number) : Math.floor(number);
+    };
+}
+                        </code></pre>
+                    </ol>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Permissivité</h1>
+                <ul>
+                    <li>JS est un langage très permissif et piegeux: <a href="https://github.com/denysdovhan/wtfjs" target="_blank">wtfjs</a> ou</li>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/et8xNAc2ic8?si=7w1EgTGIQ2MtFT7C" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <li>Un code JS peut vite devenir illisible, incompréhensible et peu performant</li>
+                    <li class="alert">Solutions: utilisez des guides de styles, des <em>linters</em>, des IDE dédiés, un débogueur</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Liens utiles</h1>
+                <ul>
+                    <li><a href="https://javascript.info/">JavaScript.info</a>: Un site très complet et abordable pour apprendre JavaScript</li>
+                    <li><a href="https://web.dev/learn/javascript" target="_blank">Web.dev</a>: Séries d'articles pour approfondir JavaScript</li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">MDN Web Docs</a>: Références et tutoriels sur JavaScript</li>
+                    <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank">freeCodeCamp</a>: Exercices interactifs</li>
+                    <li><a href="https://www.codewars.com/" target="_blank">CodeWars</a>: Exercices de code</li>
+                    <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc" target="_blank">The Net Ninja</a>: Vidéos pédagogiques</li>
+                    <li><a href="https://eslint.org/" target="_blank">ESLint</a>: Outil pour identifier et rapporter les motifs dans le code JavaScript</li>
+                </ul>
+            </section>
+
+
+<!--
+            1 . gestion des événements
+            2 . manipulation du DOM
+            3 . exemples simples
+            4 . librairies de UI controls
+            -->
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+	<script src="reveal/plugin/math/math.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/reveald3.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            margin: 0.05,
+            center: false,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            mouseWheel: true,
+            transition: 'none', // Transition style : none/fade/slide/convex/concave/zoom
+            progress: true,
+            autoPlayMedia: true,
+            plugins: [ RevealNotes, RevealHighlight, Reveald3, RevealZoom, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>
