@@ -72,8 +72,7 @@
             <section>
                 <h1>Compilation <em>Just-In-Time</em></h1>
                 <ul>
-                    <li>Initialement, JavaScript est un langage interprété</li>
-                    <li>Mais les moteurs modernes utilisent la compilation <em>Just-In-Time</em> (JIT)</li>
+                    <li>Initialement, langage interprété, mais aujourd'hui les moteurs utilisent la compilation <em>Just-In-Time</em> (JIT)</li>
                     <ol>
                         <li>Le moteur analyse le code du script</li>
                         <li>Le compile en code machine natif</li>
@@ -188,7 +187,7 @@
                     </code></pre>
                     <li>Permet de déclencher du JS en réaction à des événements utilisateur</li>
                     <li>Plusieurs types d'événements possibles (<code>onload</code>, <code>onclick</code>, <code>onchange</code>, etc.)</li>
-                    <li><span class="alert">Non recommandé!</span>. Nous verrons une autre méthode plus propre et maintenable.</li>
+                    <li><span class="alert">Non recommandé!</span> Nous verrons une meilleure méthode plus tard</li>
                 </ul>
             </section>
 
@@ -740,14 +739,14 @@ let x = 3.14;
                     <li class="alert">Problèmes de retrocompatibilité prépondérants en JS</li>
                     <li>Solutions:</li>
                     <ol>
-                        <li>Transpiler: outil qui convertit du code JS moderne en code compatible avec les anciens navigateurs (e.g. Babel)</li>
+                        <li><em>Transpiler</em>: outil qui convertit du code JS moderne en code compatible avec les anciens navigateurs (e.g. Babel)</li>
                         <pre><code class="language-js mb-2" data-trim>
 // avant d'exécuter le transpileur:
 height = height ?? 100; // opérateur introduit en 2020
 // après avoir exécuté le transpileur:
 height = (height !== undefined && height !== null) ? height : 100;
                         </code></pre>
-                        <li>Polyfills: bibliothèques qui ajoutent des fonctionnalités modernes aux anciens navigateurs</li>
+                        <li><em>Polyfills</em>: bibliothèques qui ajoutent des fonctionnalités modernes aux anciens navigateurs</li>
                         <pre><code class="language-js mb-2" data-trim>
 if (!Math.trunc) { // si une telle fonction n'existe pas
     Math.trunc = function(number) {
@@ -780,7 +779,7 @@ if (!Math.trunc) { // si une telle fonction n'existe pas
                     <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank">freeCodeCamp</a>: Exercices interactifs</li>
                     <li><a href="https://www.codewars.com/" target="_blank">CodeWars</a>: Exercices de code</li>
                     <li><a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9haFPT7J25Q9GRB_ZkFrQAc" target="_blank">The Net Ninja</a>: Vidéos pédagogiques</li>
-                    <li><a href="https://eslint.org/" target="_blank">ESLint</a>: Outil pour identifier et rapporter les motifs dans le code JavaScript</li>
+                    <li><a href="https://eslint.org/" target="_blank">ESLint</a>: un des <em>linters</em> les plus populaires</li>
                 </ul>
             </section>
 

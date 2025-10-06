@@ -23,10 +23,10 @@
             <h2 class ="link-dark text-decoration-none border-bottom p-2 mb-3">Table des matières</h2>
             <ul class="list-unstyled" id="navbarTogglerDemo03">
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#html-collapse" aria-expanded="true">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#html-collapse" aria-expanded="false">
                         HTML
                     </button>
-                    <div class="collapse show" id="html-collapse">
+                    <div class="collapse" id="html-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#preparation" class="d-inline-flex align-items-center rounded">Préparation</a></li>
                             <li><a href="#validation" class="d-inline-flex align-items-center rounded">Validation</a></li>
@@ -36,10 +36,10 @@
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#css-collapse" aria-expanded="true">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#css-collapse" aria-expanded="false">
                         CSS
                     </button>
-                    <div class="collapse show" id="css-collapse">
+                    <div class="collapse" id="css-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#preliminaire" class="d-inline-flex align-items-center rounded">Exercice préliminaire</a></li>
                             <li><a href="#preparation2" class="d-inline-flex align-items-center rounded">Préparation</a></li>
@@ -49,10 +49,10 @@
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#rwd-collapse" aria-expanded="true">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#rwd-collapse" aria-expanded="false">
                         Responsive Web Design
                     </button>
-                    <div class="collapse show" id="rwd-collapse">
+                    <div class="collapse" id="rwd-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#rwd-html" class="d-inline-flex align-items-center rounded">HTML</a></li>
                             <li><a href="#rwd-css" class="d-inline-flex align-items-center rounded">CSS</a></li>
@@ -60,11 +60,11 @@
                         </ul>
                     </div>
                 </li>
-                <li>
-                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#bootstrap-collapse" aria-expanded="true">
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#bootstrap-collapse" aria-expanded="false">
                         Bootstrap
                     </button>
-                    <div class="collapse show" id="bootstrap-collapse">
+                    <div class="collapse" id="bootstrap-collapse">
                         <ul class="btn-toggle-nav list-unstyled">
                             <li><a href="#presentation-bootstrap" class="d-inline-flex align-items-center rounded">Présentation</a></li>
                             <li><a href="#installation-bootstrap" class="d-inline-flex align-items-center rounded">Installation</a></li>
@@ -72,6 +72,19 @@
                             <li><a href="#image-bootstrap" class="d-inline-flex align-items-center rounded">Images flexibles</a></li>
                             <li><a href="#navbar-bootstrap" class="d-inline-flex align-items-center rounded">Barre de navigation</a></li>
 
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#js-collapse" aria-expanded="false">
+                        JavaScript
+                    </button>
+                    <div class="collapse" id="js-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#tribulles" class="d-inline-flex align-items-center rounded">Tri à bulles</a></li>
+                            <li><a href="#pliages" class="d-inline-flex align-items-center rounded">Pliages</a></li>
+                            <li><a href="#fizzbuzz" class="d-inline-flex align-items-center rounded">FizzBuzz</a></li>
+                            <li><a href="#produit-matriciel" class="d-inline-flex align-items-center rounded">Produit Matriciel</a></li>
                         </ul>
                     </div>
                 </li>
@@ -358,7 +371,7 @@ body {
 
             <section>
                 <h4 id="presentation-bootstrap">Présentation de Bootstrap</h4>
-                <p>Bootstrap est un framework de développement web front-end, c’est-à-dire dédié à la conception web coté client. Les caractéristiques notables de ce framework sont:</p>
+                <p>Bootstrap est un framework de développement web front-end, c'est-à-dire dédié à la conception web coté client. Les caractéristiques notables de ce framework sont:</p>
                 <ul>
                     <li>Open source et gratuit (licence MIT).</li>
                     <li>Très bien documenté et porté par une communauté active.</li>
@@ -367,9 +380,9 @@ body {
                     <li>Compatible avec des outils de pré-compilation CSS, comme <a href="https://sass-lang.com/">SASS</a>.</li>
                 </ul>
 
-                <p>La dernière version finalisée de Bootstrap est la version 5 (mai 2021). Elle intègre les standards de l’<em>open web platform</em> les plus récents. Pour cette raison, il est conseillé d’utiliser cette version. À noter que les versions antérieures s’appuient sur le framework Javascript JQuery, qu’il faut installer indépendamment. Cette dépendance a été supprimée à partir de la version 5.</p>
+                <p>La dernière version finalisée de Bootstrap est la version 5 (mai 2021). Elle intègre les standards de l'<em>open web platform</em> les plus récents. Pour cette raison, il est conseillé d'utiliser cette version. À noter que les versions antérieures s'appuient sur le framework Javascript JQuery, qu'il faut installer indépendamment. Cette dépendance a été supprimée à partir de la version 5.</p>
 
-                <p>Bootstrap se présente sous la forme de fichiers CSS et Javascript, produits par des outils de génération de code CSS/Javascript dont le but est de produire des fichiers prêts à l’emploi et optimisés pour un chargement aussi rapide que possible.</p>
+                <p>Bootstrap se présente sous la forme de fichiers CSS et Javascript, produits par des outils de génération de code CSS/Javascript dont le but est de produire des fichiers prêts à l'emploi et optimisés pour un chargement aussi rapide que possible.</p>
 
                 <p>La liste des fichiers qui composent Bootstrap est la suivante:</p>
                 <pre><code>
@@ -495,7 +508,7 @@ bootstrap/
                     <li>définir une ligne avec un élément HTML auquel on affecte la classe <code>.row</code></li>
                     <li>définir des cellules à l'intérieur de cette ligne, avec des éléments HTML auxquels on affecte la classe <code>.col-{n}</code> où <code>{n}</code> est un entier compris entre 1 et 12 permettant de spécifier la largeur en nombre de colonnes.</li>
                 </ul>
-                <p>Bootstrap décline les classes <code>.col-{n}</code> en 5 variantes qui permettent d’ajouter une contrainte sur le comportement responsive des éléments: <code>col-sm-x</code>, <code>col-md-x</code>, <code>col-lg-x</code>, <code>col-xl-x</code> et <code>col-xxl-x</code>. Le principe de ces déclinaisons est d’autoriser les éléments à se ré-agencer en colonne plutôt qu’en ligne quand l’écran devient trop petit.</p>
+                <p>Bootstrap décline les classes <code>.col-{n}</code> en 5 variantes qui permettent d'ajouter une contrainte sur le comportement responsive des éléments: <code>col-sm-x</code>, <code>col-md-x</code>, <code>col-lg-x</code>, <code>col-xl-x</code> et <code>col-xxl-x</code>. Le principe de ces déclinaisons est d'autoriser les éléments à se ré-agencer en colonne plutôt qu'en ligne quand l'écran devient trop petit.</p>
                 <p>Par exemple:</p>
                 <pre><code class="language-html" data-trim>
 &lt;div class="container-md"&gt;
@@ -556,16 +569,16 @@ bootstrap/
             </section>
 
             <section>
-                <h4 id="nav-bootstrap">Barre de navigation</h4>
+                <h4 id="navbar-bootstrap">Barre de navigation</h4>
 
-                <p>Les barres de navigation sont complexes à mettre en place, surtout lorsqu’il s’agit de définir un comportement <em>responsive</em>. Bootstrap fournit des outils puissants pour définir des barres de navigation qui s’adaptent automatiquement en fonction du terminal, y compris dans l’ergonomie.</p>
+                <p>Les barres de navigation sont complexes à mettre en place, surtout lorsqu'il s'agit de définir un comportement <em>responsive</em>. Bootstrap fournit des outils puissants pour définir des barres de navigation qui s'adaptent automatiquement en fonction du terminal, y compris dans l'ergonomie.</p>
 
-                <p>L’élément central est la classe <code>navbar</code>. On l’applique le plus souvent à une balise <code>nav</code>. Cette classe définit un comportement par défaut complètement <em>responsive</em>. Beaucoup de classes additionnelles permettent de personnaliser ce comportement.</p>
+                <p>L'élément central est la classe <code>navbar</code>. On l'applique le plus souvent à une balise <code>nav</code>. Cette classe définit un comportement par défaut complètement <em>responsive</em>. Beaucoup de classes additionnelles permettent de personnaliser ce comportement.</p>
 
-                <p>Dans une barre de navigation, on trouve souvent deux types d’éléments:</p>
+                <p>Dans une barre de navigation, on trouve souvent deux types d'éléments:</p>
                 <ul>
-                    <li>un logo/titre (en anglais <em>brand</em>), défini à l’aide de la classe <code>navbar-brand</code>.</li>
-                    <li>un menu de navigation sous la forme d’une liste de liens, défini à l’aide de la classe <code>navbar-nav</code>.</li>
+                    <li>un logo/titre (en anglais <em>brand</em>), défini à l'aide de la classe <code>navbar-brand</code>.</li>
+                    <li>un menu de navigation sous la forme d'une liste de liens, défini à l'aide de la classe <code>navbar-nav</code>.</li>
                 </ul>
                 <p>Par exemple, voici un squelette type pour une barre de navigation Bootstrap :</p>
                 <pre><code class="language-html">
@@ -586,16 +599,16 @@ bootstrap/
                 </code></pre>
                 <p>Les classes <code>nav-item</code> et <code>nav-link</code> permettent de définir les items du menu. Des styles, espacements et positionnement par défaut leur seront appliqués, en respectant les préceptes de la conception <em>responsive</em>.</p>
 
-                <p>Le comportement traditionnel d'une barre de navigation pour les terminaux mobiles est de cacher le menu à l’aide d’un bouton "tiroir". Vous pouvez trouvez un exemple de ce fonctionnement sur le site du Master (mastersd.univ-rouen.fr).</p>
+                <p>Le comportement traditionnel d'une barre de navigation pour les terminaux mobiles est de cacher le menu à l'aide d'un bouton "tiroir". Vous pouvez trouvez un exemple de ce fonctionnement sur le site du Master (mastersd.univ-rouen.fr).</p>
 
-                <p>Ce mécanisme est facile à mettre en œuvre avec Bootstrap à l’aide d’un bouton à bascule (toggle) et de classes spéciales associées au menu. Il faut:</p>
+                <p>Ce mécanisme est facile à mettre en œuvre avec Bootstrap à l'aide d'un bouton à bascule (toggle) et de classes spéciales associées au menu. Il faut:</p>
                 <ol>
                     <li>Encapsuler le menu dans un élément <code>div</code> auquel on associe les classes <code>collapse</code> et <code>navbar-collapse</code>.</li>
-                    <li>Ajouter un bouton avant le menu, avec la classe <code>navbar-toggler</code> et l’attribut <code>data-toggle="collapse"</code>.</li>
-                    <li>Ajouter au <code>div</code> précédent un <code>id</code> dont la valeur doit également être associée à l’attribut <code>data-target</code> du bouton.</li>
+                    <li>Ajouter un bouton avant le menu, avec la classe <code>navbar-toggler</code> et l'attribut <code>data-toggle="collapse"</code>.</li>
+                    <li>Ajouter au <code>div</code> précédent un <code>id</code> dont la valeur doit également être associée à l'attribut <code>data-target</code> du bouton.</li>
                 </ol>
 
-                <p>Par ailleurs, il est possible de préciser à partir de quel point de rupture on souhaite que les menus soient ré-agencés verticalement (avec ou sans bouton à bascule). Il suffit pour cela d’associer la classe <code>navbar-expand-*</code> à l’élément <code>navbar</code>, en remplaçant <code>*</code> par <code>xl</code>, <code>lg</code>, <code>md</code> ou <code>sm</code>.</p>
+                <p>Par ailleurs, il est possible de préciser à partir de quel point de rupture on souhaite que les menus soient ré-agencés verticalement (avec ou sans bouton à bascule). Il suffit pour cela d'associer la classe <code>navbar-expand-*</code> à l'élément <code>navbar</code>, en remplaçant <code>*</code> par <code>xl</code>, <code>lg</code>, <code>md</code> ou <code>sm</code>.</p>
 
                 <p>Avant de traiter le prochain exercice, vous êtes invité à consulter la <a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank">documentation</a> pour en savoir plus sur les barres de navigation.</p>
             </section>
@@ -603,13 +616,65 @@ bootstrap/
             <section>
                 <h4 id="exercice4-bootstrap">Exercice</h4>
                 <ol>
-                    <li>Ajoutez à la page <code>loremipsum.html</code>, ainsi qu’à toutes les copies que vous avez créé aux exercices précédents, une barre de navigation contenant un lien vers chacune de ces pages. Le résultat est montré dans l'image ci-dessous.</li>
+                    <li>Ajoutez à la page <code>loremipsum.html</code>, ainsi qu'à toutes les copies que vous avez créé aux exercices précédents, une barre de navigation contenant un lien vers chacune de ces pages. Le résultat est montré dans l'image ci-dessous.</li>
                     <li>Implémentez le comportement de la barre de navigation pour les terminaux mobiles en utilisant un bouton à bascule.</li>
                 </ol>
                 <img src="../img/bootstrap-screen5.png" class="w-100 m-auto mt-2 mb-4 framed">
             </section>
         </section>
 
+        <section>
+            <h3 id="javascript">JavaScript</h3>
+
+            <section>
+                <h4 id="tribulles">Tri à bulles</h4>
+                <p>Téléchargez le dossier <code>tribulles</code> mis à disposition sur UniversiTICE. Vous y trouverez une page <code>tribulles.html</code>, ainsi qu'un script JS associé. L'objectif de cet exercice est de compléter et déboguer le script pour faire fonctionner le tri à bulles. Pour cela:</p>
+                <ol>
+                    <li>Complétez la fonction <code>echanger</code> pour qu'elle échange les valeurs de deux éléments d'un tableau.</li>
+                    <li>Complétez la fonction <code>melanger</code> pour qu’elle mélange les valeurs du tableau. Pour cela, suivez les instructions données en commentaire dans le fichier JS.</li>
+                    <li>Testez votre code en chargeant la page <code>tribulles.html</code> dans le navigateur. Vous devriez voir un résultat similaire à la figure ci-dessous, avec le contenu du tableau mélangé affiché dans la fenêtre et dans la console. Rechargez la page plusieurs fois pour observer que le contenu du tableau est différent à chaque fois.</li>
+                </ol>
+                <img src="../img/tribulles-screen1.png" class="w-100 m-auto mt-2 mb-4">
+                <ol start="4">
+                    <li>Complétez <code>tribulles.html</code> pour déclencher l'exécution du tri à bulles sur le tableau <code>tab</code>.</li>
+                    <li>Chargez la page dans le navigateur. Vous devriez obtenir des erreurs dans la console.</li>
+                    <li>Corrigez toutes les erreurs jusqu'à obtenir un résultat correct, comme sur la figure ci-dessous.</li>
+                </ol>
+                <img src="../img/tribulles-screen2.png" class="w-100 m-auto mt-2 mb-4">
+            </section>
+
+            <section>
+                <h4 id="pliages">Pliages</h4>
+                <p>Téléchargez le dossier <code>pliages</code> mis à disposition sur UniversiTICE. Vous y trouverez une page <code>pliages.html</code>, ainsi qu'un script JS associé. L'objectif de cet exercice est de compléter le script et d'en observer le fonctionnement avec le débogueur (cf. <a href="https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html" target="_blank">documentation</a>). Pour cela:</p>
+                <ol>
+                    <li>Compléter la fonction <code>calculerNbrePlis</code> pour qu'elle calcule le nombre de fois qu'il faut plier une feuille de papier de 1/10 mm d'épaisseur pour obtenir une épaisseur totale supérieure à une distance donnée.</li>
+                    <li>Testez votre code en chargeant la page <code>pliages.html</code> dans le navigateur.</li>
+                    <li>Ouvrez le débogueur et ajoutez un point d'arrêt au premier des deux appels à la fonction <code>afficherDistance</code> dans <code>pliages.html</code>. Rechargez la page.</li>
+                    <li>Faites entrer le débogueur dans la fonction <code>afficherDistance</code> et observer les valeurs prises par l'ensemble des variables accessibles à cet endroit: Quelle est la valeur de <code>n</code> et pourquoi?</li>
+                    <li>Faites entrer le débogueur dans la fonction <code>calculerNbrePlis</code> et poursuivez l'exécution pas-à-pas jusqu'à pouvoir déterminer le nombre de fois que la feuille doit être pliée pour atteindre l'épaisseur d'une ramette de 500 pages, c'est-à-dire 5cm. Quelle est cette valeur?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h4 id="fizzbuzz">FizzBuzz</h4>
+                <p>Cet exercice est un classique: il s'agit d'afficher dans une page HTML les nombres de 1 à 100, en remplaçant les multiples de 3 par "Fizz" et les multiples de 5 par "Buzz". Pour les nombres qui sont à la fois des multiples de 3 et de 5, on affichera "FizzBuzz".</p>
+            </section>
+
+            <section>
+                <h4 id="produit-matriciel">Produit Matriciel</h4>
+                <p>Cet exercice consiste à implémenter le produit matriciel de deux matrices. Vous devez créer une fonction <code>produitMatriciel</code> qui prend en entrée deux matrices et renvoie leur produit. En JavaScript, une matrice est représentée par un tableau de tableaux:</p>
+                <pre><code class="language-js" data-trim>
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(matrix[0][1]); // Affiche 2
+                </code></pre>
+                <p>Vous devez afficher vos trois matrices, les deux matrices à multiplier ainsi que le résultat de leur produit, dans une page HTML.</p>
+            </section>
+
+        </section>
     </main>
 
     <footer>
