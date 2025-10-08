@@ -629,7 +629,7 @@ callFunction(
                     <li>Une fonction passée en argument d'une autre fonction est appelée un <em>callback</em></li>
                     <pre><code class="language-js" data-trim>
 function ask(question, yes, no) {
-    if (confirm(question)) yes()
+    if (confirm(question)) yes();
     else no();
 }
 
@@ -703,7 +703,7 @@ sumAndLog(2, 3); // affiche 5 et retourne 5
                     <li>ES5:</li>
                     <ul>
                         <li>évolution majeures de fonctionnalités existantes</li>
-                        <li> mais introduit des problèmes de rétrocompatibilité (<code>mode strict</code>)</li>
+                        <li>mais introduit des problèmes de rétrocompatibilité (mode <code>strict</code>)</li>
                     </ul>
                     <li>Depuis ES6 (2015) et versions ultérieures:</li>
                     <ul>
@@ -728,7 +728,7 @@ let x = 3.14;
 ...
                     </code></pre>
                     <li>Plusieurs fonctionnalités modernes activent automatiquement ce mode, e.g. les classes et les modules</li>
-                    <li><code>use strict</code> est souvent <em>omise</em> car implicitement activée par des scripts modernes</li>
+                    <li><code>use strict</code> est souvent omise car implicitement activée par des scripts modernes</li>
                 </ul>
             </section>
 
