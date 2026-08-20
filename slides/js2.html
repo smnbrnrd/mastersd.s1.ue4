@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Master SD - Conception d'Interface Web</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="reveal/dist/reveal.css">
+    <link rel="stylesheet" href="reveal/plugin/highlight/zenburn.css" />
+    <link rel="stylesheet" href="../assets/cm.css">
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!--------------------------------------------->
+            <!-- Cover slide -->
+            <section class="title-slide">
+                <div class="title">Conception d'Interface Web</div>
+                <div class="subtitle">JavaScript (2/2)</div>
+                <div class="author">Simon BERNARD</div>
+                <div class="mail"><a href="mailto:simon.bernard@univ-rouen.fr">simon.bernard@univ-rouen.fr</a></div>
+                <div class="logo"><img src="../assets/logo_urn_color.png"></div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Environnement hôte</h1>
+                <div class="row">
+                    <div class="col-7">
+                        <ul>
+                            <li>JS s'exécute dans un environnement hôte</li>
+                            <li>Le plus courant est le navigateur web</li>
+                            <li>Fournit des API spécifiques (ci-contre)</li>
+                            <li><code>window</code> est l'objet JS racine</li>
+                            <li>représente la fenêtre du navigateur:</li>
+                            <pre><code class="language-js" data-trim>
+window.innerHeight // hauteur de la fenetre
+window.innerWidth // largeur de la fenetre
+window.open() // ouvre une nouvelle fenetre (onglet)
+window.close() // ferme la fenetre active
+                            </code></pre>
+                        </ul>
+                    </div>
+                    <div class="col-5">
+                        <img src="figures/chap6/js_browser.png" class="w-95 m-auto" />
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Document Object Model (DOM)</h1>
+                <ul>
+                    <li><code>document</code> est le point d'entrée de l'API DOM</li>
+                    <li>Objets/fonctions JS pour manipuler les contenus des pages Web</li>
+                    <li>Rappel: HTML décrit la structure des pages Web</li>
+                    <li>DOM = objets JS qui représentent cette structure</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <pre><code class="language-html" data-trim>
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;My title&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;a href=&quot;page.html&quot;&gt;My link&lt;/a&gt;
+        &lt;h1&gt;My header&lt;/h1&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </code></pre>
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap6/htmltree.png" class="w-95 m-auto" />
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Document Object Model (DOM)</h1>
+                <h2>Remarques</h2>
+                <ul>
+                    <li>L’arbre est ”auto-corrigé” si le HTML est mal formé. </li>
+                    <li>Par exemple :</li>
+                    <ul>
+                        <li>Ajout de <code>&lt;html&gt;/&lt;body&gt;</code> si manquants</li>
+                        <li>Ajout de balises fermantes si manquantes</li>
+                    </ul>
+                    <li>Visualiser le DOM:</li>
+                    <ul>
+                        <li>Dans les outils de développement du navigateur</li>
+                        <li><a href="https://software.hixie.ch/utilities/js/live-dom-viewer/" target="_blank">https://software.hixie.ch/utilities/js/live-dom-viewer/</a></li>
+                    </ul>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Manipuler le DOM</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Parcourir le DOM</h1>
+                <ul>
+                    <li>Accès au DOM via <code>document</code></li>
+                    <li>Exemples:</li>
+                    <ul>
+                        <li><code>document.title</code> : titre de la page</li>
+                        <li><code>document.body</code> : élément &lt;body&gt;</li>
+                        <li><code>document.head</code> : élément &lt;head&gt;</li>
+                    </ul>
+                    <li>Accés aux éléments fils via la propriété <code>childNodes</code></li>
+                    <pre><code class="language-js" data-trim>
+for (let child of document.body.childNodes) {
+    console.log(child);
+}
+                    </code></pre>
+                    <p>où <code>children</code> si on ne veut que les nœuds fils de type éléments HTML (sans les textes, etc.)</p>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Parcourir le DOM</h1>
+                <h2>Démonstration</h2>
+                <p class="mt-2 mb-2"><a href="../Demos/js_domexplore.html" target="_blank">js_domexplore.html</a></p>
+                <pre><code class="language-js" data-trim>
+let tree = "<h2>DOM Tree :</h2><p>";
+for (let child of document.body.children) {
+    tree += "> " + child.nodeName + "<br>";
+    console.log(child);
+    for (let secondChild of child.children) {
+        tree += "> >" + secondChild.nodeName + "<br>";
+        for (let thirdChild of secondChild.children) {
+            tree += "> > >" + thirdChild.nodeName + "<br>";
+        }
+    }
+}
+tree += "</p>"
+document.getElementById("tree").innerHTML = tree;
+                </code></pre>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Parcourir le DOM</h1>
+                <ul>
+                    <li>Chaque objet du DOM donne accés à ses proches dans l'arbre via des propriétés</li>
+                    <li><code>Element</code> pour accéder uniquement aux éléments HTML</li>
+                </ul>
+                <div class="row mt-4">
+                    <div class="col-5">
+                        <img src="figures/chap6/navdom.png" class="w-100 m-auto" />
+                    </div>
+                    <div class="col-7">
+                        <img src="figures/chap6/navdomelt.png" class="w-90 m-auto" />
+                    </div>
+                </div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Recherche dans le DOM</h1>
+                <ul>
+                    <li>DOM fournit des méthodes de recherche dans l'arbre</li>
+                    <li><code>getElementById(id)</code> : retourne l'élément avec l'attribut <code>id</code> donné</li>
+                    <pre><code class="language-html" data-trim>
+&lt;div id=&quot;elem&quot;&gt;
+    &lt;div id=&quot;elem-content&quot;&gt;Elément&lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    let elem = document.getElementById(&#39;elem&#39;); // facultatif
+    elem.style.background = &#39;red&#39;;
+&lt;/script&gt;
+                    </code></pre>
+                    <li>l'<code>id</code> doit être unique, sinon le comportement n'est pas prévisible</li>
+                    <li>Les <code>id</code> autorisent des accès directs, sans utiliser la fonction de recherche</li>
+                    <li>Fortement déconseillé</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Recherche dans le DOM</h1>
+                <ul>
+                    <li>Sur le même schéma, méthodes de recherche par type d’élément HTML ou par valeur de <code>class</code> ou de <code>name</code> : </li>
+                    <pre><code class="language-js" data-trim>
+document.getElementsByTagName("p"); // par le nom de balise
+document.getElementsByClassName("info"); // par une classe
+document.getElementsByName("login"); // par l'attribut de balise 'name'
+                    </code></pre>
+                    <li>La recherche renvoie un ou plusieurs éléments</li>
+                    <li>Le retour est toujours un tableau (même quand un seul élément correspond)</li>
+                    <li>Contrairement à <code>getElementById</code>, ces méthodes peuvent être appelées à partir d’un élément du DOM</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Recherche dans le DOM</h1>
+                <ul>
+                    <li>Méthodes plus récentes qui s’appuient sur les sélecteurs CSS : <code>querySelectorAll</code> et <code>querySelector</code></li>
+                    <pre><code class="language-html" data-trim>
+&lt;ul&gt;
+    &lt;li&gt;Le&lt;/li&gt;
+    &lt;li&gt;test&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+    &lt;li&gt;a&lt;/li&gt;
+    &lt;li&gt;réussi&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script&gt;
+    let elements = document.querySelectorAll("ul > li:last-child");
+    for (let elem of elements) {
+        console.log(elem.innerHTML); // "test", "réussi"
+    }
+&lt;/script&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Les nœuds</h1>
+                <ul>
+                    <li>Chaque nœud dispose de propriétés qui permettent de le manipuler dynamiquement</li>
+                    <li>La plupart des attributs HTML deviennent automatiquement des propriétés (cf. <a href="https://fr.javascript.info/dom-attributes-and-properties" target="_blank">documentation</a>)</li>
+                    <li>Exemple: les nœuds <code>&lt;a&gt;</code> ont tous une propriété <code>href</code></li>
+                    <li>+ des propriétés génériques:</li>
+                    <ul>
+                        <li><code>nodeName</code> : nom du nœud (balise pour les éléments)</li>
+                        <li><code>nodeType</code> : type du nœud (élément, texte, commentaire, etc.)</li>
+                        <li><code>innerHTML</code> : contenu HTML du nœud (pour les éléments)</li>
+                    </ul>
+                    <li>La plupart des <span class="alert">changements sur les propriétés sont instantanément répercutés sur le rendu de la page</span></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Ajout/suppression de nœuds</h1>
+                <ul>
+                    <li>Création de nœud : <code>createElement()</code>, <code>createTextNode()</code></li>
+                    <pre><code class="language-js" data-trim>
+let div = document.createElement("div");
+div.className = "alert";
+div.innerHTML = "<strong>Ceci est un message important</strong>";
+                    </code></pre>
+                    Le nœud est créé mais pas (encore) ajouté au DOM
+                    <li>Ajout au DOM : <code>append()</code>, <code>prepend()</code>, <code>before()</code>, <code>after()</code>, <code>replaceWith()</code> </li>
+                    <pre><code class="language-js mb-1" data-trim>
+document.body.append(div);
+div.after("Mais pas ceci"); // on peut insérer du texte à la place d'un nœud
+                    </code></pre>
+                    <li>Suppression : <code>remove()</code></li>
+                    <li class="mt-4">Anciennes méthodes: <code>insertBefore()</code>, <code>insertAfter()</code>, <code>replaceChild()</code>, <code>removeChild()</code>, <code>appendChild()</code></li>
+                    <li>Ces méthodes fonctionnent toujours pour des raisons historiques mais elles sont déconseillées</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Styles et classes</h1>
+                <ul>
+                    <li>Propriété <code>style</code> qui correspond à l’attribut HTML <code>style</code></li>
+                    <li>L’utilisation de cet attribut est généralement déconseillé (cf. chapitre sur CSS)</li>
+                    <li>Idem en JS : préférable d’utiliser un CSS externe et de s’appuyer sur les classes</li>
+                    <li>Pour cela : <code>className</code></li>
+                    <pre><code class="language-html" data-trim>
+&lt;main class=&quot;home&quot;&gt;...&lt;/main&gt;
+&lt;script&gt;
+    let main = document.querySelector("main");
+    console.log(main.className); // &quot;home&quot;
+&lt;/script&gt;
+                    </code></pre>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Styles et classes</h1>
+                <ul>
+                    <li>Pour utiliser plusieurs classes : <code>classList</code></li>
+                    <li>Objet JS particulier avec les méthodes <code>add</code>, <code>remove</code></li>
+                    <pre><code class="language-js mt-1 mb-2" data-trim>
+let main = document.querySelector("main");
+main.classList.add("active"); // ajoute la classe 'active'
+main.classList.remove("home"); // supprime la classe 'home'
+main.classList.toggle("dark-mode"); // ajoute ou supprime 'dark-mode'
+                    </code></pre>
+                    <li>Méthode <code>contains()</code> pour vérifier la présence d'une classe</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Programmation événementielle</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Événement</h1>
+                <ul>
+                    <li class="alert">Un événement = signal indiquant que quelque chose s’est produit, auquel on peut vouloir réagir</li>
+                    <li>Exemples d'événements dans un navigateur web :</li>
+                    <ul>
+                        <li>L'utilisateur clique sur un bouton</li>
+                        <li>Une page web a fini de se charger</li>
+                        <li>la soumission de données d’un formulaire</li>
+                        <li>l’activation d’une combinaison de touche du clavier</li>
+                        <li>le déplacement du curseur de la souris</li>
+                        <li>etc.</li>
+                    </ul>
+                    <li>Liste des événements: <a href="https://developer.mozilla.org/fr/docs/Web/Events">MDN Web Docs</a>, <a href="https://fr.javascript.info/event-details">JavaScript.info</a></li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Gestionnaire d'événements</h1>
+                <ul>
+                    <li>Un événement est généralement associé à un élément de la page</li>
+                    <li>C'est le noeud du DOM correspondant qui "capture" l'événement</li>
+                    <li>Exemple :</li>
+                    <ul>
+                        <li>Un clic sur un bouton HTML</li>
+                        <li>Le nœud <code>&lt;button&gt;</code> correspondant capte l'événement "click"</li>
+                    </ul>
+                    <li>Pour réagir à cet événement, on peut définir un gestionnaire d'événements</li>
+                    <li class="alert">Un gestionnaire est une fonction JS qui sera exécutée lorsque l'événement se produira</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Gestionnaire d'événements</h1>
+                <ul>
+                    <li>Plusieurs moyens d’assigner un gestionnaire à un nœud du DOM</li>
+                    <li>Le plus simple : attribut HTML nommé <code>on&lt;event&gt;</code> où <code>&lt;event&gt;</code> est à remplacer par un type d’événement :</li>
+                    <pre><code class="language-html mb-1" data-trim>
+&lt;script&gt;
+    function sayHi() {
+        alert(&quot;Hi!&quot;);
+    }
+&lt;/script&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;sayHi()&quot; value=&quot;Say Hi!&quot;&gt;
+&lt;!-- ou --&gt;
+&lt;input type=&quot;button&quot; onclick=&quot;alert(&#39;Hi!&#39;)&quot; value=&quot;Say Hi!&quot;&gt;
+                    </code></pre>
+                    <li>Méthode obsolète et fortement déconseillé</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Gestionnaire d'événements</h1>
+                <ul>
+                    <li>Alternative: utiliser la propriété correspondante du nœud du DOM</li>
+                    <pre><code class="language-html mb-1" data-trim>
+&lt;input id=&quot;elem&quot; type=&quot;button&quot; value=&quot;Say Hi!&quot;&gt;
+&lt;script&gt;
+    let elem = document.getElementById(&quot;elem&quot;);
+        elem.onclick = function() {
+        alert(&quot;Hi!&quot;);
+    };
+&lt;/script&gt;
+                    </code></pre>
+                    <li>Cette fois, gestionnaire assigné à l'éxecution du script et non au chargement de la page</li>
+                    <li>Mais limitation : un seul gestionnaire par type d’événement</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Gestionnaire d'événements</h1>
+                <ul>
+                    <li>Méthode recommandée : <code>addEventListener()</code> (et <code>removeEventListener()</code>)</li>
+                    <pre><code class="language-js mb-1" data-trim>
+function handler() {
+    alert("Hi!");
+}
+
+elem.addEventListener("click", handler);
+elem.removeEventListener("click", handler);
+                    </code></pre>
+                    <li>Avantages :</li>
+                    <ul>
+                        <li>Plusieurs gestionnaires par type d’événement</li>
+                        <li>Séparation entre le code HTML et le code JS</li>
+                        <li>Fonctionne avec tous types d'événements (e.g. <code>DOMContentLoaded</code>)</li>
+                    </ul>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Objet <code>event</code></h1>
+                <ul>
+                    <li>Un gestionnaire peut capturer un <code>event</code> qui encapsule des informations sur l’événement</li>
+                    <li>Souvent indispensable pour gérer l’événement correctement :</li>
+                    <pre><code class="language-js mb-1" data-trim>
+function handler(event) {
+    // affiche le type d'événement, l'élément HTML et les coordonnées du 'clic'
+    alert(event.type + " at " + event.currentTarget);
+    alert("Coordinates: " + event.clientX + ":" + event.clientY);
+}
+elem.addEventListener("click", handler);
+                    </code></pre>
+                    <li>Les propriétés <code>event</code> dépendent de la nature de l'événement</li>
+                    <li>Pour connaître cette nature : <code>event.type</code> donne le nom de l’événement (e.g. "click")</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Objet <code>event</code></h1>
+                <h2>Exemple de propriétés d'<code>event</code></h2>
+                <ul>
+                    <li><code>type</code> : type d'événement (e.g. "click")</li>
+                    <li><code>target</code> : nœud du DOM qui a capturé/déclenché l'événement</li>
+                    <li><code>currentTarget</code> : nœud du DOM auquel le gestionnaire est attaché</li>
+                    <li><code>clientX</code>, <code>clientY</code> : coordonnées de la souris lors d'un clic</li>
+                    <li><code>key</code> : touche du clavier pressée lors d'un événement clavier</li>
+                    <li><code>button</code> : bouton de la souris pressé lors d'un événement de souris</li>
+                    <li>etc.</li>
+                </ul>
+            </section>
+
+
+            <!--------------------------------------------->
+            <section class="section-slide">
+                <div class="title">Propagation des événements</div>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Propagation des événements</h1>
+                <ul>
+                    <li>Quand un événement est capturé, il se propage à travers le DOM</li>
+                    <li>Par exemple : </li>
+                    <ol>
+                        <li>Un événement est capturé par un nœud du DOM</li>
+                        <li>S’il existe, son gestionnaire est exécutée</li>
+                        <li>Puis l’événement est transmis au nœud père</li>
+                        <li>S’il existe, le gestionnaire de ce nœud parent est exécuté</li>
+                        <li>Puis l’événement est transmis au nœud grand-père</li>
+                        <li>et ainsi de suite...</li>
+                    </ol>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Propagation des événements</h1>
+                <h2>Démonstration</h2>
+                <pre><code class="language-html mb-3" data-trim>
+&lt;div id=&quot;div-container&quot; class=&quot;element&quot;&gt;
+    &lt;span id=&quot;span-container&quot; class=&quot;element&quot;&gt;
+        &lt;p id=&quot;paragraph&quot; class=&quot;element&quot;&gt;
+        Event propagation
+        &lt;/p&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+                </code></pre>
+                <a href="../Demos/js_event1.html" target="_blank"><img src="figures/chap6/event_demo1.png" class="w-100 m-auto framed"></a>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Capture et Bubbling</h1>
+                <ul>
+                    <li>La propagation comporte en fait 2 phases :</li>
+                    <ol>
+                        <li>Phase de capture : l'événement est transmis du nœud racine jusqu'au nœud cible</li>
+                        <li>Phase de bubbling : l'événement remonte du nœud cible jusqu'au nœud racine</li>
+                    </ol>
+                    <img src="figures/chap6/capture_bubbling.png" class="w-75 m-auto">
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Capture et Bubbling</h1>
+                <ul>
+                    <li>Un gestionnaire est associé à une phase et ne s’exécute que pendant cette phase</li>
+                    <li>Par défaut, un gestionnaire est associé à la phase de bubbling</li>
+                    <li>Pour l’associer à la phase de capture :</li>
+                    <pre><code class="language-js mb-1" data-trim>
+element.addEventListener(&#39;click&#39;, handler, true); // phase de capture
+element.addEventListener(&#39;click&#39;, handler, false); // phase de bubbling (par défaut)
+                    </code></pre>
+                    <li>La phase de capture est rarement utile en pratique car :</li>
+                    <ul>
+                        <li>Traitement plus naturelle en phase de bubbling</li>
+                        <li>Les gestionnaires sont ajoutés par défaut au bubbling</li>
+                    </ul>
+                    <li>Mais les deux sont pris en charge par la plupart des navigateurs</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Stopper la propagation</h1>
+                <ul>
+                    <li>Pour stopper la propagation d’un événement :</li>
+                    <ol class="mb-2">
+                        <li>Utiliser la méthode <code>stopPropagation()</code> sur l’objet événement</li>
+                        <li>Utiliser la méthode <code>stopImmediatePropagation()</code> pour stopper tous les gestionnaires d’événements</li>
+                    </ol>
+                    <li>Si un noeud à plusieurs gestionnaires pour le même événement, <code>stopPropagation()</code> arrêtera la propagation, mais pas l'exécution des gestionnaires sur ce noeud</li>
+                    <li><code>stopImmediatePropagation()</code>: pour stopper la propagation d’un événement dans tous les gestionnaires</li>
+                    <li class="alert">Recommandation : ne stopper la propagation que si c'est absolument nécessaire</li>
+                </ul>
+            </section>
+
+            <!--------------------------------------------->
+            <section>
+                <h1>Propagation des événements</h1>
+                <h2>Démonstration</h2>
+                <a href="../Demos/js_event2.html" target="_blank"><img src="figures/chap6/event_demo2.png" class="w-100 m-auto"></a>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="reveal/dist/reveal.js"></script>
+    <script src="reveal/plugin/notes/notes.js"></script>
+    <script src="reveal/plugin/highlight/highlight.js"></script>
+	<script src="reveal/plugin/math/math.js"></script>
+    <script src="reveal/plugin/zoom/zoom.js"></script>
+    <script src="reveal/plugin/reveald3.js"></script>
+    <script>
+        Reveal.initialize({
+            width: 800,
+            height: 600,
+            margin: 0.05,
+            center: false,
+            hash: true,
+            controls: false,
+            slideNumber: 'c/t',
+            showSlideNumber: 'all',
+            mouseWheel: true,
+            transition: 'none', // Transition style : none/fade/slide/convex/concave/zoom
+            progress: true,
+            autoPlayMedia: true,
+            plugins: [ RevealNotes, RevealHighlight, Reveald3, RevealZoom, RevealMath.KaTeX ]
+        });
+    </script>
+</body>
+</html>

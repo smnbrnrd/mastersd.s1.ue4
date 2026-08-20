@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'/>
+    <title>HTML/CSS Form</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Helvetica", "Arial", sans-serif;
+        font-size: 16px;
+        line-height: 1.3;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .form {
+        width: 600px;
+        margin-top: 50px;
+      }
+
+      .form-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end; 
+        margin: auto;
+        margin-bottom: 20px;
+      }
+      .form-row label {
+        text-align: right;
+        width: 120px;
+        margin-top: 7px;
+        padding-right: 20px;
+      }
+
+      .form-row input[type='text'],
+      .form-row input[type='email'] {
+        border: 1px solid #D6D9DC;
+        border-radius: 3px;
+        width: 250px;
+        height: initial;
+        padding: 7px;
+        font-size: 14px;
+      }
+
+      .form-row button {
+        font-size: 16px;
+        font-weight: bold;
+        border: 1px solid black;
+        border-radius: 3px;
+        padding: 10px 40px;
+        margin: auto;
+      }
+
+    </style>
+  </head>
+  <body>
+    <form action="" method="get" class="form">
+      <div class='form-row'>
+        <label for='full-name'>Name</label>
+        <input id='full-name' name='full-name' type='text'/>
+      </div>
+      <div class='form-row'>
+        <label for='email'>Email</label>
+        <input id='email' name='email' type='email' placeholder='joe@example.com'/>
+      </div>
+      <div class='form-row'>
+        <button>Submit</button>
+      </div>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Demonstration JavaScript: Event</title>
+  <style>
+    body {
+      background-color: #ECECD4;
+      font-family: Arial, sans-serif;
+    }
+
+    li { margin-bottom: .5em; }
+    .element {
+      position: relative;
+    }
+    .element:after {
+      display: block;
+      font-size: 12px;
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+    }
+    #div-container {
+      width: 80%;
+      margin: auto;
+      margin-top: 2%;
+      padding: 2% 1%;
+      border-radius: 8px;
+      box-shadow: -2px 2px 9px rgba(0,0,0,0.6);
+      background-color: #BDB76B;
+    }
+    #div-container:after {
+      content: '#div-container';
+    }
+    #span-container {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      padding: 1% 2%;
+      border-radius: 6px;
+      box-shadow: -2px 2px 9px rgba(0,0,0,0.2);
+      background-color: #F0E68C;
+      text-align: center;
+    }
+    #span-container:after {
+      content: '#span-container';
+    }
+    #paragraph {
+      display: inline-block;
+      cursor: pointer;
+      margin: 10px auto;
+      padding: 4% 8%;
+      text-align: center;
+      border-radius: 4px;
+      box-shadow: -2px 2px 9px rgba(0,0,0,0.5);
+      background-color: #DAA520;
+    }
+    #paragraph:after {
+      content: '#paragraph';
+    }
+    #console {
+      width: 80%;
+      margin-top: 2%;
+    }
+    #console ol,  #console p {
+      padding-left: 30px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  Cliquez sur un élément ci-dessous:
+
+  <div id="div-container" class="element">
+    <span id="span-container" class="element">
+      <p id="paragraph" class="element">
+        Event propagation
+      </p>
+    </span>
+  </div>
+
+  <div id="console">
+    <p><strong>Gestionnaires d'événements:</strong></p>
+    <ol id="output">
+    </ol>
+  </div>
+
+  <script>
+    let divCont = document.getElementById("div-container");
+    let spanCont = document.getElementById("span-container");
+    let paragraph = document.getElementById("paragraph");
+    let output = document.getElementById("output");
+
+    function handler(event) {
+      let outputString = "Propagation : " + event.currentTarget.nodeName;
+      let node = document.createElement("li");
+      let textnode = document.createTextNode(outputString);
+      node.appendChild(textnode);
+      output.appendChild(node);
+    }
+
+    divCont.addEventListener("click", handler);
+    spanCont.addEventListener("click", handler);
+    paragraph.addEventListener("click", handler);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Demonstration JavaScript: DOM</title>
+</head>
+<body>
+  <main>
+    <h1>Main title of the page</h1>
+
+    <article id="article-1">
+      <h2 class="sensations">First article's title</h2>
+      <section>
+        <p>This article is amazing. It's one of the best articles I've ever read. </p>
+        <p>Isn't it impressive!?</p>
+      </section>
+    </article>
+
+    <article id="article-2">
+      <h2 class="horticulture">Second article's title</h2>
+      <section>
+        <p>This one's pretty average, but I guess you can't always be at the top.</p>
+      </section>
+    </article>
+  </main>
+
+  <div id="tree"></div>
+
+  <script>
+    let tree = "<h2>DOM Tree :</h2><p>";
+    for (let child of document.body.children) {
+      tree += "> " + child.nodeName + "<br>";
+      console.log(child);
+      for (let secondChild of child.children) {
+        tree += "> >" + secondChild.nodeName + "<br>";
+        for (let thirdChild of secondChild.children) {
+          tree += "> > >" + thirdChild.nodeName + "<br>";
+        }
+      }
+    }
+    tree += "</p>"
+    document.getElementById("tree").innerHTML = tree;
+  </script>
+</body>
+</html>

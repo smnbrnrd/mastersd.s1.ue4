@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master SD - Conception d'Interface Web - Travaux Pratiques</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css/normalize.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.min.css">
+    <link rel="stylesheet" href="urn.css">
+  
+</head>
+<body>
+
+<div class="container-lg">
+
+    <aside class="sidebar">
+        <nav class="flex-shrink-0 container-fluid navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h2 class ="link-dark text-decoration-none border-bottom p-2 mb-3">Table des matières</h2>
+            <ul class="list-unstyled" id="navbarTogglerDemo03">
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#html-collapse" aria-expanded="false">
+                        HTML
+                    </button>
+                    <div class="collapse" id="html-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#preparation" class="d-inline-flex align-items-center rounded">Préparation</a></li>
+                            <li><a href="#validation" class="d-inline-flex align-items-center rounded">Validation</a></li>
+                            <li><a href="#structuration" class="d-inline-flex align-items-center rounded">Structuration</a></li>
+                            <li><a href="#formulaires" class="d-inline-flex align-items-center rounded">Formulaires</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#css-collapse" aria-expanded="false">
+                        CSS
+                    </button>
+                    <div class="collapse" id="css-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#preliminaire" class="d-inline-flex align-items-center rounded">Exercice préliminaire</a></li>
+                            <li><a href="#preparation2" class="d-inline-flex align-items-center rounded">Préparation</a></li>
+                            <li><a href="#navigation" class="d-inline-flex align-items-center rounded">Menu de navigation</a></li>
+                            <li><a href="#principal" class="d-inline-flex align-items-center rounded">Contenu principal de la page</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#rwd-collapse" aria-expanded="false">
+                        Responsive Web Design
+                    </button>
+                    <div class="collapse" id="rwd-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#rwd-html" class="d-inline-flex align-items-center rounded">HTML</a></li>
+                            <li><a href="#rwd-css" class="d-inline-flex align-items-center rounded">CSS</a></li>
+                            <li><a href="#rwd-miseenpage" class="d-inline-flex align-items-center rounded">Mise en page</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#bootstrap-collapse" aria-expanded="false">
+                        Bootstrap
+                    </button>
+                    <div class="collapse" id="bootstrap-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#presentation-bootstrap" class="d-inline-flex align-items-center rounded">Présentation</a></li>
+                            <li><a href="#installation-bootstrap" class="d-inline-flex align-items-center rounded">Installation</a></li>
+                            <li><a href="#grid-bootstrap" class="d-inline-flex align-items-center rounded">Grille flexible</a></li>
+                            <li><a href="#image-bootstrap" class="d-inline-flex align-items-center rounded">Images flexibles</a></li>
+                            <li><a href="#navbar-bootstrap" class="d-inline-flex align-items-center rounded">Barre de navigation</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <button class="btn btn-toggle align-items-center rounded" data-bs-toggle="collapse" data-bs-target="#js-collapse" aria-expanded="false">
+                        JavaScript
+                    </button>
+                    <div class="collapse" id="js-collapse">
+                        <ul class="btn-toggle-nav list-unstyled">
+                            <li><a href="#tribulles" class="d-inline-flex align-items-center rounded">Tri à bulles</a></li>
+                            <li><a href="#pliages" class="d-inline-flex align-items-center rounded">Pliages</a></li>
+                            <li><a href="#fizzbuzz" class="d-inline-flex align-items-center rounded">FizzBuzz</a></li>
+                            <li><a href="#produit-matriciel" class="d-inline-flex align-items-center rounded">Produit Matriciel</a></li>
+                            <li><a href="#canvas" class="d-inline-flex align-items-center rounded">Cercles, carrés, triangles</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+
+    <main class="numbered-title order-1">
+
+        <h1>Conception d'Interface Web</h1>
+        <h2>Travaux Pratiques</h2>
+
+        <section>
+            <h3 id="html">HTML</h3>
+
+            <section>
+                <h4 id="preparation">Préparation</h4>
+                <p>Pour ces TP, vous allez principalement concevoir des pages HTML que vous allez enregistrer dans un dossier personnel et que vous allez tester dans un navigateur web. Vous pouvez utiliser l'éditeur de texte ou l'IDE de votre choix pour éditer ces pages. En revanche, il est préférable d'utiliser le navigateur Mozilla Firefox pour les tests. Si vous ne souhaitez pas utiliser Firefox, un autre navigateur fera tout à fait l'affaire mais les manipulations décrites dans cet énoncé devront être adaptées.</p>
+                <p>Pour la mise en place de vos outils :</p>
+                <ul>
+                    <li>Créez un répertoire de travail dans votre dossier personnel (<code>Z:</code>), dans lequel vous placerez vos fichiers sources.</li>
+                    <li>Créez également un premier sous-dossier pour cet exercice. Vous ferez de même pour chaque exercice.</li>
+                    <li>Créez et éditez un fichier HTML avec le code source ci-dessous.</li>
+                    <pre><code class="language-html">
+&lt;!doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Premier exercice&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Master SID&lt;/h1&gt;
+        &lt;h2&gt;Conception d&#39;Interface Web (CIW)&lt;/h2&gt;
+        &lt;p&gt;
+            Ceci est le premier exercice de TP du cours de &lt;em&gt;Conception d&#39;Interface
+            Web&lt;/em&gt; du Master SID de l&#39;Université de Rouen Normandie.
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                    <li>Ouvrez ce fichier dans un navigateur web.</li>
+                    <li>Examinez cette page avec l'outil <em>inspecter</em> de Firefox, accessible dans les outils pour le développement ou via un "clic droit" sur la page.</li>
+                    <li>Avec ce même outil, examinez le rendu de cette page en vue adaptative, c'est-à-dire comme si elle était affichée sur un terminal mobile.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h4 id="validation">Validation</h4>
+                <p>Détecter des erreurs de syntaxe ou de structure dans un fichier HTML est compliqué car il n'y a pas de compilation. À l'interprétation, les navigateurs analysent le langage de façon très permissive et peuvent même parfois apporter des corrections automatiques pour réaliser l'affichage.</p>
+                <ul>
+                    <li>Téléchargez le fichier <code>debug-example.html</code> mis à disposition sur UniversiTICE.</li>
+                    <li>Ouvrez-le dans un navigateur et ouvrez l'outil <em>inspecter</em>.</li>
+                    <li>Le code HTML qui apparaît dans la fenêtre du bas n'est pas exactement identique au code du fichier téléchargé. Le navigateur a opéré à des corrections automatiques : lesquelles ?</li>
+                    <li>Ouvrez maintenant le validateur du W3C : <a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>.</li>
+                    <li>Faites le diagnostique du fichier <code>debug-example.html</code>.</li>
+                    <li>En vous aidant du compte-rendu, corrigez toutes les erreurs jusqu'à ce que le validateur n'en détecte plus aucune.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h4 id="structuration">Structuration</h4>
+                <p>Le but de cet exercice est d'écrire une page HTML reprenant la structure du document <code>tim-berners-lee.pdf</code>, disponible sur UniversiTICE. Le texte "brut" est fourni dans le fichier <code>tim-berners-lee.txt</code>. Pour structurer cette page, vous devez respecter les contraintes suivantes :</p>
+                <ol>
+                    <li>Chaque partie de ce texte doit être incluse dans une ou plusieurs balises structurantes HTML5 (e.g. article, section, aside, etc.). Aidez-vous des titres pour structurer de façon pertinente.</li>
+                    <li>Les phrases bleues et soulignées tout en bas de la page sont des liens vers des articles Wikipédia. Ces derniers devront s'ouvrir dans un nouvel onglet. Les liens de la table des matières en revanche, sont des liens internes à la page.</li>
+                    <li>La page doit être datée et "signée" avec les balises sémantiques prévues à cet effet.</li>
+                    <li>La vérification de cette page HTML (<a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>) ne doit retourner aucune erreur ni avertissement.</li>
+                </ol>
+            </section>
+
+            <section>
+                <h4 id="formulaires">Formulaires</h4>
+                <p>Le but de cet exercice est de reproduire le formulaire de la figure ci-dessous. </p>
+                <figure>
+                    <img src="formulaire.png" style="max-width:100%;">
+                </figure>
+                <p>Pour parvenir à ce résultat, vous aurez besoin de vous documenter ; par exemple en allant ici : <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms" target="_blank">https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms</a>. Voici quelques informations supplémentaires pour vous guider :</p>
+                <ul>
+                    <li>les éléments de ce formulaire, à l'exception des boutons Valider et Effacer, sont regroupés dans un <code>fieldset</code>.</li>
+                    <li>Les formulaires servent normalement à saisir des informations qui sont ensuite envoyées au serveur. N'ayant pas de serveur à disposition, ni d'application serveur pour traiter ces données, le formulaire simulera l'envoie vers une page fictive. Actionner le bouton Valider fera normalement apparaître une erreur 404.</li>
+                    <li>L'agencement des différents éléments du formulaire est à réaliser avec un ou des tableaux HTML.</li>
+                </ul>
+                <p>Pour terminer, vous devez vérifier que votre page ne déclenche pas d'erreur ou d'avertissement (<a href="https://validator.w3.org/" target="_blank">https://validator.w3.org/</a>).</p>
+            </section>
+
+        </section>
+
+        <section>
+            <h3 id="html">CSS</h3>
+
+            <section>
+                <h4 id="preliminaire">Exercice préliminaire</h4>
+                <p>En guise de premier exercice sur les sélecteurs, rendez-vous à l'adresse : <a href="https://flukeout.github.io/" target="_blank">https://flukeout.github.io/</a>. Vous y trouverez un jeu dont le but est de définir le sélecteur adéquat pour sélectionner certains éléments d'un petit extrait de code HTML. Une aide est affichée à la droite de l'écran, mais il peut être utile de consulter la page <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors</a> avant de vous lancer.</p>
+            </section>
+
+            <section>
+                <h4 id="preparation2">Préparation</h4>
+
+                <section>
+                    <h5>Mise en place</h5>
+                    <p>Vous avez vu en cours qu'il y avait trois façons d'appliquer des styles CSS à une page HTML :</p>
+                    <ul>
+                        <li>en utilisant l'attribut style dans les balises HTML</li>
+                        <li>en utilisant la balise style dans l'entête du fichier HTML</li>
+                        <li>en définissant les styles dans un fichier d'extension <code>.css</code> et en l'associant à la page HTML</li>
+                    </ul>
+                    <p>C'est la troisième méthode que vous devez utiliser dans ce TP :</p>
+                    <ol>
+                        <li>Dans un nouveau dossier, faites une copie de la page HTML créée à l'exercice 1.3.</li>
+                        <li>Dans le même dossier, créez un nouveau fichier d'extension <code>.css</code>, et définissez-y une première règle de style pour changer la police de caractères à <code>Gill Sans</code> pour toute la page. Si cette police n'est pas prise en charge par le navigateur, il devra utiliser la police générique <code>sans-serif</code>.</li>
+                        <li>Appliquez cette feuille de style à la page HTML et visualisez le résultat dans un navigateur.</li>
+                        <li>Modifiez la feuille de style pour changer la couleur de fond de la page. Choisissez la couleur de votre choix (<a href="https://www.w3schools.com/colors/colors_names.asp" target="_blank">https://www.w3schools.com/colors/colors_names.asp</a>).</li>
+                    </ol>
+                </section>
+
+                <section>
+                    <h5>Reset CSS</h5>
+                    <p>Il s'agit maintenant d'appliquer un reset CSS à la page HTML, pour supprimer les styles par défaut des navigateurs:</p>
+                    <ol>
+                        <li>Commencez par lire cet article: <a href="https://css-tricks.com/reboot-resets-reasoning/">https://css-tricks.com/reboot-resets-reasoning/.</a></li>
+                        <li>Pour cet exercice, nous proposons d'utiliser le reset disponible ici: <a href="http://html5doctor.com/html-5-reset-stylesheet/">http://html5doctor.com/html-5-reset-stylesheet/.</a> Appliquez cette feuille à votre page HTML en faisant en sorte qu'elle soit appliquée à la page avant la feuille de style créée précédemment.</li>
+                        <li>Comparez les résultats obtenus sur différents navigateurs, avant et après l'activation du reset CSS.</li>
+                        <li>Dans la feuille de style créée à l'exercice précédent, redéfinissez des styles globaux pour:</li>
+                        <ul>
+                            <li>la taille de la police du texte</li>
+                            <li>la taille de la police des titres</li>
+                            <li>la hauteur de ligne</li>
+                            <li>l'espacement des paragraphes</li>
+                            <li>l'espacement des titres</li>
+                        </ul>
+                    </ol>
+                    <p>Vous devriez obtenir quelques choses proches de ce qui est montré ci-dessous.</p>
+                    <figure>
+                        <img src="timbernerslee-screen1.png" style="max-width:100%;">
+                    </figure>
+                </section>
+
+                <section>
+                    <h5>Variables CSS</h5>
+                    <p>La prochaine étape consiste à établir la charte graphique. La plupart du temps, c'est un professionnel du Web design qui se charge de cette étape car cela demande surtout des compétences de graphiste. Pour ce TP, vous allez vous contenter de définir les polices de caractères et les couleurs de la page.</p>
+                    <p>Pour cela, nous proposons d'utiliser des variables CSS comme montré dans l'exemple suivant :</p>
+                    <pre><code class="language-css">
+:root {
+    --background-color: #F5F5F6;
+}
+body {
+    background-color: var(--background-color);
+}
+                    </code></pre>
+                    <p>Le nom d'une variable CSS doit commencer par <code>--</code>. Elle peut ensuite être réutilisée dans la feuille de style à l'aide de la fonction <code>var()</code>. La portée d'une variable correspond à l'élément HTML désigné par le sélecteur de la règle dans laquelle elle est déclaré. Ici, nous utilisons la pseudo-classe <code>:root</code> qui permet de désigner l'élement racine de la page, afin que la variable soit accessible pour l'ensemble des règles de style qu'elle contient.</p>
+                    <p>Vous allez donc définir 5 variables correspondant à 5 couleurs différentes :</p>
+                    <ol>
+                        <li>déclarez deux variables pour les couleurs d'arrière-plan, nommées <code>--background-color1</code> et <code>--background-color2</code></li>
+                        <li>déclarez trois variables pour les couleurs d'avant-plan, nommées <code>--foreground-color1</code>, <code>--foreground-color2</code> et <code>--foreground-color3</code></li>
+                        <li>utilisez ces variables pour changer la couleur d'arrière-plan de votre page et la couleur du texte. </li>
+                    </ol>
+                    <p>N'hésitez pas à chercher sur internet des jeux de couleurs harmonieuses (e.g. avec <a href="https://coolors.co/" target="_blank">https://coolors.co/</a>). Si le sujet du choix judicieux des couleurs vous intéresse, vous pouvez lire cet <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Using_color_wisely" target="_blank">article</a>.</p>
+                </section>
+
+            </section>
+
+            <section>
+                <h4 id="navigation">Menu de Navigation</h4>
+
+                <section>
+                    <h5>Créer une barre de navigation</h5>
+                    <p>Vous allez maintenant mettre en forme le menu de navigation de la page. Vous trouverez ici : <a href="https://www.w3schools.com/css/css_navbar.asp" target="_blank">https://www.w3schools.com/css/css_navbar.asp</a> des explications qui vous aideront à répondre à cet exercice.</p>
+                    <p>Le menu de navigation de la page correspond à la table des matières, mais en partie seulement. La figure ci-dessous montre un exemple du résultat attendu.</p>
+                    <figure>
+                        <img src="timbernerslee-screen2.png" style="max-width:100%;">
+                    </figure>
+                    <p>Pour parvenir à ce résultat :</p>
+                    <ol>
+                        <li>Définissez une règle de style pour faire en sorte que seuls les menus principaux soient affichés dans la barre de navigation. Le titre "Tables des matières" et les sous-menus doivent être masqués sans être supprimés de la page HTML.</li>
+                        <li>Définissez une règle de style pour :</li>
+                        <ul>
+                            <li>définir la couleur de fond de la barre de navigation avec une des trois couleurs d'avant-plan que vous avez définies dans l'exercice précédent.</li>
+                            <li>que cette barre occupe toute la largeur de l'écran.</li>
+                            <li>qu'elle soit "collée" en haut de l'écran</li>
+                        </ul>
+                        <li>Définissez des règles de style pour que les menus s'affichent en ligne, les uns à coté des autres et qu'ils soient 1.2 fois plus grand que le texte de la page.</li>
+                        <li>Ajoutez un logo dans l'élément HTML qui définit le menu de navigation (dans le fichier HTML), puis définissez des règles de style pour que :</li>
+                        <ul>
+                            <li>sa hauteur soit égale à 2.5 fois la taille de la police de caractères.</li>
+                            <li>il soit placé à gauche des menus de navigations.</li>
+                        </ul>
+                        <li>Définissez des règles de style pour que les couleurs de polices et de fond des menus changent lorsque ceux-ci sont survolés par le curseur de la souris.</li>
+                    </ol>
+                    <p>Pour appliquer toutes ces modifications, pensez à soigneusement définir les espacements intérieurs et extérieurs des éléments (cf. modèle en boite de CSS) et à examiner le résultat avec les outils de développement de votre navigateur.</p>
+                </section>
+
+                <section>
+                    <h5>Réparer la navigation</h5>
+                    <p>En testant votre page sur différents navigateurs, vous devez constater que les liens ne sont pas très pratiques :</p>
+                    <ul>
+                        <li>il n'existe pas de moyen de revenir en haut de la page sans avoir à "scroller" toute la page.</li>
+                        <li>le haut de l'article que chaque lien est sensé afficher est caché par le menu de navigation.</li>
+                    </ul>
+                    <p>Voici des éléments de solutions pour ces deux problèmes :</p>
+                    <ul>
+                        <li>Pour le premier problème, une solution courante est d'ajouter un lien sur le logo de la barre de navigation, qui dirige vers le haut de la page.</li>
+                        <li>Pour le deuxième problème, il existe plusieurs solutions documentées sur Internet. L'une d'elles consiste à définir la cible du lien avec une balise <code>div</code> vide, placée juste avant la cible réelle. Ensuite, avec CSS, il faut modifier le positionnement relatif de la cible pour le déplacer vers le haut, à l'aide de la pseudo-classe :target.</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <h4 id="principal">Contenu principal de la page</h4>
+                <p>Vous allez maintenant modifier les styles du contenu principal de votre page en vous appuyant sur les balises sémantiques HTML5 ; en supposant que vous les avez utilisées en suivant les recommandations données en cours.</p>
+                <p>Nous donnons ci-dessous plusieurs exemples du résultat à obtenir. Vous devez obtenir un résultat le plus proches possibles de celui-ci.</p>
+                <img src="timbernerslee-screen3.png" class="w-100">
+                <img src="timbernerslee-screen4.png" class="w-100">
+                <img src="timbernerslee-screen5.png" class="w-100">
+                <img src="timbernerslee-screen6.png" class="w-100">
+                <img src="timbernerslee-screen7.png" class="w-100">
+            </section>
+        </section>
+
+        <section>
+            <h3 id="rwd">Responsive Web Design</h3>
+
+            <p>Dans cette troisième partie, nous proposons de suivre un tutoriel réalisé par <a href=" https://www.traversymedia.com/" target="_blank">Traversy Media</a>, qui consiste à réaliser un site web "<em>responsive</em>" en utilisant HTML5 et CSS. Nous décrivons succinctement ci-dessous le site à réaliser. Vous êtes invité à essayer de réaliser ce site par vous même avant de vous référer à la solution proposée dans la vidéo du tutoriel, accéssible <a href="https://www.youtube.com/watch?v=Wm6CUkswsNw&t=1s" target="_blank">ici</a>.</p>
+
+            <section>
+                <h4 id="rwd-html">Les pages HTML</h4>
+                <p>Le site comprend 3 pages:</p>
+                <ul>
+                    <li><code>index.html</code></li>
+                    <li><code>about.html</code></li>
+                    <li><code>services.html</code></li>
+                </ul>
+                <p>La première page <code>index.html</code> est la page d'accueil du site, montré ci-dessous.</p>
+                <img src="acme1.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <p>Cette page est subdivisée en 5 parties:</p>
+                <ul>
+                    <li>l'entête qui comprend le nom de l'entreprise à gauche et le menu de navigation à droite</li>
+                    <li>un bandeau "vitrine" avec une image de fond, un slogan et un paragraphe court en dessous</li>
+                    <li>une section newsletter avec un titre et un formulaire pour la saisie d'une adresse mail (inactif)</li>
+                    <li>un corps de page avec trois cartes, chacune comprenant une image, un titre et un paragraphe</li>
+                    <li>un pied-de-page avec un <em>copyright</em></li>
+                </ul>
+                <p>Les deux autres pages, montrées ci-dessous, contiennent le même entête, la même section <em>newsletter</em> et le même pied-de-page que la page d'accueil, mais ont un corps de page différent. Les corps de ces pages contiennent une colonne de contenu principal à gauche et une colonne de contenu secondaire à droite.</p>
+                <img src="acme2.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <img src="acme3.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <p>Les images inclues dans ces trois pages sont mis à disposition sur UniversiTICE.</p>
+            </section>
+
+            <section>
+                <h4 id="rwd-css">La feuille de styles CSS</h4>
+                <p>Les trois pages de ce site sont toutes liées à la même feuille de styles CSS. Pour définir cette feuille:</p>
+                <ul>
+                    <li>Vous devez définir les règles de styles les plus génériques en premier, puis aller vers les plus spécifiques ensuite.</li>
+                    <li>Les règles de styles peuvent être définies séparemment pour chaque zone de la page.</li>
+                    <li>Il y a 3 couleurs de fonds pour chaque pages: un gris clair (<code>#f4f4f4</code>), un gris foncé (<code>#35424a</code>) et un orange (<code>#e8491d</code>). Ces trois couleurs sont également réutilisées.à divers endroits (nom de l'entreprise, menus de navigation, boutons, etc.)</li>
+                    <li>Les polices de caractères sont <em>Arial</em> ou <em>Helvetica</em> ou <em>sans-serif</em>. La taille est de 15 pixels avec un interligne de 1.5.</li>
+                    <li>Les dimensions sont à définir en pixels ou en pourcentages. Vous pouvez utiliser l'unité <code>em</code> qui est parfois plus intuitive. Il n'est pas indispensable de respecter les dimensions de l'exemple au pixel près.</li>
+                    <li>Il y a évidemment plusieurs façons de procéder, mais n'hésitez pas à vous référer régulièrement à la vidéo du tutoriel pour avoir des explications.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h4 id="rwd-miseenpage">Mise en page adaptative</h4>
+                <p>La figure ci-dessous montre les trois pages sur un écran de smartphone (428px de large)</p>
+                <div class="container">
+                    <div class="row mb-4">
+                        <div class="col-4">
+                            <img src="acme1-mob.png" class="img-fluid framed">
+                        </div>
+                        <div class="col-4">
+                            <img src="acme2-mob.png" class="img-fluid framed">
+                        </div>
+                        <div class="col-4">
+                            <img src="acme3-mob.png" class="img-fluid framed">
+                        </div>
+                        </div>
+                </div>
+                <p>Les éléments sont réagencés dans chacune des zones. Ce comportement est implanté avec CSS, en utilisant quelques unes des techniques de RWD vues en cours.</p>
+                <p>Cependant, ce site web étant très simple, il n'est pas nécessaire de mettre en oeuvre toutes les techniques vues en cours. Par exemple, il n'est pas indispensable ici d'utiliser une grille flexible. En revanche, il faudra définir au moins un point de rupture pour modifier la disposition des éléments quand la largeur de l'écran se réduit.</p>
+            </section>
+        </section>
+
+        <section>
+            <h3 id="bootstrap">Bootstrap</h3>
+
+            <section>
+                <h4 id="presentation-bootstrap">Présentation de Bootstrap</h4>
+                <p>Bootstrap est un framework de développement web front-end, c'est-à-dire dédié à la conception web coté client. Les caractéristiques notables de ce framework sont:</p>
+                <ul>
+                    <li>Open source et gratuit (licence MIT).</li>
+                    <li>Très bien documenté et porté par une communauté active.</li>
+                    <li>Basé sur un agencement en grille de 12 colonnes, s'appuyant sur des Flexbox CSS.</li>
+                    <li>Utilise <a href="https://necolas.github.io/normalize.css/">Normalize.css</a> en remplacement des resets CSS, jugés parfois trop simplistes.</li>
+                    <li>Compatible avec des outils de pré-compilation CSS, comme <a href="https://sass-lang.com/">SASS</a>.</li>
+                </ul>
+
+                <p>La dernière version finalisée de Bootstrap est la version 5 (mai 2021). Elle intègre les standards de l'<em>open web platform</em> les plus récents. Pour cette raison, il est conseillé d'utiliser cette version. À noter que les versions antérieures s'appuient sur le framework Javascript JQuery, qu'il faut installer indépendamment. Cette dépendance a été supprimée à partir de la version 5.</p>
+
+                <p>Bootstrap se présente sous la forme de fichiers CSS et Javascript, produits par des outils de génération de code CSS/Javascript dont le but est de produire des fichiers prêts à l'emploi et optimisés pour un chargement aussi rapide que possible.</p>
+
+                <p>La liste des fichiers qui composent Bootstrap est la suivante:</p>
+                <pre><code>
+bootstrap/
+├── css/
+│   ├── bootstrap-grid.css
+│   ├── bootstrap-grid.css.map
+│   ├── bootstrap-grid.min.css
+│   ├── bootstrap-grid.min.css.map
+│   ├── bootstrap-grid.rtl.css
+│   ├── bootstrap-grid.rtl.css.map
+│   ├── bootstrap-grid.rtl.min.css
+│   ├── bootstrap-grid.rtl.min.css.map
+│   ├── bootstrap-reboot.css
+│   ├── bootstrap-reboot.css.map
+│   ├── bootstrap-reboot.min.css
+│   ├── bootstrap-reboot.min.css.map
+│   ├── bootstrap-reboot.rtl.css
+│   ├── bootstrap-reboot.rtl.css.map
+│   ├── bootstrap-reboot.rtl.min.css
+│   ├── bootstrap-reboot.rtl.min.css.map
+│   ├── bootstrap-utilities.css
+│   ├── bootstrap-utilities.css.map
+│   ├── bootstrap-utilities.min.css
+│   ├── bootstrap-utilities.min.css.map
+│   ├── bootstrap-utilities.rtl.css
+│   ├── bootstrap-utilities.rtl.css.map
+│   ├── bootstrap-utilities.rtl.min.css
+│   ├── bootstrap-utilities.rtl.min.css.map
+│   ├── bootstrap.css
+│   ├── bootstrap.css.map
+│   ├── bootstrap.min.css
+│   ├── bootstrap.min.css.map
+│   ├── bootstrap.rtl.css
+│   ├── bootstrap.rtl.css.map
+│   ├── bootstrap.rtl.min.css
+│   └── bootstrap.rtl.min.css.map
+└── js/
+    ├── bootstrap.bundle.js
+    ├── bootstrap.bundle.js.map
+    ├── bootstrap.bundle.min.js
+    ├── bootstrap.bundle.min.js.map
+    ├── bootstrap.esm.js
+    ├── bootstrap.esm.js.map
+    ├── bootstrap.esm.min.js
+    ├── bootstrap.esm.min.js.map
+    ├── bootstrap.js
+    ├── bootstrap.js.map
+    ├── bootstrap.min.js
+    └── bootstrap.min.js.map
+                </code></pre>
+                <p>Pour ce TP, nous ne décrivons pas les fichiers Javascript (<code>.js</code>), ni les fichiers MAP (<code>.map</code>) qui sont des fichiers utiles pour la pré-compilation uniquement.</p>
+                <p>Les fichiers CSS (<code>.css</code>) quant à eux, sont fournis dans plusieurs versions:</p>
+                <ul>
+                    <li>avec le suffixe <code>.min</code>: versions <em>minifiées</em>, c'est-à-dire épurées des commentaires, espaces, sauts de lignes, etc.</li>
+                    <li>avec le suffixe <code>-grid</code>: versions contenant le système de grille uniquement.</li>
+                    <li>avec le suffixe <code>-rtl</code>: versions pour les langues s'écrivant de droite à gauche.</li>
+                    <li>avec le suffixe <code>-reboot</code>: versions contenant la réinitialisation des styles par défaut uniquement.</li>
+                    <li>avec le suffixe <code>-utilities</code>: versions contenant les utilitaires de Bootstrap uniquement.</li>
+                </ul>
+                <p>Un seul de ces fichiers est à ajouter aux pages HTML. Typiquement, <code>bootstrap.min.css</code> permet de bénéficier de toutes les fonctionnalités CSS de Bootstrap. Certaines fonctionnalités avancées auront besoin du fichier <code>bootstrap.min.js</code> pour fonctionner.</p>
+            </section>
+
+            <section>
+                <h4 id="installation-bootstrap">Installation</h4>
+                <p>Pour utiliser Bootstrap, vous pouvez télécharger les fichiers présentés ci-dessus et de les copier dans votre application web. Il faut ensuite les inclure dans les fichiers HTML comme ceci :</p>
+                <pre><code class="language-html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;link href="css/bootstrap.min.css" rel="stylesheet"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        ...
+        &lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+                </code></pre>
+                <p>Une autre possibilité est d'utiliser un <a href="https://fr.wikipedia.org/wiki/R%C3%A9seau_de_diffusion_de_contenu" target="_blank">CDN</a> (<em>Content Delivery Network</em>) pour éviter de télécharger et copier les fichiers dans chacun de vos projets. Pour plus de détails, consultez la <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">documentation de Bootstrap</a>.</p>
+            </section>
+
+            <section>
+                <h4 id="exercice1-bootstrap">Exercice</h4>
+                <p>Pour la suite de ce travail, vous allez modifier le fichier <code>loremipsum.html</code>, disponible sur UniversiTICE, pour y intégrer les fonctionnalités de Bootstrap au fur et à mesure qu'elles vous seront présentées:</p>
+                <ol>
+                    <li>Téléchargez et ouvrez le fichier dans un navigateur</li>
+                    <li>Modifiez le fichier pour y intégrer le CSS de Bootstrap</li>
+                    <li>Actualisez la page dans le navigateur pour observer les différences</li>
+                </ol>
+                <p>Vous devriez obtenir un résultat similaire à la figure ci-dessous.</p>
+                <img src="bootstrap-screen1.png" class="w-100 m-auto mt-2 mb-4 framed">
+            </section>
+
+            <section>
+                <h4 id="grid-bootstrap">Grille flexible</h4>
+                <p>Le système de grille flexible de Bootstrap s'appuit sur un élément conteneur qui encapsule le contenu de la grille. Ce conteneur permet d'appliquer les comportements <em>responsives</em>.</p>
+                <p>Ces comportements s'appuient sur la définition de 6 points de ruptures (<em>breakpoints</em>):</p>
+                <ul>
+                    <li>&lt;576px: <code>xs</code>, écrans très petits (smartphone en mode portrait)</li>
+                    <li>≥576px: <code>sm</code>, écrans petits (smartphone en mode paysage)</li>
+                    <li>≥768px: <code>md</code>, écrans moyens (tablette en mode portrait)</li>
+                    <li>≥992px: <code>lg</code>, écrans larges (tablette en mode paysage)</li>
+                    <li>≥1200px: <code>xl</code>, écrans très larges (ordinateur de bureau)</li>
+                    <li>≥1400px: <code>xxl</code>, écrans très très larges (grand écran de bureau)</li>
+                </ul>
+                <p>Pour définir un élément conteneur, il faut affecter l'une des classes CSS suivantes à un élément HTML:</p>
+                <ul>
+                    <li><code>.container</code>: ajoute des marges automatiques sur les côtés</li>
+                    <li><code>.container-fluid</code>: prend toute la largeur de l'écran, quel qu'il soit.</li>
+                    <li><code>.container-{breakpoint}</code>: occupe toute la largeur de l'écran jusqu'au point de rupture spécifié. <code>{breakpoint}</code> est à remplacer par l'un des 5 suffixes: <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>xxl</code>.</li>
+                </ul>
+                <p>Par exemple:</p>
+                <pre><code class="language-html mb-1" data-trim>
+&lt;main class="container-md"&gt;
+    ...
+&lt;/main&gt;
+                </code></pre>
+                <p>Dans cet exemple, l'élément <code>main</code> occupe toute la largeur de son conteneur tant que cette largeur est inférieure à 768px. Au delà, des espacements seront ajoutés de chaque côté.</p>
+                <p>La grille de Bootstrap est composé de 12 colonnes de largeur identique. Pour y placer des éléments HTML, il faut:</p>
+                <ul>
+                    <li>définir une ligne avec un élément HTML auquel on affecte la classe <code>.row</code></li>
+                    <li>définir des cellules à l'intérieur de cette ligne, avec des éléments HTML auxquels on affecte la classe <code>.col-{n}</code> où <code>{n}</code> est un entier compris entre 1 et 12 permettant de spécifier la largeur en nombre de colonnes.</li>
+                </ul>
+                <p>Bootstrap décline les classes <code>.col-{n}</code> en 5 variantes qui permettent d'ajouter une contrainte sur le comportement responsive des éléments: <code>col-sm-x</code>, <code>col-md-x</code>, <code>col-lg-x</code>, <code>col-xl-x</code> et <code>col-xxl-x</code>. Le principe de ces déclinaisons est d'autoriser les éléments à se ré-agencer en colonne plutôt qu'en ligne quand l'écran devient trop petit.</p>
+                <p>Par exemple:</p>
+                <pre><code class="language-html" data-trim>
+&lt;div class="container-md"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col-md-4"&gt;Colonne 1&lt;/div&gt;
+        &lt;div class="col-md-4"&gt;Colonne 2&lt;/div&gt;
+        &lt;div class="col-md-4"&gt;Colonne 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code></pre>
+                <p>Dans cet exemple, les trois colonnes sont affichées côte à côte lorsque la largeur de l'écran est supérieure ou égale à 768px (point de rupture <code>md</code>). En dessous de cette largeur, les colonnes sont affichées les unes en dessous des autres.</p>
+                <p>Pour plus de détails, consultez la documentation de Bootstrap sur la <a href="https://getbootstrap.com/docs/5.3/layout/grid/" target="_blank">grille</a>.</p>
+                <p>Il est possible d'ajouter des espacements entre les colonnes et les lignes de la grille, appelés <em>gutter</em>. Bootstrap propose également des classes pour faire cela. Consultez la <a href="https://getbootstrap.com/docs/5.3/layout/gutters/" target="_blank">documentation</a> pour savoir comment utiliser ces classes.</p>
+            </section>
+
+            <section>
+                <h4 id="exercice2-bootstrap">Exercice</h4>
+                <ol>
+                    <li>Faites une copie du fichier <code>loremipsum.html</code>, et nommez-la <code>loremipsum2.html</code></li>
+                    <li>Créez une feuille de style CSS <code>loremipsum.css</code> pour appliquer les styles nécessaires.</li>
+                    <li>Modifiez ces fichiers pour obtenir le résultat montré en figure ci-dessous. Faites en sorte que:</li>
+                    <ul>
+                        <li>les articles soient agencés les uns à cotés des autres sur toute la largeur si celui-ci est de largeur supérieure ou égale à 992 pixels. Ils se re-positionnent les uns en dessous des autres dans le cas contraire.</li>
+                        <li>les sections aient le même comportement mais pour une largeur de viewport supérieure ou égale à 768 pixels.</li>
+                        <li>dans les deux cas, tous les articles soient de largeur identique. Idem pour les sections.</li>
+                        <li>des espacements soient ajoutés entre les colonnes et entre les lignes.</li>
+                    </ul>
+                </ol>
+                <img src="bootstrap-screen2.png" class="w-100 m-auto mt-2 mb-4 framed">
+                <ol start="4">
+                    <li>Modifiez le fichier <code>loremipsum2.html</code> pour découper le premier paragraphe de la première section en deux sous-paragraphes. Le comportement <em>responsive</em> à implémenter est le suivant:</li>
+                    <ul>
+                        <li>au dessus de 992px, les sous-paragraphes doivent s'afficher côte à côte, et leur texte doit être aligné à gauche (cf. figure ci-dessous).</li>
+                        <li>en dessous de 992px, les sous-paragraphes doivent s'afficher les uns en dessous des autres, et leur texte doit être justifié.</li>
+                    </ul>
+                </ol>
+                <img src="bootstrap-screen3.png" class="w-100 m-auto mt-2 mb-4 framed">
+            </section>
+
+            <section>
+                <h4 id="image-bootstrap">Images flexibles</h4>
+                <p>Bootstrap fournit également des classes pour gérer les dimensions des images de façon flexible. Consultez la <a href="https://getbootstrap.com/docs/5.3/content/images/" target="_blank">documentation</a> pour savoir comment les utiliser.</p>
+            </section>
+
+            <section>
+                <h4 id="exercice3-bootstrap">Exercice</h4>
+                <ol>
+                    <li>Créez un nouveau fichier <code>gallery.html</code> qui reprend le squelette de <code>loremipsum.html</code> mais sans les articles et les sections.</li>
+                    <li>Ajoutez une galerie de 15 images comme montré ci-dessous. Ces images sont disponibles sur UniversiTICE. Elles doivent être disposées en utilisant les classes Bootstrap de sorte que:</li>
+                    <ul>
+                        <li>Elles sont réparties sur trois colonnes de même largeur lorsque l'écran est de largeur supérieure ou égale à 992 pixels.</li>
+                        <li>Les images s'affichent les unes en dessous des autres dans le cas contraire, en occupant toute la largeur disponible.</li>
+                        <li>Toutes les images sont de largeur identique.</li>
+                        <li>Des espacements sont ajoutés entre les colonnes et entre les lignes.</li>
+                    </ul>
+                </ol>
+                <img src="bootstrap-screen4.png" class="w-100 m-auto mt-2 mb-4 framed">
+            </section>
+
+            <section>
+                <h4 id="navbar-bootstrap">Barre de navigation</h4>
+
+                <p>Les barres de navigation sont complexes à mettre en place, surtout lorsqu'il s'agit de définir un comportement <em>responsive</em>. Bootstrap fournit des outils puissants pour définir des barres de navigation qui s'adaptent automatiquement en fonction du terminal, y compris dans l'ergonomie.</p>
+
+                <p>L'élément central est la classe <code>navbar</code>. On l'applique le plus souvent à une balise <code>nav</code>. Cette classe définit un comportement par défaut complètement <em>responsive</em>. Beaucoup de classes additionnelles permettent de personnaliser ce comportement.</p>
+
+                <p>Dans une barre de navigation, on trouve souvent deux types d'éléments:</p>
+                <ul>
+                    <li>un logo/titre (en anglais <em>brand</em>), défini à l'aide de la classe <code>navbar-brand</code>.</li>
+                    <li>un menu de navigation sous la forme d'une liste de liens, défini à l'aide de la classe <code>navbar-nav</code>.</li>
+                </ul>
+                <p>Par exemple, voici un squelette type pour une barre de navigation Bootstrap :</p>
+                <pre><code class="language-html">
+&lt;nav class=&quot;navbar&quot;&gt;
+    &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;
+        &lt;img src=&quot;img/logo.jpg&quot; alt=&quot;logo&quot;&gt;
+    &lt;/a&gt;
+    &lt;ul class=&quot;navbar-nav&quot;&gt;
+        &lt;li class=&quot;nav-item active&quot;&gt;
+            &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Menu 1&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;nav-item&quot;&gt;
+            &lt;a class=&quot;nav-link&quot; href=&quot;#&quot;&gt;Menu 2&lt;/a&gt;
+        &lt;/li&gt;
+        ...
+    &lt;/ul&gt;
+&lt;/nav&gt;
+                </code></pre>
+                <p>Les classes <code>nav-item</code> et <code>nav-link</code> permettent de définir les items du menu. Des styles, espacements et positionnement par défaut leur seront appliqués, en respectant les préceptes de la conception <em>responsive</em>.</p>
+
+                <p>Le comportement traditionnel d'une barre de navigation pour les terminaux mobiles est de cacher le menu à l'aide d'un bouton "tiroir". Vous pouvez trouvez un exemple de ce fonctionnement sur le site du Master (mastersd.univ-rouen.fr).</p>
+
+                <p>Ce mécanisme est facile à mettre en œuvre avec Bootstrap à l'aide d'un bouton à bascule (toggle) et de classes spéciales associées au menu. Il faut:</p>
+                <ol>
+                    <li>Encapsuler le menu dans un élément <code>div</code> auquel on associe les classes <code>collapse</code> et <code>navbar-collapse</code>.</li>
+                    <li>Ajouter un bouton avant le menu, avec la classe <code>navbar-toggler</code> et l'attribut <code>data-toggle="collapse"</code>.</li>
+                    <li>Ajouter au <code>div</code> précédent un <code>id</code> dont la valeur doit également être associée à l'attribut <code>data-target</code> du bouton.</li>
+                </ol>
+
+                <p>Par ailleurs, il est possible de préciser à partir de quel point de rupture on souhaite que les menus soient ré-agencés verticalement (avec ou sans bouton à bascule). Il suffit pour cela d'associer la classe <code>navbar-expand-*</code> à l'élément <code>navbar</code>, en remplaçant <code>*</code> par <code>xl</code>, <code>lg</code>, <code>md</code> ou <code>sm</code>.</p>
+
+                <p>Avant de traiter le prochain exercice, vous êtes invité à consulter la <a href="https://getbootstrap.com/docs/5.3/components/navbar/" target="_blank">documentation</a> pour en savoir plus sur les barres de navigation.</p>
+            </section>
+
+            <section>
+                <h4 id="exercice4-bootstrap">Exercice</h4>
+                <ol>
+                    <li>Ajoutez à la page <code>loremipsum.html</code>, ainsi qu'à toutes les copies que vous avez créé aux exercices précédents, une barre de navigation contenant un lien vers chacune de ces pages. Le résultat est montré dans l'image ci-dessous.</li>
+                    <li>Implémentez le comportement de la barre de navigation pour les terminaux mobiles en utilisant un bouton à bascule.</li>
+                </ol>
+                <img src="bootstrap-screen5.png" class="w-100 m-auto mt-2 mb-4 framed">
+            </section>
+        </section>
+
+        <section>
+            <h3 id="javascript">JavaScript</h3>
+
+            <section>
+                <h4 id="tribulles">Tri à bulles</h4>
+                <p>Téléchargez le dossier <code>tribulles</code> mis à disposition sur UniversiTICE. Vous y trouverez une page <code>tribulles.html</code>, ainsi qu'un script JS associé. L'objectif de cet exercice est de compléter et déboguer le script pour faire fonctionner le tri à bulles. Pour cela:</p>
+                <ol>
+                    <li>Complétez la fonction <code>echanger</code> pour qu'elle échange les valeurs de deux éléments d'un tableau.</li>
+                    <li>Complétez la fonction <code>melanger</code> pour qu’elle mélange les valeurs du tableau. Pour cela, suivez les instructions données en commentaire dans le fichier JS.</li>
+                    <li>Testez votre code en chargeant la page <code>tribulles.html</code> dans le navigateur. Vous devriez voir un résultat similaire à la figure ci-dessous, avec le contenu du tableau mélangé affiché dans la fenêtre et dans la console. Rechargez la page plusieurs fois pour observer que le contenu du tableau est différent à chaque fois.</li>
+                </ol>
+                <img src="tribulles-screen1.png" class="w-100 m-auto mt-2 mb-4">
+                <ol start="4">
+                    <li>Complétez <code>tribulles.html</code> pour déclencher l'exécution du tri à bulles sur le tableau <code>tab</code>.</li>
+                    <li>Chargez la page dans le navigateur. Vous devriez obtenir des erreurs dans la console.</li>
+                    <li>Corrigez toutes les erreurs jusqu'à obtenir un résultat correct, comme sur la figure ci-dessous.</li>
+                </ol>
+                <img src="tribulles-screen2.png" class="w-100 m-auto mt-2 mb-4">
+            </section>
+
+            <section>
+                <h4 id="pliages">Pliages</h4>
+                <p>Téléchargez le dossier <code>pliages</code> mis à disposition sur UniversiTICE. Vous y trouverez une page <code>pliages.html</code>, ainsi qu'un script JS associé. L'objectif de cet exercice est de compléter le script et d'en observer le fonctionnement avec le débogueur (cf. <a href="https://firefox-source-docs.mozilla.org/devtools-user/debugger/index.html" target="_blank">documentation</a>). Pour cela:</p>
+                <ol>
+                    <li>Compléter la fonction <code>calculerNbrePlis</code> pour qu'elle calcule le nombre de fois qu'il faut plier une feuille de papier de 1/10 mm d'épaisseur pour obtenir une épaisseur totale supérieure à une distance donnée.</li>
+                    <li>Testez votre code en chargeant la page <code>pliages.html</code> dans le navigateur.</li>
+                    <li>Ouvrez le débogueur et ajoutez un point d'arrêt au premier des deux appels à la fonction <code>afficherDistance</code> dans <code>pliages.html</code>. Rechargez la page.</li>
+                    <li>Faites entrer le débogueur dans la fonction <code>afficherDistance</code> et observer les valeurs prises par l'ensemble des variables accessibles à cet endroit: Quelle est la valeur de <code>n</code> et pourquoi?</li>
+                    <li>Faites entrer le débogueur dans la fonction <code>calculerNbrePlis</code> et poursuivez l'exécution pas-à-pas jusqu'à pouvoir déterminer le nombre de fois que la feuille doit être pliée pour atteindre l'épaisseur d'une ramette de 500 pages, c'est-à-dire 5cm. Quelle est cette valeur?</li>
+                </ol>
+            </section>
+
+            <section>
+                <h4 id="fizzbuzz">FizzBuzz</h4>
+                <p>Cet exercice est un classique: il s'agit d'afficher dans une page HTML les nombres de 1 à 100, en remplaçant les multiples de 3 par "Fizz" et les multiples de 5 par "Buzz". Pour les nombres qui sont à la fois des multiples de 3 et de 5, on affichera "FizzBuzz".</p>
+            </section>
+
+            <section>
+                <h4 id="produit-matriciel">Produit Matriciel</h4>
+                <p>Cet exercice consiste à implémenter le produit matriciel de deux matrices. Vous devez créer une fonction <code>produitMatriciel</code> qui prend en entrée deux matrices et renvoie leur produit. En JavaScript, une matrice est représentée par un tableau de tableaux:</p>
+                <pre><code class="language-js" data-trim>
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+console.log(matrix[0][1]); // Affiche 2
+                </code></pre>
+                <p>Vous devez afficher vos trois matrices, les deux matrices à multiplier ainsi que le résultat de leur produit, dans une page HTML.</p>
+            </section>
+
+            <section>
+                <h4 id="canvas">Cercles, carrés, triangles</h4>
+                
+                <p>La balise <code>&lt;canvas&gt;</code> est une balise qui permet de réaliser des dessins avec JavaScript. Elle définit une zone dans laquelle JS peut afficher des primitives graphiques telles que des lignes, des rectangles, etc.</p>
+
+                <p>Le but de cet exercice est de concevoir une interface qui permet de dessiner des formes dans un <code>&lt;canvas&gt;</code>. La figure ci-dessous donne un exemple d’interface HTML/CSS avec en bleu, la zone dans laquelle les formes sont dessinés et au dessus, des boutons radio et un bouton "effacer". </p>
+
+                <img src="canvas_screen.png" class="w-100 m-auto mt-2 mb-4">
+
+                <p>Dans cette interface, l'utilisateur peut choisir la forme à dessiner (cercle, carré ou triangle) et sa couleur à l'aide de boutons radio. Une fois la forme sélectionnée, l'utilisateur peut cliquer sur la zone de dessin pour créer la forme à l'emplacement souhaité. Le bouton "effacer" permet de supprimer toutes les formes dessinées.</p>
+
+                <p>Vous pouvez trouver des explications sur les fonctions JS qui permettent de dessiner sur un canvas dans la documentation MDN : <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes" target="_blank">Canvas API</a>. Pour effacer les formes dessinées, vous pouvez utiliser la méthode <code>clearRect</code> du contexte de rendu 2D du canvas.</p>
+            </section>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 <a href="https://mastersd.univ-rouen.fr" target="_blank">Master Science des Données</a> - Université de Rouen Normandie</p>
+    </footer>
+</div>
+    
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/autoloader/prism-autoloader.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/normalize-whitespace/prism-normalize-whitespace.js" ></script>
+
+</body>
+</html>
